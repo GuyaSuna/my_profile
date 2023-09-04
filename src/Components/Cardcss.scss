@@ -1,0 +1,68 @@
+.card-scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .card-scroll-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .custom-card {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+
+    transition: opacity 1s ease, transform 0.5s ease-out;
+    transform: translateY(0);
+    opacity: 1;
+    width: 400px; /* Ancho deseado de las tarjetas */
+    width: 500px;
+    margin-right: 20px; /* Espacio entre tarjetas */
+    margin-bottom: 20px;
+  }
+  
+  .custom-card .card-img-top {
+    width: 400px;
+    height: 150px; /* Altura deseada de la imagen */
+    object-fit: cover;
+    
+    border-radius: 8px 8px 0 0;
+  }
+  .card-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+    
+    .custom-card .card-img-top {
+      width: 100%;
+      height: 200px; 
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+    
+    .custom-card .card-body {
+      padding: 16px;
+    }
+    
+    .custom-card .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    
+    .custom-card .card-text {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .custom-card .text-muted {
+      font-size: 12px;
+      color: #999;
+    }
