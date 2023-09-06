@@ -1,17 +1,128 @@
-/* styles.scss */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.grid-item {
-  height: 192px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 1rem;
-  background-color: #f0f0f0;
-  &.col-span-2 {
-    grid-column: span 2;
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 2fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    background-image: url("https://www.solofondos.com/wp-content/uploads/2015/04/starry-sky-4k-night-night-sky-galaxy-scaled.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color:rgb(0, 0, 0) ;
   }
+  
+  .one {
+    grid-column: 2 / 4;
+    grid-row: 3 / 7;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: chartreuse;
+    background-image: url("https://fondosmil.com/fondo/46280.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: 50%;
+    border: 1.5px solid white;
+    border-radius: 8px;
+  }
+  
+  .two {
+    grid-column: 2 ;
+    grid-row: 1/3;
+    background-image: url("ImagenLinkedIn.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    border: 1.5px solid white;
+  }
+  
+  .three {
+    grid-column: 3 / 3;
+    grid-row: 3 / 5;
+    border-radius: 8px;
+    background-image: url("https://www.gifcen.com/wp-content/uploads/2022/01/shrek-gif-2.gif");
+    background-size:cover;
+    background-repeat: no-repeat;
+
+  }
+  
+  .four {
+    grid-column: 4 / 6;
+    grid-row: 1 / 3;
+    background-color: aqua;
+    border-radius: 8px;
+    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/802114790894531555/045F7A07B4272EF961134A63045A60BCB9A4CEC3/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false");
+    background-size: cover;
+    border: 1.5px solid white;
+  }
+  
+  .five {
+    grid-column: 2 / 4;
+    grid-row: 7 / 9;
+    background-color: aqua;
+    border-radius: 8px;
+    background-image: url("https://cdna.artstation.com/p/assets/images/images/023/470/706/large/francisco-heatley-dusk.jpg?1579296999");
+    background-size:cover;
+    background-repeat: no-repeat;
+    border: 1.5px solid white;
+  }
+  
+  .six {
+    grid-column: 4;
+    grid-row: 3/5;
+    background-color: aqua;
+    border-radius: 8px;
+    background-image: url("https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU");
+    background-size:cover;
+    background-repeat: no-repeat;
+    border: 1.5px solid white;
+
 }
+  .seven {
+    grid-column: 5;
+    grid-row: 3/5;
+    background-image: url("https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+    border: 1.5px solid white;
+  }
+   .eight {
+     grid-column: 4;
+     grid-row: 5 / 7;
+     background-color: aqua;
+     background-image: url("https://i.pinimg.com/564x/0c/54/79/0c5479e1eeca3d119c2f9bbb90ce80a6.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     border-radius: 8px;
+     border: 1.5px solid white;
+   }
+  .nine {  
+    grid-column: 5;
+    grid-row: 5 / 7;
+    background-color: aqua;
+    background-image: url("https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    border: 1.5px solid white;
+  }
+  
+  .ten {
+    grid-column: 4/ 6;
+    grid-row: 7 / 9;
+    border: 1.5px solid white;
+    background-image: url("https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg");
+    background-size: cover;
+    background-color: aqua;
+    border-radius: 8px;
+  }
+
+  .eleven {  
+    grid-column: 3;
+    grid-row: 1 / 3;
+    background-color: black;
+    background-image: url("https://i.pinimg.com/originals/f9/42/5e/f9425ec6e73ca64317310db4a3f3e05c.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    border: 1.5px solid white;
+  }

@@ -1,16 +1,26 @@
 import React from 'react';
-import '../../public/Main.scss'; 
+import '../../public/Main.scss';
 
 const PortfolioPage = () => {
+
+  
   return (
-    <div className="grid-container">
-      {[...Array(7)].map((_, i) => (
-        <div
-          key={i}
-          className={`grid-item ${i === 3 || i === 6 ? 'col-span-2' : ''}`}
-        ></div>
-      ))}
-    </div>
+   
+    
+<div className="wrapper">
+  <div className="one">One</div>
+  <div className="two">Two</div>
+  <div className="three">Three</div>
+  <div className="four">Four</div>
+  <div className="five">Five</div>
+  <div className="six">Six</div>
+  <div className="seven">Seven</div>
+  <div className="eight">Eight</div>
+  <div className="nine">Nine</div>
+  <div className="ten">Ten</div>
+  <div className="eleven">Eleven</div>
+</div>
+
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import '../Components/Cardcss.scss'
+import '../../public/Main.scss'
 
 
 const Card = (props) => {
