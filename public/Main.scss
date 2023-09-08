@@ -15,7 +15,7 @@
     font-size: 50px;
     text-align: center;
     text-decoration: chartreuse;
-    background-image: url("https://fondosmil.com/fondo/46280.jpg");
+    background-image: url("https://us.123rf.com/450wm/virtosmedia/virtosmedia2302/virtosmedia230224807/198376678-retro-pixel-art-illustration-of-a-blooming-cherry-tree-in-the-forest.jpg?ver=6");
     background-repeat: no-repeat;
     background-size:cover;
     background-position: 50%;
@@ -34,11 +34,11 @@
   }
   
   .three {
-    grid-column: 3 / 3;
-    grid-row: 3 / 5;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
     border-radius: 8px;
     background-image: url("https://www.gifcen.com/wp-content/uploads/2022/01/shrek-gif-2.gif");
-    background-size:cover;
+    background-size:contain;
     background-repeat: no-repeat;
 
   }
@@ -58,7 +58,7 @@
     grid-row: 7 / 9;
     background-color: aqua;
     border-radius: 8px;
-    background-image: url("https://cdna.artstation.com/p/assets/images/images/023/470/706/large/francisco-heatley-dusk.jpg?1579296999");
+    background-image: url("https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     border: 1.5px solid white;
@@ -110,7 +110,7 @@
     grid-column: 4/ 6;
     grid-row: 7 / 9;
     border: 1.5px solid white;
-    background-image: url("https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg");
+    background-image: url("https://cdna.artstation.com/p/assets/images/images/023/470/706/large/francisco-heatley-dusk.jpg?1579296999");
     background-size: cover;
     background-color: aqua;
     border-radius: 8px;
@@ -125,4 +125,13 @@
     background-size: cover;
     border-radius: 8px;
     border: 1.5px solid white;
+  }
+
+  .Presentacion{
+text-align: center;
+width: 100%;
+  }
+
+  .bienvenida{
+    color: wheat;
   }
