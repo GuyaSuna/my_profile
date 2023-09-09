@@ -3,36 +3,49 @@
     grid-template-columns: repeat(6, 2fr);
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-    background-image: url("https://www.solofondos.com/wp-content/uploads/2015/04/starry-sky-4k-night-night-sky-galaxy-scaled.jpg");
+    background-image: url("https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif");
     background-repeat: no-repeat;
     background-size: cover;
     background-color:rgb(0, 0, 0) ;
+    
   }
   
   .one {
     grid-column: 2 / 4;
-    grid-row: 3 / 7;
-    font-size: 50px;
+    grid-row: 1 / 5;
+    font-size: 20px;
     text-align: center;
     text-decoration: chartreuse;
-    background-image: url("https://us.123rf.com/450wm/virtosmedia/virtosmedia2302/virtosmedia230224807/198376678-retro-pixel-art-illustration-of-a-blooming-cherry-tree-in-the-forest.jpg?ver=6");
+    background-image: url("o_esta_perfil.png");
     background-repeat: no-repeat;
     background-size:cover;
     background-position: 50%;
     border: 1.5px solid white;
     border-radius: 8px;
+    position: relative;
   }
-  
+
   .two {
     grid-column: 2 ;
-    grid-row: 1/3;
-    background-image: url("ImagenLinkedIn.jpg");
+    grid-row: 5/7;
+    background-image: url("https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU");
     background-size:cover;
     background-repeat: no-repeat;
     border-radius: 8px;
     border: 1.5px solid white;
+    position: relative;
   }
-  
+    .eleven {  
+    grid-column: 3;
+    grid-row: 5 / 7;
+    background-color: black;
+    background-image: url("https://i.pinimg.com/564x/0c/54/79/0c5479e1eeca3d119c2f9bbb90ce80a6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    border: 1.5px solid white;
+    position: relative;
+  }
   .three {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
@@ -40,98 +53,141 @@
     background-image: url("https://www.gifcen.com/wp-content/uploads/2022/01/shrek-gif-2.gif");
     background-size:contain;
     background-repeat: no-repeat;
-
+    position: relative;
   }
   
   .four {
     grid-column: 4 / 6;
     grid-row: 1 / 3;
-    background-color: aqua;
     border-radius: 8px;
     background-image: url("https://steamuserimages-a.akamaihd.net/ugc/802114790894531555/045F7A07B4272EF961134A63045A60BCB9A4CEC3/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false");
     background-size: cover;
     border: 1.5px solid white;
+    position: relative;
   }
-  
+
   .five {
-    grid-column: 2 / 4;
-    grid-row: 7 / 9;
-    background-color: aqua;
+    grid-column: 4 ;
+    grid-row: 3 / 7;
+    background-color: black;
     border-radius: 8px;
-    background-image: url("https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg");
+    background-image: url("https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif");
     background-size:cover;
     background-repeat: no-repeat;
+    background-position: 0%;
     border: 1.5px solid white;
+    position: relative;
   }
   
   .six {
-    grid-column: 4;
-    grid-row: 3/5;
-    background-color: aqua;
+    grid-column: 2;
+    grid-row: 7/9;
+    background-color: black;
     border-radius: 8px;
-    background-image: url("https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU");
+    background-image: url("https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     border: 1.5px solid white;
-
+    position: relative;
 }
   .seven {
-    grid-column: 5;
-    grid-row: 3/5;
-    background-image: url("https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg");
+    grid-column: 4;
+    grid-row: 7/9;
+    background-image: url("https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 8px;
     border: 1.5px solid white;
+    position: relative;
   }
    .eight {
-     grid-column: 4;
-     grid-row: 5 / 7;
-     background-color: aqua;
-     background-image: url("https://i.pinimg.com/564x/0c/54/79/0c5479e1eeca3d119c2f9bbb90ce80a6.jpg");
+     grid-column: 3;
+     grid-row: 7 / 9;
+     background-color: black;
+     background-image: url("https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg");
      background-repeat: no-repeat;
      background-size: cover;
      border-radius: 8px;
      border: 1.5px solid white;
+     position: relative;
    }
+ 
   .nine {  
     grid-column: 5;
-    grid-row: 5 / 7;
-    background-color: aqua;
-    background-image: url("https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 8px;
-    border: 1.5px solid white;
-  }
-  
-  .ten {
-    grid-column: 4/ 6;
     grid-row: 7 / 9;
-    border: 1.5px solid white;
-    background-image: url("https://cdna.artstation.com/p/assets/images/images/023/470/706/large/francisco-heatley-dusk.jpg?1579296999");
-    background-size: cover;
-    background-color: aqua;
-    border-radius: 8px;
-  }
-
-  .eleven {  
-    grid-column: 3;
-    grid-row: 1 / 3;
     background-color: black;
     background-image: url("https://i.pinimg.com/originals/f9/42/5e/f9425ec6e73ca64317310db4a3f3e05c.gif");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px;
     border: 1.5px solid white;
+    position: relative;
+  }
+  
+  .ten {
+    grid-column: 5;
+    grid-row: 3 / 7;
+    border: 1.5px solid white;
+    background-image: url("https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    border-radius: 8px;
+    position: relative;
   }
 
-  .Presentacion{
-text-align: center;
-width: 100%;
-  }
 
-  .bienvenida{
-    color: wheat;
+
+
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+  
+  .modal-content {
+    background-color: purple;
+    opacity: 80%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .3;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .one:hover .overlay,
+  .two:hover .overlay,
+  .three:hover .overlay,
+  .four:hover .overlay,
+  .five:hover .overlay,
+  .six:hover .overlay,
+  .seven:hover .overlay,
+  .eight:hover .overlay,
+  .nine:hover .overlay,
+  .ten:hover .overlay,
+  .eleven:hover .overlay {
+    opacity: 1;
+  }
+  
+  
