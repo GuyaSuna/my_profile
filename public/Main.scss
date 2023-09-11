@@ -4,7 +4,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(6, 2fr);
-    gap: 10px;
+    gap: 5px;
     grid-auto-rows: minmax(100px, auto);
     background-image: url("https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif");
    transition: transform 0.2s ease-in-out;
@@ -122,7 +122,7 @@
      grid-column: 3;
      grid-row: 7 / 9;
      background-color: black;
-     background-image: url("https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg");
+     background-image: url("https://animesher.com/previews/webp/2/211/2114/21141/2114195.webp");
     transition: transform 0.2s ease-in-out;
      background-repeat: no-repeat;
      background-size: cover;
@@ -212,6 +212,7 @@
 .eleven:hover{
   transform: scale(1.01);
 }
+
 
 .ds{
   height: 100%;
