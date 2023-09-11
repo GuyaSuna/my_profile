@@ -4,7 +4,7 @@ import '../../public/Main.scss';
 
 const PortfolioPage = () => {
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handleButtonClick = () => {
     setIsModalOpen(true);
@@ -13,14 +13,24 @@ const PortfolioPage = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  useEffect (() =>{
+    const timer = setTimeout(() => {
+      closeModal();
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
   
   return (
     <> 
     <div className="wrapper">
-      <div className="one" onClick={() => handleButtonClick()}><div className="overlay">Presiona aqui para saber mas acerca de mi</div></div>
+      <div className="one" onClick={() => handleButtonClick()}> <div className="overlay">Presiona aqui para saber mas acerca de mi</div></div>
       <div className="two" onClick={() => handleButtonClick()}><div className="overlay">Texto relacionado a Two</div></div>
       <div className="three" onClick={() => handleButtonClick()}></div>
-      <div className="four" onClick={() => handleButtonClick()}>  <div className="overlay">Four</div></div>
+      <div className="four" onClick={() => handleButtonClick()}> <div className="overlay">Four</div></div>
       <div className="five" onClick={() => handleButtonClick()}>  <div className="overlay">Tienda de Diseños</div></div>
       <div className="six" onClick={() => handleButtonClick()}>  <div className="overlay">Six</div></div>
       <div className="seven" onClick={() => handleButtonClick()}>  <div className="overlay">Seven</div></div>

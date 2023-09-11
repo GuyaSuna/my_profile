@@ -4,6 +4,7 @@
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
     background-image: url("https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif");
+   transition: transform 0.2s ease-in-out;
     background-repeat: no-repeat;
     background-size: cover;
     background-color:rgb(0, 0, 0) ;
@@ -15,8 +16,12 @@
     grid-row: 1 / 5;
     font-size: 20px;
     text-align: center;
-    text-decoration: chartreuse;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: oblique;
+    font-size: 20px;
+    color: aliceblue;
     background-image: url("o_esta_perfil.png");
+     transition: transform 0.2s ease-in-out;
     background-repeat: no-repeat;
     background-size:cover;
     background-position: 50%;
@@ -29,6 +34,7 @@
     grid-column: 2 ;
     grid-row: 5/7;
     background-image: url("https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU");
+   transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-repeat: no-repeat;
     border-radius: 8px;
@@ -40,6 +46,7 @@
     grid-row: 5 / 7;
     background-color: black;
     background-image: url("https://i.pinimg.com/564x/0c/54/79/0c5479e1eeca3d119c2f9bbb90ce80a6.jpg");
+   transition: transform 0.2s ease-in-out;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px;
@@ -47,10 +54,10 @@
     position: relative;
   }
   .three {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
     border-radius: 8px;
-    background-image: url("https://www.gifcen.com/wp-content/uploads/2022/01/shrek-gif-2.gif");
+ 
     background-size:contain;
     background-repeat: no-repeat;
     position: relative;
@@ -61,8 +68,13 @@
     grid-row: 1 / 3;
     border-radius: 8px;
     background-image: url("https://steamuserimages-a.akamaihd.net/ugc/802114790894531555/045F7A07B4272EF961134A63045A60BCB9A4CEC3/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false");
+   transition: transform 0.2s ease-in-out;
     background-size: cover;
     border: 1.5px solid white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: oblique;
+    font-size: 20px;
+    color: aliceblue;
     position: relative;
   }
 
@@ -72,6 +84,7 @@
     background-color: black;
     border-radius: 8px;
     background-image: url("https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif");
+   transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-repeat: no-repeat;
     background-position: 0%;
@@ -85,6 +98,7 @@
     background-color: black;
     border-radius: 8px;
     background-image: url("https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg");
+   transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-repeat: no-repeat;
     border: 1.5px solid white;
@@ -94,6 +108,7 @@
     grid-column: 4;
     grid-row: 7/9;
     background-image: url("https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg");
+   transition: transform 0.2s ease-in-out;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -106,6 +121,7 @@
      grid-row: 7 / 9;
      background-color: black;
      background-image: url("https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg");
+    transition: transform 0.2s ease-in-out;
      background-repeat: no-repeat;
      background-size: cover;
      border-radius: 8px;
@@ -118,6 +134,7 @@
     grid-row: 7 / 9;
     background-color: black;
     background-image: url("https://i.pinimg.com/originals/f9/42/5e/f9425ec6e73ca64317310db4a3f3e05c.gif");
+   transition: transform 0.2s ease-in-out;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px;
@@ -130,6 +147,7 @@
     grid-row: 3 / 7;
     border: 1.5px solid white;
     background-image: url("https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif");
+   transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-repeat: no-repeat;
     background-position: 100%;
@@ -166,28 +184,26 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 10%;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: .3;
+    opacity: 1;
+    border-radius: 10px 10px 40px 40px;
     transition: opacity 0.3s ease-in-out;
   }
   
-  .one:hover .overlay,
-  .two:hover .overlay,
-  .three:hover .overlay,
-  .four:hover .overlay,
-  .five:hover .overlay,
-  .six:hover .overlay,
-  .seven:hover .overlay,
-  .eight:hover .overlay,
-  .nine:hover .overlay,
-  .ten:hover .overlay,
-  .eleven:hover .overlay {
-    opacity: 1;
-  }
-  
-  
+.one:hover,
+.two:hover,
+.four:hover,
+.five:hover,
+.six:hover,
+.seven:hover,
+.eight:hover,
+.nine:hover,
+.ten:hover,
+.eleven:hover{
+  transform: scale(1.01);
+}
