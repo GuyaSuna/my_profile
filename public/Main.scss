@@ -1,9 +1,10 @@
 // https://animesher.com/previews/webp/2/211/2114/21141/2114195.webp 
 //https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fsoc7z082au891.gif
 //https://cdnb.artstation.com/p/assets/images/images/061/458/097/original/cheese-guy-test-1st-scene.gif?1680834693
+//https://c4.wallpaperflare.com/wallpaper/855/38/504/pixel-jeff-digital-art-illustration-animation-pixel-art-hd-wallpaper-thumb.jpg
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(6, 2fr);
+    grid-template-columns: repeat(6, minmax(200px, 1fr));
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
     background-image: url("https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif");
@@ -11,8 +12,38 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-color:rgb(0, 0, 0) ;
-    
+    height: 100%;
   }
+  @media (max-width: 1071px) {
+    .wrapper {
+      grid-template-columns: repeat(6, 1fr);
+
+      gap: 5px; 
+    }
+    .one,
+    .two,
+    .four,
+    .five,
+    .six,
+    .seven,
+    .eight,
+    .nine,
+    .ten,
+    .eleven{
+      min-width: 80px;
+      min-height: 80px;
+    }
+  }
+
+
+  @media (max-width: 500px) {
+    .wrapper {
+      display: contents;
+    }
+  }
+  
+
+  
   
   .one {
     grid-column: 2 / 4;
@@ -36,7 +67,8 @@
   .two {
     grid-column: 2 ;
     grid-row: 5/7;
-    background-image: url("Redes.jpg");
+    background-color: rgb(0, 0, 0);
+    background-image: url("https://user-images.githubusercontent.com/5713670/87202985-820dcb80-c2b6-11ea-9f56-7ec461c497c3.gif");
    transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-position: 50%;
@@ -45,25 +77,20 @@
     border: 1.5px solid white;
     position: relative;
   }
-    .eleven {  
+    .three {  
     grid-column: 3;
     grid-row: 5 / 7;
     background-color: black;
-    background-image: url("https://cdn.create.vista.com/api/media/small/416774680/stock-video-glowing-neon-line-clipboard-with-resume-icon-isolated-on-black-background-cv-application-curriculum-vitae?videoStaticPreview=true&token=");
+    background-image: url("https://cdn.dribbble.com/users/439871/screenshots/4269563/cv.jpg");
    transition: transform 0.2s ease-in-out;
-   background-position: 105%;
     background-repeat: no-repeat;
-    background-size:400px;
+    background-size:cover;
+    background-position: 50%;
     border-radius: 8px;
     border: 1.5px solid white;
     position: relative;
   }
-  .three {
-    grid-column: 1 ;
-    grid-row: 1 / 5;
-    border-radius: 8px;
-    position: relative;
-  }
+
   
   .four {
     grid-column: 4 / 6;
@@ -107,9 +134,9 @@
     position: relative;
 }
   .seven {
-    grid-column: 4;
+    grid-column: 4 / 6;
     grid-row: 7/9;
-    background-image: url("https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg");
+    background-image: url("https://64.media.tumblr.com/cb33ede8c01a3006989f79902e144e7d/801da6a4894a4104-ae/s640x960/291a0ae9b07a8d181c43d06cd6030b9f4e2ea662.gifv");
    transition: transform 0.2s ease-in-out;
     background-size: cover;
     background-repeat: no-repeat;
@@ -121,8 +148,7 @@
    .eight {
      grid-column: 3;
      grid-row: 7 / 9;
-     background-color: black;
-     background-image: url("https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg");
+
     transition: transform 0.2s ease-in-out;
      background-repeat: no-repeat;
      background-size: cover;
@@ -131,28 +157,16 @@
      position: relative;
    }
  
-  .nine {  
-    grid-column: 5;
-    grid-row: 7 / 9;
-    background-color: black;
-    background-image: url("https://i.pinimg.com/originals/f9/42/5e/f9425ec6e73ca64317310db4a3f3e05c.gif");
-   transition: transform 0.2s ease-in-out;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 8px;
-    border: 1.5px solid white;
-    position: relative;
-  }
-  
-  .ten {
+  .nine {
     grid-column: 5;
     grid-row: 3 / 7;
     border: 1.5px solid white;
-    background-image: url("https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif");
+    background-image: url("https://66.media.tumblr.com/43ff1ae84968ffd84606207e9995a78e/tumblr_py4mvbGe6h1tgo74ho1_1280.gif");
    transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-repeat: no-repeat;
-    background-position: 100%;
+    
+    background-position: 70%;
     border-radius: 8px;
     position: relative;
   }
@@ -173,16 +187,20 @@
     align-items: center;
     transition: transform 0.2s ease-in-out;
   }
-
+  
   .modal-content {
-    background-color: rgb(53, 23, 53);
-
-    width: 80%;
-    height: 80%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+    width: 80%; /* Cambiamos el ancho fijo por un porcentaje */
+    max-width: 800px; /* Establecemos un ancho máximo para evitar que se expanda demasiado en pantallas grandes */
+    height: 80%; /* Cambiamos el alto fijo por un porcentaje */
+    max-height: 600px; /* Establecemos una altura máxima para evitar que se expanda demasiado en pantallas grandes */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
+  
   
   .overlay {
     position: absolute;
