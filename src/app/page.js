@@ -2,8 +2,7 @@
 import React , {useState , useEffect, use}from 'react';
 import '../../public/Main.scss';
 import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed'
-import Artista1 from "../../public/Artistas.jpg"
-import Artista2 from "../../public/Artistas2.jpg"
+import Image from 'next/image';
 
 const PortfolioPage = () => {
 
@@ -26,7 +25,7 @@ const PortfolioPage = () => {
     "Artistas4.jpg"
   ]
   let fondos = [
-    "o_esta_perfil.png",
+    "",
     "Redes.jpg",
     "",
     "https://wallpaperaccess.com/full/8351153.gif",
@@ -55,38 +54,67 @@ const PortfolioPage = () => {
     }
   };
 
-  const modalInfo = () =>{
 
-  }
 
+  const archivoURL = "curriculum_profesional_Nahuel_Pages.pdf";
   return (
     <> 
     <div className="wrapper">
-      <div className="one" onClick={() => setId(1)}> <div className="overlay">Presiona aqui para saber mas acerca de mi</div></div>
+      <div className="one" onClick={() => setId(1)}> <div className="overlay">Acerca de mi</div></div>
       <div className="two" onClick={() =>setId(2)}><div className="overlay">Mis Redes</div></div>
-  
+      <div className="three">
+          <a href={archivoURL} download="curriculum Nahuel Pages.pdf">
+            <div className="overlay">Curriculum</div>
+          </a>
+        </div>
       <div className="four" onClick={() =>setId(4)}><div className="overlay">Comunicate conmigo</div></div>  
       <div className="five" onClick={() =>setId(5)}>  <div className="overlay">Tienda de Diseños</div></div>
       <div className="six" onClick={() =>setId(6)}>  <div className="overlay">Six</div></div>
-      <div className="seven" onClick={() =>setId(7)}>  <div className="overlay">Seven</div></div>
+      <div className="seven" onClick={() =>setId(7)}>  <div className="overlay">Agradecimientos y Recomendaciones</div></div>
       <div className="eight" onClick={() => setId(8)} style={{ backgroundImage: `url(${Artistas[backgroundIndex]})` }}><div className="overlay">Amigos artistas</div></div>
-    
       <div className="nine" onClick={() =>setId(9)}>  <div className="overlay">Proyectos</div></div>
-      <div className="three" onClick={() =>setId(11)}> <div className="overlay">Curriculum</div></div>
+     
      
     </div>
     {isModalOpen && (
   <div className="modal"  onClick={handleModalClick}>
     <div className="modal-content" style={{ backgroundImage: `url(${fondos[Id - 1]})` }}>
-      {Id === 4 ? (
+    {Id === 1  &&
+      <div className="container">
+        <div className='informacion'>
+        <p>informacion sobre mi y mis habilidades personales</p>
+        <p>podria colocar iconos en algun lugar para mostrar mas abiertamente mis habilidades</p>
+        </div>
+      </div>
+      }
+            {Id === 2  &&
+              <p> two </p>
+      }
+            {Id === 3  &&
+              <p> three</p>
+      }
+      {Id === 4  &&
         <WidgetBot
           className="ds"
           server="1150805905982619670"
           channel="1150805907106705482"
         />
-      ) : (
-        <p>holasa</p>
-      )}
+      }
+          {Id === 5  &&
+              <p> five</p>
+      }
+          {Id === 6  &&
+              <p> six</p>
+      }
+          {Id === 7  &&
+              <p> seven</p>
+      }
+          {Id === 8  &&
+              <p> eight</p>
+      }
+          {Id === 9  &&
+              <p> nine</p>
+      }
     </div>
   </div>
 )}
