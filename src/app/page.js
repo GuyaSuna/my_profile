@@ -82,8 +82,17 @@ const PortfolioPage = () => {
     {Id === 1  &&
       <div className="container">
         <div className='informacion'>
-        <p>informacion sobre mi y mis habilidades personales</p>
-        <p>podria colocar iconos en algun lugar para mostrar mas abiertamente mis habilidades</p>
+        <h1 className='infOne'>informacion sobre mi y mis habilidades personales</h1>
+        <h4 className='infOne'>Mi nombre es Nahuel Pages y soy un programador full Stack con dos años de estudios en la Universidad Claeh
+        donde mis estudios abarcaron Lenguajes como JavaScript , C# y Java. 
+
+        A su vez me prepararon para afrontar desafios con React y sqlServer y me dote con conocimientos sobre Ingenieria en Software asi como en ciber seguridad
+        </h4>
+
+        <h4 className='infTwo'>
+         Personalmente me dedico a diario a adquirir nuevos conocimientos como Python o NextJs, soy un apasionado de la programacion
+         y estoy dispuesto a dar el 100% de mi para seguir avanzando y mejorando
+        </h4>
         </div>
       </div>
       }
