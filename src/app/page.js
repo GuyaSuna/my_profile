@@ -9,6 +9,7 @@ const PortfolioPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [Id , setId] = useState(0);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
+  const [dataPosition , setDataPosition] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,7 +30,7 @@ const PortfolioPage = () => {
     "Redes.jpg",
     "",
     "https://wallpaperaccess.com/full/8351153.gif",
-    "https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif",
+    "",
     "https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg",
     "https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg",
     "https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg",
@@ -69,7 +70,7 @@ const PortfolioPage = () => {
         </div>
       <div className="four" onClick={() =>setId(4)}><div className="overlay">Comunicate conmigo</div></div>  
       <div className="five" onClick={() =>setId(5)}>  <div className="overlay">Tienda de Diseños</div></div>
-      <div className="six" onClick={() =>setId(6)}>  <div className="overlay">Six</div></div>
+      <div className="six" onClick={() =>setId(6)}>  <div className="overlay">Aca va la hora</div></div>
       <div className="seven" onClick={() =>setId(7)}>  <div className="overlay">Agradecimientos y Recomendaciones</div></div>
       <div className="eight" onClick={() => setId(8)} style={{ backgroundImage: `url(${Artistas[backgroundIndex]})` }}><div className="overlay">Amigos artistas</div></div>
       <div className="nine" onClick={() =>setId(9)}>  <div className="overlay">Proyectos</div></div>
@@ -80,19 +81,36 @@ const PortfolioPage = () => {
   <div className="modal"  onClick={handleModalClick}>
     <div className="modal-content" style={{ backgroundImage: `url(${fondos[Id - 1]})` }}>
     {Id === 1  &&
+
+
       <div className="container">
         <div className='informacion'>
-        <h1 className='infOne'>informacion sobre mi y mis habilidades personales</h1>
-        <h4 className='infOne'>Mi nombre es Nahuel Pages y soy un programador full Stack con dos años de estudios en la Universidad Claeh
+         { dataPosition != 0 && <div className='anterior' onClick={()=>setDataPosition(dataPosition-1)}/>} 
+       { dataPosition == 0 && <div> <h1 className='infOne'>informacion sobre mi y mis habilidades personales</h1>
+        <h3 className='infOne'>Mi nombre es Nahuel Pages y soy un programador full Stack con dos años de estudios en la Universidad Claeh
         donde mis estudios abarcaron Lenguajes como JavaScript , C# y Java. 
 
         A su vez me prepararon para afrontar desafios con React y sqlServer y me dote con conocimientos sobre Ingenieria en Software asi como en ciber seguridad
-        </h4>
+        </h3>
 
-        <h4 className='infTwo'>
+        <h3 className='infTwo'>
          Personalmente me dedico a diario a adquirir nuevos conocimientos como Python o NextJs, soy un apasionado de la programacion
          y estoy dispuesto a dar el 100% de mi para seguir avanzando y mejorando
-        </h4>
+        </h3>
+        </div>}
+
+        { dataPosition == 1 && <div> <h1 className='infOne'>Objetivo de esta pagina</h1>
+        <h3 className='infOne'>El objetivo de esta pagina web es presentar mis capacidades como programador y brindar un espacio
+        entretenido a las personas. 
+        </h3>
+
+        <h3 className='infTwo'>
+          Tengo varios proyectos en progreso como juegos y paginas web. Una vez terminados o avanzados mi ides es mostrarlos en esta pagina
+          para que puedan ver los avances o probarlos. Les agradeceria mucho que lo hicieran c;
+        </h3>
+        </div>}
+
+       {dataPosition != 2 && <div className='siguiente' onClick={()=>setDataPosition(dataPosition+1)}/>}
         </div>
       </div>
       }
@@ -110,7 +128,14 @@ const PortfolioPage = () => {
         />
       }
           {Id === 5  &&
-              <p> five</p>
+          <div className='container2'> 
+          <div className='chat-burbuja'> 
+              Bienvenido al comercio
+          </div>
+                  <div className='fondo-comercio'>
+                   
+                  </div>
+                  </div>
       }
           {Id === 6  &&
               <p> six</p>
