@@ -62,17 +62,12 @@ const PortfolioPage = () => {
     <> 
     <div className="wrapper">
       <div className="one" onClick={() => setId(1)}> <div className="overlay">Acerca de mi</div></div>
-      <div className="two" onClick={() =>setId(2)}><div className="overlay">Mis Redes</div></div>
-      <div className="three">
-          <a href={archivoURL} download="curriculum Nahuel Pages.pdf">
-            <div className="overlay">Curriculum</div>
-          </a>
-        </div>
-      <div className="four" onClick={() =>setId(4)}><div className="overlay">Comunicate conmigo</div></div>  
+      <div className="two" onClick={() => setId(2)}><div className="overlay">GitHub</div></div>
+      
+      <div className="six" onClick={() =>setId(6)}>  <div className="overlay">Linkedin</div></div>
+        
+      <div className="four" onClick={() =>setId(4)}><div className="overlay">Canal de Discord</div></div>  
       <div className="five" onClick={() =>setId(5)}>  <div className="overlay">Tienda de Diseños</div></div>
-      <div className="six" onClick={() =>setId(6)}>  <div className="overlay">Aca va la hora</div></div>
-      <div className="seven" onClick={() =>setId(7)}>  <div className="overlay">Agradecimientos y Recomendaciones</div></div>
-      <div className="eight" onClick={() => setId(8)} style={{ backgroundImage: `url(${Artistas[backgroundIndex]})` }}><div className="overlay">Amigos artistas</div></div>
       <div className="nine" onClick={() =>setId(9)}>  <div className="overlay">Proyectos</div></div>
      
      
@@ -106,7 +101,7 @@ const PortfolioPage = () => {
 
         <h3 className='infTwo'>
           Tengo varios proyectos en progreso como juegos y paginas web. Una vez terminados o avanzados mi ides es mostrarlos en esta pagina
-          para que puedan ver los avances o probarlos. Les agradeceria mucho que lo hicieran c;
+          para que puedan ver los avances o probarlos.
         </h3>
         </div>}
 
@@ -133,7 +128,9 @@ const PortfolioPage = () => {
               Bienvenido al comercio
           </div>
                   <div className='fondo-comercio'>
-                   
+                   <div className='item1'> Bento Grids </div> 
+                   <div className='item1'> Tu mama </div> 
+                   <div className='item1'> Personalizado </div> 
                   </div>
                   </div>
       }

@@ -7,11 +7,11 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(6, minmax(200px, 1fr));
-    gap: 10px;
+    gap: 5px;
     grid-auto-rows: minmax(100px, auto);
    transition: transform 0.2s ease-in-out;
     background-size:cover;
-    height: auto;
+    height: 100%;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   @media (max-width: 1071px) {
@@ -19,6 +19,7 @@
       grid-template-columns: repeat(6, 1fr);
       height: 100%;
       gap: 5px; 
+      
     }
     .one,
     .two,
@@ -30,15 +31,15 @@
     .nine,
     .ten,
     .eleven{
-      min-width: 80px;
-      min-height: 80px;
+      min-width: 180px;
+      min-height: 450px;
     }
   }
 
 
-  @media (max-width: 500px) {
+  @media (max-width: 770px) {
     .wrapper {
-      grid-template-columns: repeat();
+      display: block;
       gap: 3px;
       height: 100%;
     }
@@ -52,8 +53,8 @@
     .nine,
     .ten,
     .eleven{
-      min-width: 80px;
-      min-height: 80px;
+      min-width: 100px;
+      min-height: 200px;
     }
   }
   
@@ -82,8 +83,8 @@
   .two {
     grid-column: 2 ;
     grid-row: 5/7;
-    background-color: rgb(0, 0, 0);
-    background-image: url("https://user-images.githubusercontent.com/5713670/87202985-820dcb80-c2b6-11ea-9f56-7ec461c497c3.gif");
+  background-color: rgb(92, 33, 112);
+    background-image: url("GithubProfile.png");
    transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-position: 50%;
@@ -111,9 +112,10 @@
     grid-column: 4 / 6;
     grid-row: 1 / 3;
     border-radius: 8px;
-    background-image: url("https://wallpaperaccess.com/full/8351153.gif");
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6fe91322-e36d-4aca-8d83-41904f9e429f/df3kllr-32b45386-cb0b-4d18-8614-d9c5c5349294.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZmZTkxMzIyLWUzNmQtNGFjYS04ZDgzLTQxOTA0ZjllNDI5ZlwvZGYza2xsci0zMmI0NTM4Ni1jYjBiLTRkMTgtODYxNC1kOWM1YzUzNDkyOTQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.wXPGXM3Wy0nOUVmXi1d-CT031ZTvMjTdTsvYShmMXTY");
    transition: transform 0.2s ease-in-out;
     background-size: cover;
+    background-repeat: no-repeat;
     border: 1.5px solid white;
 
     color: aliceblue;
@@ -135,11 +137,11 @@
   }
   
   .six {
-    grid-column: 2;
-    grid-row: 7/9;
-    background-color: black;
+    grid-column: 3;
+    grid-row: 5 / 7;
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
-    background-image: url("https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg");
+    background-image: url("https://cdn-icons-png.flaticon.com/512/38/38669.png");
    transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-repeat: no-repeat;
@@ -340,7 +342,7 @@
   position: absolute;
   background-color: rgba(0, 0, 0, 0.685);
   height: 100%;
-  width: 40%;
+  width: 35%;
   right: 0;
   border-radius: 8;
 }
@@ -378,4 +380,22 @@
   align-items: center; /* Centra verticalmente el contenido */
   justify-content: center; /* Centra horizontalmente el contenido */
   border-radius: 8px;
+}
+
+.a-div{
+  height: 100%;
+  width: 100%;
+}
+
+.item1{
+  width: 100%;
+  height: 30%;
+  background-image: url("https://global-uploads.webflow.com/5e9dc792e1210c5325f7ebbc/6471d91fe03715b542e9278d_gSEqxXIWbnya8JYhVfBwpfiX8ZDb70NqnZ5aB-zxV8A.png");
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 20px;
+  align-content: center;
+  margin-bottom: 5px;
 }
