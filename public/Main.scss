@@ -6,38 +6,53 @@
 //https://i0.wp.com/cdn.dribbble.com/users/454765/screenshots/15300792/media/3b08d07aec10e929d9e3275b8d3e6f41.gif
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(6, minmax(200px, 1fr));
+    margin-left: 15%;
+    margin-right: 15%;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 5px;
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: minmax(80px, auto) !important;
    transition: transform 0.2s ease-in-out;
     background-size:cover;
     height: 100%;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
+  .wrapper > * {
+    height: 98%; 
+    width: 98%;
+  }
   @media (max-width: 1071px) {
     .wrapper {
-      grid-template-columns: repeat(6, 1fr);
       height: 100%;
       gap: 5px; 
-      
+      margin-right: 0%;
+      margin-left: 0%;
     }
-    .one,
-    .two,
-    .four,
-    .five,
-    .six,
-    .seven,
-    .eight,
-    .nine,
-    .ten,
-    .eleven{
-      min-width: 180px;
-      min-height: 450px;
-    }
+
   }
 
+  @media (max-width: 820px) {
+    .wrapper {
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 3px;
+      height: 100%;
+    }
+  
+    .four{
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+    }
+    .five{
+      grid-column: 1 ;
+      grid-row: 3 / 7;
+    }
+    .nine{
+      grid-column: 1 / 2;
+      grid-row: 1/ 4;
+    }
 
-  @media (max-width: 770px) {
+  }
+  
+  @media (max-width: 700px) {
     .wrapper {
       display: block;
       gap: 3px;
@@ -55,6 +70,7 @@
     .eleven{
       min-width: 100px;
       min-height: 200px;
+      height: auto !important;
     }
   }
   
@@ -62,7 +78,7 @@
   
   
   .one {
-    grid-column: 2 / 4;
+    grid-column: 1 / 3;
     grid-row: 1 / 5;
     font-size: 20px;
     text-align:start;
@@ -81,7 +97,7 @@
   }
 
   .two {
-    grid-column: 2 ;
+    grid-column: 1 ;
     grid-row: 5/7;
   background-color: rgb(92, 33, 112);
     background-image: url("GithubProfile.png");
@@ -94,7 +110,7 @@
     position: relative;
   }
     .three {  
-    grid-column: 3;
+    grid-column: 2;
     grid-row: 5 / 7;
     background-color: black;
     background-image: url("https://cdn.dribbble.com/users/439871/screenshots/4269563/cv.jpg");
@@ -109,7 +125,7 @@
 
   
   .four {
-    grid-column: 4 / 6;
+    grid-column: 3 / 5;
     grid-row: 1 / 3;
     border-radius: 8px;
     background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6fe91322-e36d-4aca-8d83-41904f9e429f/df3kllr-32b45386-cb0b-4d18-8614-d9c5c5349294.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZmZTkxMzIyLWUzNmQtNGFjYS04ZDgzLTQxOTA0ZjllNDI5ZlwvZGYza2xsci0zMmI0NTM4Ni1jYjBiLTRkMTgtODYxNC1kOWM1YzUzNDkyOTQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.wXPGXM3Wy0nOUVmXi1d-CT031ZTvMjTdTsvYShmMXTY");
@@ -123,7 +139,7 @@
   }
 
   .five {
-    grid-column: 4 ;
+    grid-column: 3 ;
     grid-row: 3 / 7;
     background-color: black;
     border-radius: 8px;
@@ -137,7 +153,7 @@
   }
   
   .six {
-    grid-column: 3;
+    grid-column: 2;
     grid-row: 5 / 7;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
@@ -149,7 +165,7 @@
     position: relative;
 }
   .seven {
-    grid-column: 4 / 6;
+    grid-column: 3 / 5;
     grid-row: 7/9;
     background-image: url("https://64.media.tumblr.com/cb33ede8c01a3006989f79902e144e7d/801da6a4894a4104-ae/s640x960/291a0ae9b07a8d181c43d06cd6030b9f4e2ea662.gifv");
    transition: transform 0.2s ease-in-out;
@@ -161,7 +177,7 @@
     position: relative;
   }
    .eight {
-     grid-column: 3;
+     grid-column: 2;
      grid-row: 7 / 9;
 
     transition: transform 0.2s ease-in-out;
@@ -173,7 +189,7 @@
    }
  
   .nine {
-    grid-column: 5;
+    grid-column: 4;
     grid-row: 3 / 7;
     border: 1.5px solid white;
     background-image: url("https://66.media.tumblr.com/43ff1ae84968ffd84606207e9995a78e/tumblr_py4mvbGe6h1tgo74ho1_1280.gif");
