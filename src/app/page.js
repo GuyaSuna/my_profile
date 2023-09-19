@@ -3,6 +3,7 @@ import React , {useState , useEffect, use}from 'react';
 import '../../public/Main.scss';
 import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed'
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'
 
 const PortfolioPage = () => {
 
@@ -10,7 +11,7 @@ const PortfolioPage = () => {
   const [Id , setId] = useState(0);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [dataPosition , setDataPosition] = useState(0);
-
+  const router = useRouter();
   useEffect(() => {
     const interval = setInterval(() => {
       setBackgroundIndex((prevIndex) => (prevIndex + 1) % Artistas.length);
@@ -55,16 +56,20 @@ const PortfolioPage = () => {
     }
   };
 
+  const handleSix = () => {
+    router.push("https://www.linkedin.com/in/nahuel-pages-96915724b/")
+  }
+  const handleTwo = () => {
+    router.push("https://github.com/GuyaSuna")
+  }
 
-
-  const archivoURL = "curriculum_profesional_Nahuel_Pages.pdf";
   return (
     <> 
     <div className="wrapper">
       <div className="one" onClick={() => setId(1)}> <div className="overlay">Acerca de mi</div></div>
-      <div className="two" onClick={() => setId(2)}><div className="overlay">GitHub</div></div>
+      <div className="two" onClick={() => handleTwo()}><div className="overlay">GitHub</div></div>
       
-      <div className="six" onClick={() =>setId(6)}>  <div className="overlay">Linkedin</div></div>
+      <div className="six" onClick={() =>handleSix()}> <div className="overlay">Linkedin</div></div>
         
       <div className="four" onClick={() =>setId(4)}><div className="overlay">Canal de Discord</div></div>  
       <div className="five" onClick={() =>setId(5)}>  <div className="overlay">Tienda de Diseños</div></div>
@@ -104,7 +109,9 @@ const PortfolioPage = () => {
           para que puedan ver los avances o probarlos.
         </h3>
         </div>}
-
+      {dataPosition == 2 && <div className='estadistica'> <div>
+      <div className="IconosEst" />
+    </div>  </div>}
        {dataPosition != 2 && <div className='siguiente' onClick={()=>setDataPosition(dataPosition+1)}/>}
         </div>
       </div>
