@@ -10,7 +10,7 @@
     margin-right: 15%;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 5px;
-    grid-auto-rows: minmax(80px, auto) !important;
+    grid-auto-rows: minmax(100px, auto);
    transition: transform 0.2s ease-in-out;
     background-size:cover;
     height: 100%;
@@ -83,11 +83,9 @@
     font-size: 20px;
     text-align:start;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-    font-size: 20px;
     color: aliceblue;
     background-image: url("o_esta_perfil.png");
-     transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     background-repeat: no-repeat;
     background-size:cover;
     background-position: 50%;
@@ -109,21 +107,7 @@
     border: 1.5px solid white;
     position: relative;
   }
-    .three {  
-    grid-column: 2;
-    grid-row: 5 / 7;
-    background-color: black;
-    background-image: url("https://cdn.dribbble.com/users/439871/screenshots/4269563/cv.jpg");
-   transition: transform 0.2s ease-in-out;
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: 50%;
-    border-radius: 8px;
-    border: 1.5px solid white;
-    position: relative;
-  }
-
-  
+ 
   .four {
     grid-column: 3 / 5;
     grid-row: 1 / 3;
@@ -164,29 +148,7 @@
     border: 1.5px solid white;
     position: relative;
 }
-  .seven {
-    grid-column: 3 / 5;
-    grid-row: 7/9;
-    background-image: url("https://64.media.tumblr.com/cb33ede8c01a3006989f79902e144e7d/801da6a4894a4104-ae/s640x960/291a0ae9b07a8d181c43d06cd6030b9f4e2ea662.gifv");
-   transition: transform 0.2s ease-in-out;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 8px;
-    border: 1.5px solid white;
-    position: relative;
-  }
-   .eight {
-     grid-column: 2;
-     grid-row: 7 / 9;
-
-    transition: transform 0.2s ease-in-out;
-     background-repeat: no-repeat;
-     background-size: cover;
-     border-radius: 8px;
-     border: 1.5px solid white;
-     position: relative;
-   }
+ 
  
   .nine {
     grid-column: 4;
@@ -423,4 +385,18 @@
   background-image: url("/JsParaPagina.png");
   background-size: cover;
   background-position: center;
+}
+
+.chat-burbuja {
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
 }

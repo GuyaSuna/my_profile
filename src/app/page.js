@@ -72,7 +72,7 @@ const PortfolioPage = () => {
       <div className="six" onClick={() =>handleSix()}> <div className="overlay">Linkedin</div></div>
         
       <div className="four" onClick={() =>setId(4)}><div className="overlay">Canal de Discord</div></div>  
-      <div className="five" onClick={() =>setId(5)}>  <div className="overlay">Tienda de Diseños</div></div>
+      <div className="five" onClick={() =>setId(5)}>  <div className="overlay">Tienda de Software</div></div>
       <div className="nine" onClick={() =>setId(9)}>  <div className="overlay">Proyectos</div></div>
      
      
@@ -132,14 +132,12 @@ const PortfolioPage = () => {
           {Id === 5  &&
           <div className='container2'> 
           <div className='chat-burbuja'> 
-              Bienvenido al comercio
+             Bienvenido a mi mercado, selecciona el estilo de tu interes. O habla directamente conmigo
           </div>
                   <div className='fondo-comercio'>
-                   <div className='item1'> Bento Grids </div> 
-                   <div className='item1'> Tu mama </div> 
-                   <div className='item1'> Personalizado </div> 
+
                   </div>
-                  </div>
+          </div>        
       }
           {Id === 6  &&
               <p> six</p>
