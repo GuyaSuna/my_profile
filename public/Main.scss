@@ -4,22 +4,21 @@
 //https://c4.wallpaperflare.com/wallpaper/855/38/504/pixel-jeff-digital-art-illustration-animation-pixel-art-hd-wallpaper-thumb.jpg
 //https://i.pinimg.com/originals/42/58/26/425826d55c531c22b579d4773c68adb5.gif
 //https://i0.wp.com/cdn.dribbble.com/users/454765/screenshots/15300792/media/3b08d07aec10e929d9e3275b8d3e6f41.gif
+
+//https://i.gifer.com/origin/c6/c68492071ffaead0131f7368fc7dabc5.gif
 .wrapper {
     display: grid;
     margin-left: 15%;
     margin-right: 15%;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(4, minmax(20%, 2fr));
+    gap: 10px;
     grid-auto-rows: minmax(100px, 1fr);
    transition: transform 0.2s ease-in-out;
     background-size:cover;
     height: 100%;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
-  .wrapper > * {
-    height: 98%; 
-    width: 98%;
-  }
+  
   @media (max-width: 1071px) {
     .wrapper {
       height: 100%;
@@ -30,58 +29,62 @@
 
   }
 
-  @media (max-width: 820px) {
-    .wrapper {
-
-      grid-template-columns: repeat(4, minmax(10%, 1fr));
-      margin-right: 5%;
-      margin-left:5% ;
-      margin-bottom: 5%;
-      gap: 3px;
-      height: 100%;
-    }
-  
-    .four{
-      grid-column: 1 / 3;
-      grid-row: 3 / 4;
-    }
-    .five{
-      grid-column: 1 ;
-      grid-row: 3 / 7;
-    }
-    .nine{
-      grid-column: 1 / 2;
-      grid-row: 1/ 4;
-    }
-
-  }
 
   @media (max-width: 550px) {
+
     .wrapper {
 
-      grid-template-columns: repeat(4, minmax(10%, 1fr));
-      gap: 3px;
-      height: 100%;
-    }
-  
-    .one{
-      grid-column: 2 / 3;
-      grid-row: 1 / 3;
-    }
-    .four{
-      grid-column: 1 / 3;
-      grid-row: 3 / 4;
-    }
-    .five{
-      grid-column: 1 ;
-      grid-row: 3 / 7;
-    }
-    .nine{
-      grid-column: 1 / 2;
-      grid-row: 1/ 4;
-    }
+      grid-template-columns: repeat(4, minmax(5%, 1fr));
+      grid-auto-rows: minmax(10vh, 1fr);
+      margin-right: 1%;
+      margin-left: 1%;
+      margin-top: 15%;
 
+      gap: 3px;
+      height: 80%;
+    }
   }
+  //   .four{
+  //     grid-column: 1 / 3;
+  //     grid-row: 3 / 4;
+  //   }
+  //   .five{
+  //     grid-column: 1 ;
+  //     grid-row: 3 / 7;
+  //   }
+  //   .nine{
+  //     grid-column: 1 / 2;
+  //     grid-row: 1/ 4;
+  //   }
+
+  // }
+
+  // @media (max-width: 550px) {
+  //   .wrapper {
+
+  //     grid-template-columns: repeat(4, minmax(10%, 1fr));
+  //     gap: 3px;
+  //     height: 100%;
+  //   }
+  
+  //   .one{
+  //     grid-column: 2 / 3;
+  //     grid-row: 1 / 3;
+  //   }
+  //   .four{
+  //     grid-column: 1 / 3;
+  //     grid-row: 3 / 4;
+  //   }
+  //   .five{
+  //     grid-column: 1 ;
+  //     grid-row: 3 / 7;
+  //   }
+  //   .nine{
+  //     grid-column: 1 / 2;
+  //     grid-row: 1/ 4;
+  //   }
+
+  // }
   
   // @media (max-width: 612px) {
   //   .wrapper {
@@ -113,24 +116,34 @@
     grid-column: 1 / 3;
     grid-row: 1 / 5;
     font-size: 20px;
-    text-align:start;
+    text-align: start;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: aliceblue;
-    background-image: url("o_esta_perfil.png");
     transition: transform 0.2s ease-in-out;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-position: 50%;
     border: 1.5px solid white;
     border-radius: 8px;
     position: relative;
+  }
+  
+  // Estilo para la primera imagen
+  .one.Basic {
+   background-image: url('./ProfileImg.jpeg');
+  }
+  
+  // Estilo para la otra imagen
+  .one.Gamer {
+    
+     background-image: url('./o_esta_perfil.png');
   }
 
   .two {
     grid-column: 1 ;
     grid-row: 5/7;
-  background-color: rgb(92, 33, 112);
-    background-image: url("GithubProfile.png");
+    background-color: rgb(92, 33, 112);
+ 
    transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-position: 50%;
@@ -139,19 +152,39 @@
     border: 1.5px solid white;
     position: relative;
   }
+
+  .two.Basic { 
+    background-color: rgb(0, 0, 0);
+    background-image: url('https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png');
+  }
+  
+  
+  .two.Gamer {
+    background-image: url('./GithubProfile.png');
+  }
+
  
   .four {
     grid-column: 3 / 5;
     grid-row: 1 / 3;
     border-radius: 8px;
-    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6fe91322-e36d-4aca-8d83-41904f9e429f/df3kllr-32b45386-cb0b-4d18-8614-d9c5c5349294.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZmZTkxMzIyLWUzNmQtNGFjYS04ZDgzLTQxOTA0ZjllNDI5ZlwvZGYza2xsci0zMmI0NTM4Ni1jYjBiLTRkMTgtODYxNC1kOWM1YzUzNDkyOTQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.wXPGXM3Wy0nOUVmXi1d-CT031ZTvMjTdTsvYShmMXTY");
+  
    transition: transform 0.2s ease-in-out;
     background-size: cover;
     background-repeat: no-repeat;
     border: 1.5px solid white;
-
     color: aliceblue;
     position: relative;
+  }
+
+  .four.Basic { 
+    background-image:url('https://descubrecomohacerlo.com/wp-content/uploads/mch/discord-logo_3671.png') ;
+    background-position: 50% 50%;
+  }
+  
+  
+  .four.Gamer {
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6fe91322-e36d-4aca-8d83-41904f9e429f/df3kllr-32b45386-cb0b-4d18-8614-d9c5c5349294.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZmZTkxMzIyLWUzNmQtNGFjYS04ZDgzLTQxOTA0ZjllNDI5ZlwvZGYza2xsci0zMmI0NTM4Ni1jYjBiLTRkMTgtODYxNC1kOWM1YzUzNDkyOTQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.wXPGXM3Wy0nOUVmXi1d-CT031ZTvMjTdTsvYShmMXTY');
   }
 
   .five {
@@ -159,8 +192,7 @@
     grid-row: 3 / 7;
     background-color: black;
     border-radius: 8px;
-    background-image: url("https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif");
-   transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-repeat: no-repeat;
     background-position: 0%;
@@ -168,25 +200,78 @@
     position: relative;
   }
   
+  .five.Basic { 
+    background-image: url('./juegos-de-ventas\ vertical.png');
+    
+  }
+  
+  
+  .five.Gamer {
+    background-image: url('https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif');
+  }
   .six {
     grid-column: 2;
     grid-row: 5 / 7;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     background-image: url("https://cdn-icons-png.flaticon.com/512/38/38669.png");
-   transition: transform 0.2s ease-in-out;
-    background-size:cover;
+    transition: transform 0.2s ease-in-out;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     border: 1.5px solid white;
     position: relative;
 }
+
+.seven {
+  grid-column: 1;
+  grid-row: 7/9;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+
+ transition: transform 0.2s ease-in-out;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border: 1.5px solid white;
+  position: relative;
+}
+.seven.Basic { 
+  background-color: red;
  
+ }
+ 
+ 
+ .seven.Gamer {
+  background-image: url("https://img.freepik.com/fotos-premium/ilustracion-jugador-configuracion-computadora-escritorio-juegos_691560-5750.jpg");
+ }
+ 
+.eight {
+  grid-column: 3/6;
+  grid-row: 7 / 9;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+
+ transition: transform 0.2s ease-in-out;
+ background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border: 1.5px solid white;
+  position: relative;
+}
+.eight.Basic { 
+ background-color: red;
+
+}
+
+
+.eight.Gamer {
+  background-image: url('https://i0.wp.com/cdn.dribbble.com/users/454765/screenshots/15300792/media/3b08d07aec10e929d9e3275b8d3e6f41.gif');
+}
+
  
   .nine {
     grid-column: 4;
     grid-row: 3 / 7;
     border: 1.5px solid white;
-    background-image: url("https://66.media.tumblr.com/43ff1ae84968ffd84606207e9995a78e/tumblr_py4mvbGe6h1tgo74ho1_1280.gif");
+
     transition: transform 0.2s ease-in-out;
     background-size:cover;
     background-repeat: no-repeat;
@@ -194,6 +279,38 @@
     border-radius: 8px;
     position: relative;
   }
+
+  .nine.Basic { 
+    background-color: red;
+   
+   }
+   
+   
+   .nine.Gamer {
+     background-image: url('https://66.media.tumblr.com/43ff1ae84968ffd84606207e9995a78e/tumblr_py4mvbGe6h1tgo74ho1_1280.gif');
+   }
+  .ten {
+    grid-column: 2;
+    grid-row: 7 / 9;
+    border: 1.5px solid white;
+   
+    transition: transform 0.2s ease-in-out;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: 70%;
+    border-radius: 8px;
+    position: relative;
+  }
+  .ten.Basic { 
+    background-image: url("https://images.hive.blog/p/MG5aEqKFcQi6ksuzVh6JJptBJCL6eFwx2gvRnpcRhTRKgmTKc5WMfwDpgjNituxkeaEes5WK7ztjC8ba1Q1rRzAQBk8kCWUFP?format=match&mode=fit");
+ 
+  }
+  
+  
+  .ten.Gamer {
+    background-image: url('https://i.pinimg.com/originals/6a/b5/19/6ab5193fd83c03eca09a2a378a2db418.gif');
+  }
+  
 
   .modal {
     position: fixed;

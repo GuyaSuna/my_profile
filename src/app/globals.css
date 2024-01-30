@@ -1,7 +1,5 @@
 .body{
     background-image: url("https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif");
-
-     background-repeat: no-repeat;
      background-size: cover;
 }
 html, body {
@@ -10,12 +8,19 @@ html, body {
     height: 100%;
     width: 100%;
 
-    position: fixed;
+
   }
 
 @media (max-width:1000px){
     .body{
         background-image: url("https://img3.wallspic.com/crops/9/3/7/5/6/165739/165739-calles_de_tokio_cyberpunk-tokio-cyberpunk_2077-cyberpunk-neumatico-1421x3000.jpg");
         background-attachment: fixed;
+    }
+}
+
+@media (max-width:550px){
+    .body
+    .html{
+       position: fixed;
     }
 }
