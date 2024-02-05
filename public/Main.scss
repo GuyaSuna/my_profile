@@ -17,8 +17,20 @@
     background-size:cover;
     height: 100%;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
   }
+  .transitioning-div {
+    opacity: 0; // Comienza invisible
+    transition: opacity 4s ease; // Ajusta la duración y función de la transición según tus necesidades
   
+    &.transitioning {
+      opacity: 1; // Hace visible durante la transición
+      height: 100%;
+      background-image: url('https://64.media.tumblr.com/d91c0d56f08f760c137ae5cd37ac02de/8ed291c985d3c233-16/s640x960/dab12280e767e1b7d2f8eb3e010e661406542138.gifv');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
   @media (max-width: 1071px) {
     .wrapper {
       height: 100%;
@@ -170,7 +182,7 @@
     border-radius: 8px;
   
    transition: transform 0.2s ease-in-out;
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     border: 1.5px solid white;
     color: aliceblue;
@@ -178,7 +190,8 @@
   }
 
   .four.Basic { 
-    background-image:url('https://descubrecomohacerlo.com/wp-content/uploads/mch/discord-logo_3671.png') ;
+    background-image:url('https://i.blogs.es/24e8fa/discord-microsoft/1366_2000.jpg') ;
+    background-size: cover;
     background-position: 50% 50%;
   }
   
@@ -201,7 +214,7 @@
   }
   
   .five.Basic { 
-    background-image: url('./juegos-de-ventas\ vertical.png');
+    background-image: url('./pacmanVerticalNegro.png');
     
   }
   
@@ -229,13 +242,13 @@
   border-radius: 8px;
 
  transition: transform 0.2s ease-in-out;
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   border: 1.5px solid white;
   position: relative;
 }
 .seven.Basic { 
-  background-color: red;
+  background-image: url('./pngegg.png');
  
  }
  
@@ -295,7 +308,7 @@
     border: 1.5px solid white;
    
     transition: transform 0.2s ease-in-out;
-    background-size:cover;
+    background-size:100% 100%;
     background-repeat: no-repeat;
     background-position: 70%;
     border-radius: 8px;

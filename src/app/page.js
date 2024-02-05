@@ -1,5 +1,5 @@
 'use client'
-import React , {useState , useEffect, use}from 'react';
+import React , {useState , useEffect}from 'react';
 import '../../public/Main.scss';
 import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed'
 import Foto from '../../public/o_esta_perfil.png'
@@ -14,36 +14,13 @@ const PortfolioPage = () => {
   const [Id , setId] = useState(0);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [dataPosition , setDataPosition] = useState(0);
-  const [gamer , setGamer] = useState(false)
-  const [ArrayImg , setArrayImg] = useState([])
+  const [gamer , setGamer] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showDiv, setShowDiv] = useState(false);
   const router = useRouter();
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setBackgroundIndex((prevIndex) => (prevIndex + 1) % Artistas.length);
-    }, 5000); 
-  
-    return () => clearInterval(interval);
-  }, []);
 
-  useEffect(() => {
-    setArrayImg(ImagenesComunes)
-  }, []);
 
-  let Artistas = [
-    "Artistas.jpg",
-    "Artistas2.jpg",
-    "Artistas3.jpg",
-    "Artistas4.jpg"
-  ]
-  let ImagenesComunes = [
-    "https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg",
-    "https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg"
-  ]
 
-  let ImagenesGamer = [
-    "https://64.media.tumblr.com/cb33ede8c01a3006989f79902e144e7d/801da6a4894a4104-ae/s640x960/291a0ae9b07a8d181c43d06cd6030b9f4e2ea662.gifv",
-    "https://cdn.dribbble.com/users/439871/screenshots/4269563/cv.jpg"
-  ]
   let fondos = [
     "",
     "Redes.jpg",
@@ -59,11 +36,15 @@ const PortfolioPage = () => {
   ]
 
   const cambiarImagen = () => {
+    setIsTransitioning(true);
+    setShowDiv(true);
+    setTimeout(() => {
 
-    setImagen('GitHubProfile');
-    gamer ? setGamer(false) : setGamer(true);
-    gamer ? setImagen('Basic') :  setImagen('Gamer');
-    
+      gamer ? setGamer(false) : setGamer(true);
+      gamer ? setImagen('Basic') : setImagen('Gamer');
+      setIsTransitioning(false);
+        setShowDiv(false); 
+    }, 2000); 
   };
 
   useEffect(() => {
@@ -91,7 +72,13 @@ const PortfolioPage = () => {
 
   return (
     <>     
-    <div className="wrapper">
+     {showDiv && (
+        <div className={`transitioning-div${isTransitioning ? ' transitioning' : ''}`}>
+
+        </div>
+      )}
+      {!showDiv && (
+    <div className={`wrapper${isTransitioning ? ' transitioning' : ''}`}>
 
       <div className={`one ${imagen}`}  onClick={() => setId(1)} > <div className="overlay">Acerca de mi</div></div>
       <div className={`two ${imagen}`} onClick={() => handleTwo()}><div className="overlay">GitHub</div></div>
@@ -106,7 +93,7 @@ const PortfolioPage = () => {
       <div className={`ten ${imagen}`} onClick={() =>cambiarImagen()}>  <div className="overlay">Modifica el estilo</div></div>
      
      </div>
-  
+  )}
     {isModalOpen && (
   <div className="modal"  onClick={handleModalClick}>
     <div className="modal-content" style={{ backgroundImage: `url(${fondos[Id - 1]})` }}>
@@ -184,6 +171,7 @@ const PortfolioPage = () => {
     </div>
   </div>
 )}
+
     </>
   );
 };
