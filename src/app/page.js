@@ -21,6 +21,11 @@ const PortfolioPage = () => {
 
 
 
+  const cambioInfo = (data) => {
+      console.log(dataPosition)
+      data ? setDataPosition(dataPosition-1) : setDataPosition(dataPosition+1) 
+      console.log(dataPosition)
+  }
   let fondos = [
     "",
     "Redes.jpg",
@@ -71,13 +76,14 @@ const PortfolioPage = () => {
   }
 
   return (
-    <>     
+    <>
      {showDiv && (
         <div className={`transitioning-div${isTransitioning ? ' transitioning' : ''}`}>
 
         </div>
       )}
-      {!showDiv && (
+      {!showDiv && ( 
+        <div className={`SecondBody ${imagen}`}>    
     <div className={`wrapper${isTransitioning ? ' transitioning' : ''}`}>
 
       <div className={`one ${imagen}`}  onClick={() => setId(1)} > <div className="overlay">Acerca de mi</div></div>
@@ -92,7 +98,7 @@ const PortfolioPage = () => {
       <div className={`eight ${imagen}`}  onClick={() =>setId(9)}>  <div className="overlay">Proyectos</div></div>
       <div className={`ten ${imagen}`} onClick={() =>cambiarImagen()}>  <div className="overlay">Modifica el estilo</div></div>
      
-     </div>
+     </div>   </div >
   )}
     {isModalOpen && (
   <div className="modal"  onClick={handleModalClick}>
@@ -102,7 +108,7 @@ const PortfolioPage = () => {
 
       <div className="container">
         <div className='informacion'>
-         { dataPosition != 0 && <div className='anterior' onClick={()=>setDataPosition(dataPosition-1)}/>} 
+         { dataPosition != 0 && <div className='anterior' onClick={ () =>cambioInfo(true)}/>} 
        { dataPosition == 0 && <div> <h1 className='infOne'>informacion sobre mi y mis habilidades personales</h1>
         <h3 className='infOne'>Mi nombre es Nahuel Pages y soy un programador full Stack con dos años de estudios en la Universidad Claeh
         donde mis estudios abarcaron Lenguajes como JavaScript , C# y Java. 
@@ -129,7 +135,7 @@ const PortfolioPage = () => {
       {dataPosition == 2 && <div className='estadistica'> <div>
       <div className="IconosEst" />
     </div>  </div>}
-       {dataPosition != 2 && <div className='siguiente' onClick={()=>setDataPosition(dataPosition+1)}/>}
+       {dataPosition != 2 && <div className='siguiente' onClick={() => cambioInfo(false)}/>}
         </div>
       </div>
       }
@@ -169,10 +175,11 @@ const PortfolioPage = () => {
               <p> nine</p>
       }
     </div>
-  </div>
+   </div>   
+
 )}
 
-    </>
+</>
   );
 };
 

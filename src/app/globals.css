@@ -1,5 +1,5 @@
 .body{
-    background-image: url("https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif");
+    background-color: rgb(57, 76, 187);
      background-size: cover;
 }
 html, body {
@@ -18,9 +18,10 @@ html, body {
     }
 }
 
-@media (max-width:550px){
+/* @media (max-width:550px){
     .body
     .html{
        position: fixed;
+       overflow: hidden;
     }
-}
+} */
