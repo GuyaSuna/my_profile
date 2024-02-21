@@ -1,11 +1,10 @@
 'use client'
 import React , {useState , useEffect}from 'react';
 import '../../public/Main.scss';
-import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed'
-import Foto from '../../public/o_esta_perfil.png'
-import FotoPrueba from '../../public/GitHubProfile.png'
-import Image from 'next/image';
-import { useRouter } from 'next/navigation'
+import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed';
+
+
+import { useRouter } from 'next/navigation';
 
 const PortfolioPage = () => {
 
@@ -18,7 +17,6 @@ const PortfolioPage = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showDiv, setShowDiv] = useState(false);
   const router = useRouter();
-
 
 
   const cambioInfo = (data) => {
@@ -76,25 +74,27 @@ const PortfolioPage = () => {
   }
 
   return (
-    <>
+    <> 
      {showDiv && (
         <div className={`transitioning-div${isTransitioning ? ' transitioning' : ''}`}>
 
         </div>
       )}
-      {!showDiv && ( 
-        <div className={`SecondBody ${imagen}`}>    
+      {!showDiv && (
+         
+        <div className={`SecondBody ${imagen}`}>   
+       
     <div className={`wrapper${isTransitioning ? ' transitioning' : ''}`}>
 
       <div className={`one ${imagen}`}  onClick={() => setId(1)} > <div className="overlay">Acerca de mi</div></div>
       <div className={`two ${imagen}`} onClick={() => handleTwo()}><div className="overlay">GitHub</div></div>
       
-      <div className="six" onClick={() =>handleSix()}> <div className="overlay">Linkedin</div></div>
+      <div className={`six ${imagen}`} onClick={() =>handleSix()}> <div className="overlay">Linkedin</div></div>
         
       <div className={`four ${imagen}`} onClick={() =>setId(4)}><div className="overlay">Canal de Discord</div></div>  
       <div className={`five ${imagen}`} onClick={() =>setId(5)}>  <div className="overlay">Tienda de Software</div></div>
       <div className={`nine ${imagen}`} onClick={() =>setId(9)}>  <div className="overlay">Proyectos</div></div>
-      <div className={`seven ${imagen}`} onClick={() =>setId(5)}>  <div className="overlay">Contacta conmigo</div></div>
+      <div className={`seven ${imagen}`} onClick={() =>setId(5)}>  <div className="overlay">aca</div></div>
       <div className={`eight ${imagen}`}  onClick={() =>setId(9)}>  <div className="overlay">Proyectos</div></div>
       <div className={`ten ${imagen}`} onClick={() =>cambiarImagen()}>  <div className="overlay">Modifica el estilo</div></div>
      
@@ -109,31 +109,28 @@ const PortfolioPage = () => {
       <div className="container">
         <div className='informacion'>
          { dataPosition != 0 && <div className='anterior' onClick={ () =>cambioInfo(true)}/>} 
-       { dataPosition == 0 && <div> <h1 className='infOne'>informacion sobre mi y mis habilidades personales</h1>
-        <h3 className='infOne'>Mi nombre es Nahuel Pages y soy un programador full Stack con dos años de estudios en la Universidad Claeh
-        donde mis estudios abarcaron Lenguajes como JavaScript , C# y Java. 
+       { dataPosition == 0 && <div> <h1 className='infOne'>Hola a todos!</h1>
+        <h3 className='infOne'>Mi nombre es Nahuel Pages y me considero un apasionado programador Full Stack. Durante dos años, tuve el privilegio de estudiar en la Universidad Claeh, donde profundicé mis conocimientos en diversos lenguajes de programación como JavaScript, C# y Java. 
 
-        A su vez me prepararon para afrontar desafios con React y sqlServer y me dote con conocimientos sobre Ingenieria en Software asi como en ciber seguridad
+        Estos estudios no solo me brindaron una sólida base técnica, sino que también me prepararon para enfrentar desafíos en tecnologías como React y SQL Server, así como en campos especializados como Ingeniería de Software y Ciberseguridad.
         </h3>
 
         <h3 className='infTwo'>
-         Personalmente me dedico a diario a adquirir nuevos conocimientos como Python o NextJs, soy un apasionado de la programacion
-         y estoy dispuesto a dar el 100% de mi para seguir avanzando y mejorando
+        Personalmente, mi dedicación diaria se centra en la adquisición de nuevos conocimientos y habilidades. Me entusiasma especialmente explorar tecnologías emergentes como Python y Next.js.
+        Soy un ferviente creyente en el poder transformador de la programación y estoy comprometido a dar siempre lo mejor de mí para seguir creciendo y mejorando en este campo que tanto me apasiona.
         </h3>
         </div>}
 
         { dataPosition == 1 && <div> <h1 className='infOne'>Objetivo de esta pagina</h1>
-        <h3 className='infOne'>El objetivo de esta pagina web es presentar mis capacidades como programador y brindar un espacio
-        entretenido a las personas. 
+        <h3 className='infOne'>El propósito principal de esta página web es presentar mis capacidades como programador de una manera atractiva y accesible para todos. Además, quiero ofrecer un espacio entretenido donde las personas puedan conocer más sobre mi trabajo y proyectos en curso.
         </h3>
 
         <h3 className='infTwo'>
-          Tengo varios proyectos en progreso como juegos y paginas web. Una vez terminados o avanzados mi ides es mostrarlos en esta pagina
-          para que puedan ver los avances o probarlos.
+        Actualmente, estoy trabajando en varios proyectos emocionantes, que incluyen juegos y páginas web innovadoras. Mi objetivo es compartir el progreso de estos proyectos aquí en este sitio, permitiendo a los visitantes seguir de cerca su desarrollo y, en algunos casos, incluso probarlos por sí mismos.
         </h3>
         </div>}
       {dataPosition == 2 && <div className='estadistica'> <div>
-      <div className="IconosEst" />
+      <h1 className="infOne" >¡Gracias por tomarse el tiempo para conocer un poco más sobre mí y mi trabajo! Estoy emocionado de compartir más sobre mis proyectos y espero que disfruten explorando esta página web tanto como yo disfruto creándola. </h1>
     </div>  </div>}
        {dataPosition != 2 && <div className='siguiente' onClick={() => cambioInfo(false)}/>}
         </div>

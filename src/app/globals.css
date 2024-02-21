@@ -1,27 +1,18 @@
-.body{
-    background-color: rgb(57, 76, 187);
-     background-size: cover;
-}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
 
-
   }
 
-@media (max-width:1000px){
-    .body{
-        background-image: url("https://img3.wallspic.com/crops/9/3/7/5/6/165739/165739-calles_de_tokio_cyberpunk-tokio-cyberpunk_2077-cyberpunk-neumatico-1421x3000.jpg");
-        background-attachment: fixed;
-    }
-}
 
-/* @media (max-width:550px){
+
+@media (max-width:550px){
     .body
-    .html{
+    {
        position: fixed;
        overflow: hidden;
     }
-} */
+} 
