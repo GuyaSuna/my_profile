@@ -2,6 +2,7 @@
 import React , {useState , useEffect}from 'react';
 import '../../public/Main.scss';
 import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed';
+import video from '../../public/VideoParaPorfolio.gif'
 
 
 import { useRouter } from 'next/navigation';
@@ -24,8 +25,25 @@ const PortfolioPage = () => {
       data ? setDataPosition(dataPosition-1) : setDataPosition(dataPosition+1) 
       console.log(dataPosition)
   }
+
   let fondos = [
     "",
+    "VideoParaPorfolio.gif",
+    "Redes.jpg",
+    "",
+    "https://wallpaperaccess.com/full/8351153.gif",
+    "",
+    "https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg",
+    "https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg",
+    "https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg",
+    "",
+    "https://64.media.tumblr.com/cb33ede8c01a3006989f79902e144e7d/801da6a4894a4104-ae/s640x960/291a0ae9b07a8d181c43d06cd6030b9f4e2ea662.gifv",
+    "https://i.pinimg.com/564x/71/66/84/716684860515165ac058200342f3d789.jpg"
+  ]
+
+  let fondosGamer = [
+    "",
+    "https://img.freepik.com/premium-vector/hud-futuristic-user-interface-screen-element_303714-65.jpg",
     "Redes.jpg",
     "",
     "https://wallpaperaccess.com/full/8351153.gif",
@@ -102,12 +120,12 @@ const PortfolioPage = () => {
   )}
     {isModalOpen && (
   <div className="modal"  onClick={handleModalClick}>
-    <div className="modal-content" style={{ backgroundImage: `url(${fondos[Id - 1]})` }}>
+ <div className="modal-content" style={{ backgroundImage: `url(${gamer ? fondosGamer[Id] : fondos[Id]})` }}>
     {Id === 1  &&
 
 
-      <div className="container">
-        <div className='informacion'>
+      <div className={`container ${imagen}`}>
+        <div className={`informacion ${imagen}`}>
          { dataPosition != 0 && <div className='anterior' onClick={ () =>cambioInfo(true)}/>} 
        { dataPosition == 0 && <div> <h1 className='infOne'>Hola a todos!</h1>
         <h3 className='infOne'>Mi nombre es Nahuel Pages y me considero un apasionado programador Full Stack. Durante dos años, tuve el privilegio de estudiar en la Universidad Claeh, donde profundicé mis conocimientos en diversos lenguajes de programación como JavaScript, C# y Java. 
