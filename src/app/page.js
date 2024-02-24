@@ -32,8 +32,8 @@ const PortfolioPage = () => {
     "Redes.jpg",
     "",
     "https://wallpaperaccess.com/full/8351153.gif",
+    "https://i.pinimg.com/564x/92/ba/af/92baafd195340f7a8d9c0c7495deda05.jpg",
     "",
-    "https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg",
     "https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg",
     "https://i.pinimg.com/originals/8d/66/9b/8d669b63358117e3ff9fb28f1d7bb3c7.jpg",
     "",
@@ -168,7 +168,7 @@ const PortfolioPage = () => {
         />
       }
           {Id === 5  &&
-          <div className='container2'> 
+          <div className={`container2 ${imagen}`}> 
           <div className='chat-burbuja'> 
              Bienvenido a mi mercado, selecciona el estilo de tu interes. O habla directamente conmigo
           </div>

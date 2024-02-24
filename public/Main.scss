@@ -194,8 +194,9 @@
   
   
   .five.Gamer {
-    background-image: url('https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif');
-        background-position: 0%;
+    background-image: url('https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif');
+        background-position: 44% 60%;
+        background-size: auto;
   }
   .six {
     grid-column: 4;
@@ -498,13 +499,19 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   }
 }
 
-.fondo-comercio{
+.fondo-comercio {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.685);
   height: 100%;
-  width: 30%;
+  width: 2%;
   right: 0;
-  border-radius: 8;
+  border-radius: 8px;
+  transition: width 1.5s ease;
+}
+
+
+.fondo-comercio:hover {
+  width: 30%; 
 }
 
 
@@ -532,14 +539,25 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   position: relative; 
   width: 100%; 
   height: 100%; 
-  background-image: url("https://i.pinimg.com/originals/ae/1a/32/ae1a3228917786b1c62c8f4ee9a827fe.gif");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: bottom;
+ 
+
   display: flex; 
   align-items: center; 
   justify-content: center; 
   border-radius: 8px;
+}
+
+.container2.Gamer{
+  background-image: url("https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif");
+  background-position: bottom;
+  background-size: cover;
+}
+
+.container2.Basic{
+  background-image: url("https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif");
+  background-size:cover;
+  background-position: 70% 70%;
 }
 
 .a-div{
@@ -571,8 +589,8 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
 
 .chat-burbuja {
   position: fixed;
-  top: 25%;
-  left: 40%;
+  top: 45%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   width: 300px;
