@@ -62,29 +62,47 @@
           padding-top: 25%;
           height: 70% !important;
           gap: 3px !important;
-
+          font-size: 0.7em;
+      }
+      .transitioning-div {
+        &.transitioning {
+          background-size: cover;
+          background-position: 50% 50%;
+        }
       }
       .SecondBody{
         height: 100% !important;
+        background-position: 50% 50% !important;
       }
-    // .five{
-    //   grid-column: 3/6 !important;
-    //   grid-row: 3 / 6!important;     
-    //   background-position: 30% 75% !important; 
-    // }
-//     .nine{
-//  grid-column: 1 / 6   !important;
-//       grid-row: 9/11  !important;
-//       background-position: 100% 95% !important;
-//     }
-    // .eight{
-    //   grid-column: 3/6 !important;
-    //   grid-row: 6 / 9 !important;
 
-    //   background-size: cover !important;
-    // }
+      .SecondBody.Gamer{
+        background-image:url("https://i.pinimg.com/564x/b1/8e/72/b18e7277d216f7a728f9997843e7b0f2.jpg") !important
+      }
+      .modal{
+        height: 100% !important;
+        width: 100% !important;
+      }
+      
+      .container2{
+        height: 100% !important;
+        width: 100% !important;
+      }
+      .modal-content{
+       height: 100% !important;
+        width: 100% !important;
+        padding: 0px !important;
+      }
+      .form-container{
+        width: 80% !important;
+      }
 
+      .five.Gamer{
+        background-position:43% 65% !important;
+      }
 
+      .chat-burbuja {
+        width: 250px !important;
+      }
 
   }
  
@@ -167,9 +185,7 @@
   
   
   .four.Gamer {
-    //https://i.pinimg.com/564x/70/9f/1b/709f1b9c3465ea472b55857474b321bf.jpg
     background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6fe91322-e36d-4aca-8d83-41904f9e429f/df3kllr-32b45386-cb0b-4d18-8614-d9c5c5349294.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZmZTkxMzIyLWUzNmQtNGFjYS04ZDgzLTQxOTA0ZjllNDI5ZlwvZGYza2xsci0zMmI0NTM4Ni1jYjBiLTRkMTgtODYxNC1kOWM1YzUzNDkyOTQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.wXPGXM3Wy0nOUVmXi1d-CT031ZTvMjTdTsvYShmMXTY');
-  
   }
 
   .five {
@@ -178,9 +194,10 @@
     background-color: black;
     border-radius: 8px;
     transition: transform 0.2s ease-in-out;
-    background-size:cover;
     background-repeat: no-repeat;
-
+    background-image: url('https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif');
+    background-position: 42% 60%;
+    background-size: auto;
     border: 1.5px solid white;
     position: relative;
   }
@@ -190,13 +207,6 @@
     background-size: 120% 100%;
     background-position: 50% 50%;
     opacity: .8;
-  }
-  
-  
-  .five.Gamer {
-    background-image: url('https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif');
-        background-position: 44% 60%;
-        background-size: auto;
   }
   .six {
     grid-column: 4;
@@ -248,7 +258,7 @@
  
  
  .seven.Gamer {
-  background-image: url("https://media.istockphoto.com/id/1738903626/es/vector/fondo-de-caja-sorpresa.jpg?b=1&s=612x612&w=0&k=20&c=FOvJqGAmaazP6HXxmiYFE2vP4bGv8-KEiyJcwX47KbE=");
+  background-image: url("https://i.pinimg.com/564x/cc/15/77/cc15771261f26706140cf011365c5827.jpg");
  }
  
 
@@ -355,10 +365,9 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position-y: center;
-    width: 80%; 
+    width: 90%; 
+    height: 90%; 
 
-    height: 80%; 
-    max-height: 80%;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -429,7 +438,7 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   text-align: center;
   padding: 20px;
   overflow-y: auto;
-  border: 1px solid #ccc;
+
   color: #fff; 
 }
 
@@ -462,7 +471,7 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   height: 0;
   border-left: 15px solid transparent; 
   border-right: 15px solid transparent; 
-  border-top: 20px solid rgb(0, 0, 0);
+  border-top: 20px solid rgb(255, 255, 255);
   right: 0;
   bottom: 10%;
   margin-right: 10%;
@@ -477,13 +486,14 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   height: 0;
   border-left: 15px solid transparent; 
   border-right: 15px solid transparent; 
-  border-bottom: 20px solid rgb(0, 0, 0);
+  border-bottom: 20px solid rgb(255, 255, 255);
   right: 0;
   top: 10%;
   margin-right: 10%;
   animation: move 3s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  z-index: 1;
 }
 
 @keyframes move {
@@ -503,22 +513,63 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   position: absolute;
   background-color: rgba(0, 0, 0, 0.685);
   height: 100%;
-  width: 2%;
+  width: 10%;
   right: 0;
   border-radius: 8px;
   transition: width 1.5s ease;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: auto;
 }
 
+.fondo-comercio.normal {
+ .reset-button{
+    right: 0%;
+}
+}
+.fondo-comercio.ampliado {
+  width: 100%;
+}
 
-.fondo-comercio:hover {
-  width: 30%; 
+.left-arrow-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  left: 5%;
+  top: 50%;
+  transition: color 0.3s ease;
+
+}
+
+.left-arrow-button::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #ffffff; 
+  left: 5px; 
+  top: 50%;
+  transform: translateY(-50%);
+  transition: border-right-color 0.3s ease;
+}
+
+.left-arrow-button.rotate {
+  transform: rotate(180deg); 
+}
+.left-arrow-button:hover::before {
+  border-right-color: red; 
 }
 
 
 .chat-comercio {
   position: absolute;
     background-color: #007bff; 
-    color: white; 
+    color: rgb(0, 0, 0); 
     border-radius: 20px; 
     padding: 10px;
     height: 20%;
@@ -540,25 +591,18 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   width: 100%; 
   height: 100%; 
   background-repeat: no-repeat;
- 
-
+  background-image: url("https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif");
+  background-position: bottom;
+  background-size: cover;
   display: flex; 
   align-items: center; 
   justify-content: center; 
   border-radius: 8px;
+  background-attachment: fixed;
+  overflow: auto;
 }
 
-.container2.Gamer{
-  background-image: url("https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif");
-  background-position: bottom;
-  background-size: cover;
-}
 
-.container2.Basic{
-  background-image: url("https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif");
-  background-size:cover;
-  background-position: 70% 70%;
-}
 
 .a-div{
   height: 100%;
@@ -589,10 +633,11 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
 
 .chat-burbuja {
   position: fixed;
-  top: 45%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #000000c2;
+  color: white;
   width: 300px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -605,11 +650,160 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   height: auto;
   background-position:100% 100%;
   background-size: cover;
-
+  
 }
 .SecondBody.Basic{
   background-image: url('https://wallpapers.com/images/hd/blue-gray-3840-x-2160-2wj8ikgguo4or2zi.jpg');
 }
 .SecondBody.Gamer{
   background-image: url('https://i.pinimg.com/originals/9e/40/70/9e40708b7f7b6d11ab3d4f8d7a03de15.gif');
+}
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.315);
+  bottom:45%;
+  right: 45%;
+  cursor: pointer;
+}
+
+.close-button-one {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  background-color: rgba(0, 0, 0, 0.315);
+  cursor: pointer;
+}
+
+.close-button-one::before,
+.close-button-one::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+ 
+  transform: translate(-50%, -50%); /* Centra las líneas horizontal y verticalmente */
+  width: 100%;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+.close-button-one::before {
+  transform: rotate(45deg);
+}
+
+.close-button-one::after {
+  transform: rotate(-45deg);
+}
+
+
+
+.close-button.ampliado{
+  display:none;
+}
+
+.close-button.normal{
+  display:flex;
+}
+
+.close-button::before,
+.close-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+.close-button::before {
+  transform: rotate(45deg);
+}
+
+.close-button::after {
+  transform: rotate(-45deg);
+}
+
+
+.form-container {
+  max-width: 600px;
+  height: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #9d27a1;
+  border-radius: 5px;
+  background-color: #38073ab0;
+}
+
+.form-container.normal{
+  display: none;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.select-input,
+.text-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.select-input.normal{
+  display: none;
+}
+
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.text-input.normal{
+  display: none;
+}
+
+.button.normal{
+  display: none;
+}
+
+.input-label{
+color: white;
+}
+
+.input-label.normal{
+  display: none;
+}
+
+.text-input-description{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.text-input-description.normal{
+  display: none;
 }
