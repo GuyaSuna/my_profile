@@ -276,7 +276,7 @@ const PortfolioPage = () => {
           {Id === 9  &&
               <div>
               <div className={`container ${imagen}`}> <div className="close-button" onClick={() => closeModal()}></div> </div>
-              <p> ESTO ESTA EN CREACION Y TODAVIA NO FUNCIONA</p>
+              <p> Vamo arriba</p>
               </div>
       }
     </div>
