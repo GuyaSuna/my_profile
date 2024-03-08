@@ -2,10 +2,10 @@
 import React , {useState , useEffect}from 'react';
 import '../../public/Main.scss';
 import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed';
-
+import { useRouter } from 'next/router';
 
 const PortfolioPage = () => {
-
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imagen, setImagen] = useState('Basic');
   const [Id , setId] = useState(0);
@@ -58,7 +58,7 @@ const PortfolioPage = () => {
 
   let fondos = [
     "",
-    "https://i.pinimg.com/originals/66/19/80/661980c1f6ed5448d6825d5920048bbb.gif",
+    "https://i.pinimg.com/originals/74/5c/c9/745cc90fcc688569610f84bc5d2b2fd6.gif",
     "Redes.jpg",
     "",
     "https://wallpaperaccess.com/full/8351153.gif",
@@ -350,6 +350,7 @@ const PortfolioPage = () => {
           </div>
         <div className="image-description-container">
         <picture>
+            <source srcSet="AEDObg.png" media="(max-width: 768px)" />
             <source srcSet="ABBJava.jpg" />
             <img src="ABBJava.jpg" alt="Imagen de codigo en java" className="imagen-proyecto" />
           </picture>
