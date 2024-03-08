@@ -80,7 +80,7 @@ const PortfolioPage = () => {
     "https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg",
     "https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg",
     "fondo_div.png",
-    "https://i.pinimg.com/originals/21/9a/09/219a09d5c2d9e50e4c2d20c9a03e09af.gif",
+    "https://i.pinimg.com/564x/86/58/71/8658718f5f289e3b0d06c8fdb233ceb9.jpg",
   
   ]
 
@@ -206,7 +206,7 @@ const PortfolioPage = () => {
         <WidgetBot
           className="ds"
           server="1150805905982619670"
-          channel="1150805907106705482"
+          channel="1150805907106705481"
         />
         </div>
       }
