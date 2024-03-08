@@ -2,7 +2,7 @@
 import React , {useState , useEffect}from 'react';
 import '../../public/Main.scss';
 import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const PortfolioPage = () => {
   const router = useRouter();
@@ -28,7 +28,7 @@ const PortfolioPage = () => {
 
 
 
-  let text = 'Bienvenido a mi mercado, abre la pestaña a tu derecha y rellena la informacion necesaria para que pueda saber que es lo que buscas'
+  let text = 'Bienvenido a mi mercado, abre la pestaña a tu derecha y rellena la informacion necesaria para que pueda saber que buscas.'
   useEffect(() => {
     let currentIndex = 0;
     const intervalId = setInterval(() => {
@@ -185,13 +185,13 @@ const PortfolioPage = () => {
         </h2>
         </div>}
 
-        { dataPosition == 1 && <div> <h1 className='infOne'>Objetivo de esta pagina</h1>
-        <h3 className='infOne'>El propósito principal de esta página web es presentar mis capacidades como programador de una manera atractiva y accesible para todos. Además, quiero ofrecer un espacio entretenido donde las personas puedan conocer más sobre mi trabajo y proyectos en curso.
-        </h3>
+        { dataPosition == 1 && <div> <h1 >Objetivo de esta pagina</h1>
+        <h2 className='infOne'>El propósito principal de esta página web es presentar mis capacidades como programador de una manera atractiva y accesible para todos. Además, quiero ofrecer un espacio entretenido donde las personas puedan conocer más sobre mi trabajo y proyectos en curso.
+        </h2>
 
-        <h3 className='infTwo'>
+        <h2 className='infTwo'>
         Actualmente, estoy trabajando en varios proyectos emocionantes, que incluyen juegos y páginas web innovadoras. Mi objetivo es compartir el progreso de estos proyectos aquí en este sitio, permitiendo a los visitantes seguir de cerca su desarrollo y, en algunos casos, incluso probarlos por sí mismos.
-        </h3>
+        </h2>
         </div>}
       {dataPosition == 2 && <div className='estadistica'> <div>
       <h1 className="infOne" >¡Gracias por tomarse el tiempo para conocer un poco más sobre mí y mi trabajo! Estoy emocionado de compartir más sobre mis proyectos y espero que disfruten explorando esta página web tanto como yo disfruto creándola. </h1>
@@ -199,18 +199,6 @@ const PortfolioPage = () => {
        {dataPosition != 2 && <div className='siguiente' onClick={() => cambioInfo(false)}/>}
         </div>
       </div></>
-      }
-            {Id === 2  &&
-            <div>
-                <div className={`container ${imagen}`}> <div className="close-button" onClick={() => closeModal()}></div> </div>
-              <p> two </p>
-              </div>
-      }
-            {Id === 3  &&
-              <div>
-              <div className={`container ${imagen}`}> <div className="close-button" onClick={() => closeModal()}></div> </div>
-              <p> ESTO ESTA EN CREACION Y TODAVIA NO FUNCIONA</p>
-              </div>
       }
       {Id === 4  &&
 
@@ -265,12 +253,6 @@ const PortfolioPage = () => {
     </div>   
   </div>     
 }
-          {Id === 6  &&
-              <p> six</p>
-      }
-          {Id === 7  &&
-              <p> seven</p>
-      }
           {Id === 8  &&
               <div>
               <div className={`container ${imagen}`}> <div className="close-button" onClick={() => closeModal()}></div> </div>

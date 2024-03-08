@@ -110,6 +110,12 @@
         height: 90% !important;
         
       }
+      .infOne {
+        font-size: 0.8rem !important; 
+      }
+      .infTwo{
+        font-size: 0.8rem !important; 
+      }
   }
  
   .one {
@@ -669,8 +675,8 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   transform: translate(-50%, -50%);
   background-color: #000000c2;
   color: white;
-  width: 300px;
-  padding: 20px;
+  width: 30%;
+  padding: 10%;
   border: 1px solid #ccc;
   border-radius: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
