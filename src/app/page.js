@@ -4,31 +4,29 @@ import '../../public/Main.scss';
 import  WidgetBot ,  {  API  }  from  '@widgetbot/react-embed';
 
 
-
-
-import { useRouter } from 'next/navigation';
-
 const PortfolioPage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imagen, setImagen] = useState('Basic');
   const [Id , setId] = useState(0);
   const [dataPosition , setDataPosition] = useState(0);
+  const [ProyectsData , setProyectsData] = useState(0);
   const [gamer , setGamer] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showDiv, setShowDiv] = useState(false);
   const [selectorValue, setSelectorValue] = useState('opcion1'); 
   const [inputValue, setInputValue] = useState('');
-  const router = useRouter();
   const [isNormal, setIsNormal] = useState(true);
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [telefono, setTelefono] = useState('');
   const [displayText, setDisplayText] = useState('');
-
+  const [proyectPosition , setproyectPosition] = useState(0);
   function toggleAnimation() {
     setIsNormal(!isNormal);
   }
+
+
 
   let text = 'Bienvenido a mi mercado, abre la pestaña a tu derecha y rellena la informacion necesaria para que pueda saber que es lo que buscas'
   useEffect(() => {
@@ -52,6 +50,12 @@ const PortfolioPage = () => {
       console.log(dataPosition)
   }
 
+  const cambioInfoImage = (data) => {
+    console.log(proyectPosition)
+      data ? setproyectPosition(proyectPosition-1) : setproyectPosition(proyectPosition+1) 
+      console.log(proyectPosition)
+  }
+
   let fondos = [
     "",
     "https://i.pinimg.com/originals/66/19/80/661980c1f6ed5448d6825d5920048bbb.gif",
@@ -62,7 +66,7 @@ const PortfolioPage = () => {
     "",
     "https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg",
     "https://i.pinimg.com/564x/ec/44/64/ec44647bcbe23e5f13cc605bc2e57d79.jpg",
-    "https://i.pinimg.com/564x/9d/e6/cd/9de6cddc05ea745de25b1d77b476efb2.jpg",
+    "https://i.pinimg.com/originals/d1/02/d6/d102d6c1f5c4997c7b268b3eda173e86.gif",
    
   ]
 
@@ -76,7 +80,7 @@ const PortfolioPage = () => {
     "https://i.pinimg.com/736x/2b/3c/3d/2b3c3d5f7633f8c76c55141efb5b43d7.jpg",
     "https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg",
     "fondo_div.png",
-    "https://i.pinimg.com/564x/9d/e6/cd/9de6cddc05ea745de25b1d77b476efb2.jpg",
+    "https://i.pinimg.com/originals/21/9a/09/219a09d5c2d9e50e4c2d20c9a03e09af.gif",
   
   ]
 
@@ -169,16 +173,16 @@ const PortfolioPage = () => {
         <div className="close-button-one" onClick={() => closeModal()}></div>
         <div className={`informacion ${imagen}`}>
          { dataPosition != 0 && <div className='anterior' onClick={ () =>cambioInfo(true)}/>} 
-       { dataPosition == 0 && <div> <h1 className='infOne'>Hola a todos!</h1>
-        <h3 className='infOne'>Mi nombre es Nahuel Pages y me considero un apasionado programador Full Stack. Durante dos años, tuve el privilegio de estudiar en la Universidad Claeh, donde profundicé mis conocimientos en diversos lenguajes de programación como JavaScript, C# y Java. 
+       { dataPosition == 0 && <div> <h1 className='infTitle'>Hola a todos!</h1>
+        <h2 className='infOne'>Mi nombre es Nahuel Pages y me considero un apasionado programador Full Stack. Durante dos años, tuve el privilegio de estudiar en la Universidad Claeh, donde profundicé mis conocimientos en diversos lenguajes de programación como JavaScript, C# y Java. 
 
         Estos estudios no solo me brindaron una sólida base técnica, sino que también me prepararon para enfrentar desafíos en tecnologías como React y SQL Server, así como en campos especializados como Ingeniería de Software y Ciberseguridad.
-        </h3>
+        </h2>
 
-        <h3 className='infTwo'>
+        <h2 className='infTwo'>
         Personalmente, mi dedicación diaria se centra en la adquisición de nuevos conocimientos y habilidades. Me entusiasma especialmente explorar tecnologías emergentes como Python y Next.js.
         Soy un ferviente creyente en el poder transformador de la programación y estoy comprometido a dar siempre lo mejor de mí para seguir creciendo y mejorando en este campo que tanto me apasiona.
-        </h3>
+        </h2>
         </div>}
 
         { dataPosition == 1 && <div> <h1 className='infOne'>Objetivo de esta pagina</h1>
@@ -210,7 +214,7 @@ const PortfolioPage = () => {
       }
       {Id === 4  &&
 
-       <div className={`container ${imagen}`}>       <div className="close-button-one" onClick={() => closeModal()}></div>
+       <div className={`container ${imagen}`}><div className="close-button-one" onClick={() => closeModal()}></div>
         <WidgetBot
           className="ds"
           server="1150805905982619670"
@@ -274,10 +278,88 @@ const PortfolioPage = () => {
               </div>
       }
           {Id === 9  &&
-              <div>
-              <div className={`container ${imagen}`}> <div className="close-button" onClick={() => closeModal()}></div> </div>
-              <p> Vamo arriba</p>
-              </div>
+            <div className={`container-9 ${imagen}`}>
+  <div className="close-button-one" onClick={() => closeModal()}></div>
+  <div className={`informacion ${imagen}`}>
+    {proyectPosition !== 0 && <div className='anterior' onClick={() => cambioInfoImage(true)}></div>}
+    {proyectPosition === 0 && (
+      <div>
+        <h1 className='infOne'>Bienvenidos a algunos de mis Proyectos</h1> 
+        <div className="explicacion-proyecto">
+            <h2 className='infTwo'>Aqui puedes encontrar algunos de los distintos proyectos que he creado en este tiempo como programador. No he colocado todos los proyectos en los que he trabajado, para eso puedes entrar a mi github si tienes conocimiento al respecto o contactar conmigo para preguntar al respecto </h2>
+          </div>
+        
+      </div>
+    )}
+    {proyectPosition === 1 && (
+      <div>
+        <h1 className='infOne'>Pagina web de ventas</h1> 
+        <div className="explicacion-proyecto">
+            <h3 className='infTwo'>Este es un proyecto conectado a una base de datos creada con Spring desde el cual se podian registrar productos, ventas y clientes para una mejor gestion dentro de la empresa</h3>
+          </div>
+        <div className="image-description-container">
+        <picture>
+            <source srcSet="ProyectoDDA2Movil.jpg" media="(max-width: 768px)" />
+            <source srcSet="Proyectos2DDA.png" />
+            <img src="Proyectos2DDA.png" alt="Imagen de una web de ventas" className="imagen-proyecto" />
+          </picture>
+          <picture>
+          <source srcSet="SpringMovil.png" media="(max-width: 768px)" />
+            <source srcSet="ProyectoSpring.png" />
+            <img src="ProyectoSpring.png" alt="Imagen de codigo de una api" className="imagen-proyecto" />
+          </picture>
+        </div>
+      </div>
+    )}
+    {proyectPosition === 2 && (
+      <div>
+        <h1 className='infOne'>Pagina web para Cine</h1> 
+        <div className="explicacion-proyecto">
+            <h3 className='infTwo'>Este es un proyecto creado con Entity framework creado para simular la compra y/o administracion de peliculas de manera sencilla y eficaz</h3>
+          </div>
+        <div className="image-description-container">
+        <picture>
+            <source srcSet="CinepicoMovil.jpg" media="(max-width: 768px)" />
+            <source srcSet="Cinepico.jpg" />
+            <img src="Cinepico.jpg" alt="Imagen de web de cine" className="imagen-proyecto" />
+          </picture>
+         
+        </div>
+      </div>
+    )}
+    {proyectPosition === 3 && (
+      <div>
+        <h1 className='infOne'>Aplicacion Movil para farmacia</h1> 
+        <div className="explicacion-proyecto">
+            <h3 className='infTwo'>Este proyecto es una aplicacion movil creada con react native para la organizacion de una farmacia natural</h3>
+          </div>
+        <div className="image-description-container">
+        <picture>
+            <source srcSet="FruitFarm.jpg" />
+            <img src="FruitFarm.jpg" alt="Imagen de app movil" className="imagen-proyecto-Fruit" />
+          </picture>
+         
+        </div>
+      </div>
+    )}
+    {proyectPosition === 4 && (
+      <div>
+        <h1 className='infOne'>Arbol binario de datos</h1> 
+        <div className="explicacion-proyecto">
+            <h3 className='infTwo'>Este proyecto creado en java maneja el uso de arboles binarios de datos para mantener un control automatizado y sencillo sobre los tabajadores de empresas</h3>
+          </div>
+        <div className="image-description-container">
+        <picture>
+            <source srcSet="ABBJava.jpg" />
+            <img src="ABBJava.jpg" alt="Imagen de codigo en java" className="imagen-proyecto" />
+          </picture>
+         
+        </div>
+      </div>
+    )}
+     {proyectPosition != 4 && <div className='siguiente' onClick={() => cambioInfoImage(false)}/>}
+  </div>
+</div>
       }
     </div>
    </div>   
