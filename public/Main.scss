@@ -64,7 +64,7 @@
           padding-top: 25%;
           height: 70% !important;
           gap: 3px !important;
-          font-size: 0.7em;
+          font-size: 0.5em;
       }
       .transitioning-div {
         &.transitioning {
@@ -89,6 +89,10 @@
         height: 100% !important;
         width: 100% !important;
       }
+      .container2.Basic{
+        background-image: url('https://i.pinimg.com/originals/b2/65/0f/b2650fcf2018a115ac0aad40d4efd88e.gif');
+        background-size: cover !important;
+      }
       .modal-content{
        height: 100% !important;
         width: 100% !important;
@@ -103,7 +107,12 @@
       }
 
       .chat-burbuja {
-        width: 250px !important;
+        width: 60% !important;
+      }
+      .chat-burbuja.Basic {
+        top: 65% !important;
+        left: 50% !important;
+        width: 60% !important;
       }
 
       .form-container {
@@ -118,10 +127,10 @@
       }
       .chat-burbuja {
         top: 40% !important;
-        padding: 10% !important;
-
-      
+        padding: 5% !important;
+        font-size: 0.6 !important;
       }
+
   }
  
   .one {
@@ -296,26 +305,12 @@
 .eight {
   grid-column: 2/4;
   grid-row: 5 / 7;
-  background-color: rgb(255, 255, 255);
   border-radius: 8px;
-  
- transition: transform 0.2s ease-in-out;
- background-size: 100% 100%;
-  background-repeat: no-repeat;
+  transition: transform 0.2s ease-in-out;
   border: 1.5px solid white;
   position: relative;
 }
-.eight.Basic { 
-  background-image:url('https://img.freepik.com/vetores-gratis/folhas-realistas-com-moldura-de-neon-azul_52683-33597.jpg?w=900&t=st=1708565344~exp=1708565944~hmac=d76991fa92a9910c0251ae8079c7d25a63b64656afe11a6bdc86d07effb97047') ;
 
-  opacity: .8;
-}
-
-
-.eight.Gamer {
-  background-image: url('https://i.pinimg.com/564x/1d/3e/4b/1d3e4bee5211b738a3ed4e88cd92240c.jpg');
-  background-size: 100% 100%;
-}
 
  
   .nine {
@@ -345,7 +340,6 @@
     grid-column: 4;
     grid-row: 7 / 9;
     border: 1.5px solid white;
-   
     transition: transform 0.2s ease-in-out;
     background-size:100% 100%;
     background-repeat: no-repeat;
@@ -645,6 +639,10 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   overflow: auto;
 }
 
+.container2.Basic{
+  background-image: url('https://i.pinimg.com/originals/b2/65/0f/b2650fcf2018a115ac0aad40d4efd88e.gif');
+}
+
 
 
 .a-div{
@@ -682,13 +680,16 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
   background-color: #000000c2;
   color: white;
   width: 20%;
-  padding: 3%;
+  padding: 2%;
   border: 1px solid #ccc;
-  border-radius: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
 }
 
+.chat-burbuja.Basic {
+  top: 20%;
+  left: 65%;
+}
 .SecondBody{
   height: auto;
   background-position:100% 100%;
@@ -864,4 +865,9 @@ color: white;
   height: 60%;
   width: 60%;
   animation: appear 2.5s forwards;
+}
+
+.video{
+  width: 100%;
+  height: 100%;
 }
