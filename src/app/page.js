@@ -221,7 +221,7 @@ const PortfolioPage = () => {
      {Id === 5 &&          
   <div className= {`container2 ${imagen}`}> 
     <div className={`close-button ${isNormal ? 'normal' : 'ampliado'}`} onClick={() => closeModal()}></div>
-    <div className={`chat-burbuja ${imagen}`} onClick={() => handleBurbuja()}> 
+    <div className={`chat-burbuja ${imagen}`}> 
      {displayText}
     </div> 
     <div className={`fondo-comercio ${isNormal ? 'normal' : 'ampliado'}`}>
