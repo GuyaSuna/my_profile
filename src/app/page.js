@@ -25,7 +25,7 @@ const PortfolioPage = () => {
     setIsNormal(!isNormal);
   }
 
-  let text = 'Bienvenido a mi mercado, abre la pestaña a tu derecha y rellena la informacion necesaria para que pueda saber que buscas.'
+  let text = 'Bienvenido a mi mercado, esto todavia esta en desarrollo. Vuelve mas tarde y tal vez esté listo ;).'
   
 
   useEffect(() => {
@@ -42,7 +42,9 @@ const PortfolioPage = () => {
     return () => clearInterval(intervalId);
   }, [Id==5]);
 
-
+  const handleClick = () => {
+    alert('Esto todavia no esta funcionando')
+  }
   const cambioInfo = (data) => {
       console.log(dataPosition)
       data ? setDataPosition(dataPosition-1) : setDataPosition(dataPosition+1) 
