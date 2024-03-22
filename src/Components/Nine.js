@@ -1,6 +1,6 @@
 import React , {useState}from 'react';
 
-const Nine = (imagen , closeModal) => {
+const Nine = ({ imagen, closeModal }) => {
 
     const [proyectPosition , setproyectPosition] = useState(0);
 

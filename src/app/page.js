@@ -139,7 +139,7 @@ const PortfolioPage = () => {
      </>
       }
       {Id === 4  &&
-      <Four imagen={imagen} closeModal={ () => closeModal()}/>
+      <Four imagen={imagen} closeModal={() => closeModal()}/>
       }
      {Id === 5 &&          
      <Five imagen={imagen} closeModal={() => closeModal()} />

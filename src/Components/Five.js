@@ -1,6 +1,6 @@
 import React , {useState , useEffect}from 'react';
 
-const Five = (imagen , closeModal) => {
+const Five = ({ imagen, closeModal }) => {
 
     const [selectorValue, setSelectorValue] = useState('opcion1'); 
     const [inputValue, setInputValue] = useState(''); 
