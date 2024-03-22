@@ -12,7 +12,7 @@ const Nine = ({ imagen, closeModal }) => {
 
     return(
         <div className={`container-9 ${imagen}`}>
-        <div className="close-button-one" onClick={() => closeModal()}></div>
+        <div className="close-button-one" onClick={() => closeModal()}  tabIndex={0}></div>
         <div className={`informacion ${imagen}`}>
           {proyectPosition !== 0 && <div className='anterior' onClick={() => cambioInfoImage(true)}></div>}
           {proyectPosition === 0 && (
