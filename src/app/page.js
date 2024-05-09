@@ -110,7 +110,7 @@ const PortfolioPage = () => {
   };
 
   return (
-    <>
+    <React.Fragment>
       {showDiv && (
         <div
           className={`transitioning-div${
@@ -231,7 +231,7 @@ const PortfolioPage = () => {
           </div>
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
