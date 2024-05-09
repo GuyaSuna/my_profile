@@ -25,7 +25,7 @@ const PortfolioPage = () => {
     "",
     "https://w0.peakpx.com/wallpaper/701/1001/HD-wallpaper-among-us-minimalist-black-background-among-us.jpg",
     "https://i.pinimg.com/564x/ec/44/64/ec44647bcbe23e5f13cc605bc2e57d79.jpg",
-    "https://i.pinimg.com/originals/c4/0d/b6/c40db678aa354ba91257f6258a1521e1.gif",
+    "https://c.wallhere.com/photos/dc/da/simple_background-72040.jpg!d",
   ];
 
   let fondosGamer = [
