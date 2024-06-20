@@ -66,7 +66,7 @@ const PortfolioPage = () => {
     setShowDiv(true);      
     setTimeout(() => {
 
-gamer ? setGamer(false) : setGamer(true);
+    gamer ? setGamer(false) : setGamer(true);
     gamer ? setImagen("Basic") : setImagen("Gamer");
     }, 2000);
     
@@ -98,11 +98,11 @@ gamer ? setGamer(false) : setGamer(true);
   };
 
   const descargarCurriculum = () => {
-    const url = "/curriculum.pdf";
+    const url = "/CurriculumNahuelPages.pdf";
 
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "curriculum.pdf");
+    link.setAttribute("download", "CurriculumNahuelPages.pdf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
