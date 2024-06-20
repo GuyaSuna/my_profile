@@ -63,10 +63,15 @@ const PortfolioPage = () => {
   };
   const cambiarImagen = () => {
     setIsTransitioning(true);
-    setShowDiv(true);
+    setShowDiv(true);      
     setTimeout(() => {
-      gamer ? setGamer(false) : setGamer(true);
-      gamer ? setImagen("Basic") : setImagen("Gamer");
+
+gamer ? setGamer(false) : setGamer(true);
+    gamer ? setImagen("Basic") : setImagen("Gamer");
+    }, 2000);
+    
+    setTimeout(() => {
+
       setIsTransitioning(false);
       setShowDiv(false);
     }, 2000);
