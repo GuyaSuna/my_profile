@@ -6,6 +6,7 @@ import One from "@/Components/One";
 import Four from "@/Components/Four";
 import Five from "@/Components/Five";
 import Nine from "@/Components/Nine";
+
 const PortfolioPage = () => {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,6 +15,7 @@ const PortfolioPage = () => {
   const [gamer, setGamer] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showDiv, setShowDiv] = useState(false);
+  const [expandingId, setExpandingId] = useState(null);
 
   let fondos = [
     "",
@@ -44,7 +46,8 @@ const PortfolioPage = () => {
   useEffect(() => {
     if (Id !== 0) {
       setIsModalOpen(true);
-      // Desactivar los tabindex de los elementos fuera del modal
+      setTimeout(() => setIsTransitioning(true), 100); 
+
       const elementsToDisable = document.querySelectorAll(".wrapper > div, .video");
       elementsToDisable.forEach((element) => {
         element.setAttribute("tabIndex", "-1");
@@ -53,53 +56,50 @@ const PortfolioPage = () => {
   }, [Id]);
 
   const closeModal = () => {
-    setIsModalOpen(false);
-    setId(0);
-    // Activar los tabindex de los elementos fuera del modal cuando se cierra
-    const elementsToEnable = document.querySelectorAll(".wrapper > div, .video");
-    elementsToEnable.forEach((element) => {
-      element.setAttribute("tabIndex", "0");
-    });
+    setIsTransitioning(false);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setId(0);
+      setExpandingId(null);
+
+      
+      const elementsToEnable = document.querySelectorAll(".wrapper > div, .video");
+      elementsToEnable.forEach((element) => {
+        element.setAttribute("tabIndex", "0");
+      });
+    }, 300); 
   };
+
   const cambiarImagen = () => {
     setIsTransitioning(true);
-    setShowDiv(true);      
+    setShowDiv(true);
     setTimeout(() => {
-
-    gamer ? setGamer(false) : setGamer(true);
-    gamer ? setImagen("Basic") : setImagen("Gamer");
+      gamer ? setGamer(false) : setGamer(true);
+      gamer ? setImagen("Basic") : setImagen("Gamer");
     }, 2000);
-    
-    setTimeout(() => {
 
+    setTimeout(() => {
       setIsTransitioning(false);
       setShowDiv(false);
     }, 2000);
   };
 
-
-
-  
   const handleModalClick = (e) => {
     if (e.target.classList.contains("modal")) {
       closeModal();
     }
   };
-  useEffect(() => {
-    if (Id != 0) {
-      setIsModalOpen(true);
-    }
-  }, [Id]);
+
   const handleSix = () => {
     router.push("https://www.linkedin.com/in/nahuel-pages-96915724b/");
   };
+
   const handleTwo = () => {
     router.push("https://github.com/GuyaSuna");
   };
 
   const descargarCurriculum = () => {
     const url = "/CurriculumNahuelPages.pdf";
-
     const link = document.createElement("a");
     link.href = url;
     link.setAttribute("download", "CurriculumNahuelPages.pdf");
@@ -114,39 +114,40 @@ const PortfolioPage = () => {
     }
   };
 
+  const openModal = (id) => {
+
+    setTimeout(() => setId(id), 300); // Delay to allow the expansion animation
+  };
+
   return (
     <React.Fragment>
       {showDiv && (
-        <div
-          className={`transitioning-div${
-            isTransitioning ? " transitioning" : ""
-          }`}
-        ></div>
+        <div className={`transitioning-div${isTransitioning ? " transitioning" : ""}`}></div>
       )}
       {!showDiv && (
         <div className={`SecondBody ${imagen}`}>
           <div className={`wrapper${isTransitioning ? " transitioning" : ""}`}>
             <div
-              className={`five ${imagen}`}
+              className={`five ${imagen} ${expandingId === 5 ? "expanding" : ""}`}
               tabIndex={0}
-              onClick={() => setId(5)}
-              onKeyDown={(e) => handleKeyDown(e, () => setId(5))}
+              onClick={() => openModal(5)}
+              onKeyDown={(e) => handleKeyDown(e, () => openModal(5))}
             >
               <div className="overlay">Tienda de Software</div>
             </div>
             <div
-              className={`one ${imagen}`}
+              className={`one ${imagen} ${expandingId === 1 ? "expanding" : ""}`}
               tabIndex={0}
-              onClick={() => setId(1)}
-              onKeyDown={(e) => handleKeyDown(e, () => setId(1))}
+              onClick={() => openModal(1)}
+              onKeyDown={(e) => handleKeyDown(e, () => openModal(1))}
             >
               <div className="overlay">Acerca de mi</div>
             </div>
             <div
-              className={`nine ${imagen}`}
+              className={`nine ${imagen} ${expandingId === 9 ? "expanding" : ""}`}
               tabIndex={0}
-              onClick={() => setId(9)}
-              onKeyDown={(e) => handleKeyDown(e, () => setId(9))}
+              onClick={() => openModal(9)}
+              onKeyDown={(e) => handleKeyDown(e, () => openModal(9))}
             >
               <div className="overlay">Proyectos</div>
             </div>
@@ -190,16 +191,14 @@ const PortfolioPage = () => {
             >
               <div className="overlay">Curriculum</div>
             </div>
-
             <div
-              className={`four ${imagen}`}
+              className={`four ${imagen} ${expandingId === 4 ? "expanding" : ""}`}
               tabIndex={0}
-              onClick={() => setId(4)}
-              onKeyDown={(e) => handleKeyDown(e, () => setId(4))}
+              onClick={() => openModal(4)}
+              onKeyDown={(e) => handleKeyDown(e, () => openModal(4))}
             >
               <div className="overlay">Canal de Discord</div>
             </div>
-
             <div
               className={`ten ${imagen}`}
               tabIndex={0}
@@ -212,27 +211,17 @@ const PortfolioPage = () => {
         </div>
       )}
       {isModalOpen && (
-        <div className="modal" onClick={handleModalClick}>
+        <div className={`modal${isTransitioning ? " show" : ""}`} onClick={handleModalClick}>
           <div
             className="modal-content"
             style={{
               backgroundImage: `url(${gamer ? fondosGamer[Id] : fondos[Id]})`,
             }}
           >
-            {Id === 1 && (
-              <>
-                <One imagen={imagen} closeModal={() => closeModal()} />
-              </>
-            )}
-            {Id === 4 && (
-              <Four imagen={imagen} closeModal={() => closeModal()} />
-            )}
-            {Id === 5 && (
-              <Five imagen={imagen} closeModal={() => closeModal()} />
-            )}
-            {Id === 9 && (
-              <Nine imagen={imagen} closeModal={() => closeModal()} />
-            )}
+            {Id === 1 && <One imagen={imagen} closeModal={() => closeModal()} />}
+            {Id === 4 && <Four imagen={imagen} closeModal={() => closeModal()} />}
+            {Id === 5 && <Five imagen={imagen} closeModal={() => closeModal()} />}
+            {Id === 9 && <Nine imagen={imagen} closeModal={() => closeModal()} />}
           </div>
         </div>
       )}
@@ -241,5 +230,3 @@ const PortfolioPage = () => {
 };
 
 export default PortfolioPage;
-
-//porfolio-415712

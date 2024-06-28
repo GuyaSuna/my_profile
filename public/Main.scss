@@ -363,7 +363,6 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
     background-image: url('https://i.pinimg.com/originals/6a/b5/19/6ab5193fd83c03eca09a2a378a2db418.gif');
   }
   
-
   .modal {
     position: fixed;
     top: 0;
@@ -374,20 +373,29 @@ background-image: url("https://usagif.com/wp-content/uploads/2021/4fh5wi/animate
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s ease-in-out;
     overflow: auto;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .modal.show {
+    display: flex;
   }
   
   .modal-content {
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position-y: center;
-    width: 90%; 
-    height: 90%; 
+    width: 90%;
+    height: 90%;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    overflow: auto;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .modal.show .modal-content {
+    transform: scale(1);
   }
   
   
