@@ -112,7 +112,7 @@ const PortfolioPage = () => {
     if (event.key === "Enter") {
       callback();
     }
-  };
+  }; 
 
   const openModal = (id) => {
 
