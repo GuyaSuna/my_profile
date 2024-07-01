@@ -99,25 +99,14 @@ const PortfolioPage = () => {
   };
 
   const descargarCurriculum = () => {
-    const url = "/CurriculumNahuelPages.pdf";
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error al descargar el archivo');
-        }
-        return response.blob();
-      })
-      .then(blob => {
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.setAttribute('download', 'CurriculumNahuelPages.pdf');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      })
-      .catch(error => console.error('Error al descargar el archivo:', error));
+    const url = "/curriculum.pdf";
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "curriculum.pdf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
-  
 
   const handleKeyDown = (event, callback) => {
     if (event.key === "Enter") {
