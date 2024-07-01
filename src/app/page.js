@@ -99,10 +99,10 @@ const PortfolioPage = () => {
   };
 
   const descargarCurriculum = () => {
-    const url = "/curriculum.pdf";
+    const url = "/CurriculumNahuelPages.pdf";
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "curriculum.pdf");
+    link.setAttribute("download", "CurriculumNahuelPages.pdf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -116,7 +116,7 @@ const PortfolioPage = () => {
 
   const openModal = (id) => {
 
-    setTimeout(() => setId(id), 300); // Delay to allow the expansion animation
+    setTimeout(() => setId(id), 300); 
   };
 
   return (
