@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 import "../../public/Main.scss";
 import { useRouter } from "next/navigation";
@@ -62,6 +62,7 @@ const PortfolioPage = () => {
       setId(0);
       setExpandingId(null);
 
+      
       const elementsToEnable = document.querySelectorAll(".wrapper > div, .video");
       elementsToEnable.forEach((element) => {
         element.setAttribute("tabIndex", "0");
@@ -97,6 +98,16 @@ const PortfolioPage = () => {
     router.push("https://github.com/GuyaSuna");
   };
 
+  const descargarCurriculum = () => {
+    const url = "/curriculum.pdf";
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "curriculum.pdf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleKeyDown = (event, callback) => {
     if (event.key === "Enter") {
       callback();
@@ -104,6 +115,7 @@ const PortfolioPage = () => {
   };
 
   const openModal = (id) => {
+
     setTimeout(() => setId(id), 300); // Delay to allow the expansion animation
   };
 
@@ -174,10 +186,10 @@ const PortfolioPage = () => {
             <div
               className={`seven ${imagen}`}
               tabIndex={0}
+              onClick={() => descargarCurriculum()}
+              onKeyDown={(e) => handleKeyDown(e, descargarCurriculum)}
             >
-              <a href="/CurriculumNahuelPages.pdf" download="CurriculumNahuelPages.pdf" className="overlay">
-                Curriculum
-              </a>
+              <div className="overlay">Curriculum</div>
             </div>
             <div
               className={`four ${imagen} ${expandingId === 4 ? "expanding" : ""}`}
