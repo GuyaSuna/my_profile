@@ -99,7 +99,7 @@ const PortfolioPage = () => {
   };
 
   const descargarCurriculum = () => {
-    const url = "/CurriculumNahuelPages.pdf";
+    const url = "CurriculumNahuelPages.pdf";
     const link = document.createElement("a");
     link.href = url;
     link.setAttribute("download", "CurriculumNahuelPages.pdf");
