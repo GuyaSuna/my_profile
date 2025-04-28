@@ -46,9 +46,11 @@ const PortfolioPage = () => {
   useEffect(() => {
     if (Id !== 0) {
       setIsModalOpen(true);
-      setTimeout(() => setIsTransitioning(true), 100); 
+      setTimeout(() => setIsTransitioning(true), 100);
 
-      const elementsToDisable = document.querySelectorAll(".wrapper > div, .video");
+      const elementsToDisable = document.querySelectorAll(
+        ".wrapper > div, .video"
+      );
       elementsToDisable.forEach((element) => {
         element.setAttribute("tabIndex", "-1");
       });
@@ -62,12 +64,13 @@ const PortfolioPage = () => {
       setId(0);
       setExpandingId(null);
 
-      
-      const elementsToEnable = document.querySelectorAll(".wrapper > div, .video");
+      const elementsToEnable = document.querySelectorAll(
+        ".wrapper > div, .video"
+      );
       elementsToEnable.forEach((element) => {
         element.setAttribute("tabIndex", "0");
       });
-    }, 300); 
+    }, 300);
   };
 
   const cambiarImagen = () => {
@@ -99,10 +102,10 @@ const PortfolioPage = () => {
   };
 
   const descargarCurriculum = () => {
-    const url = "CurriculumNahuelPages.pdf";
+    const url = "CV Nahuel_Pages.pdf";
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "CurriculumNahuelPages.pdf");
+    link.setAttribute("download", "CV Nahuel_Pages.pdf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -112,23 +115,28 @@ const PortfolioPage = () => {
     if (event.key === "Enter") {
       callback();
     }
-  }; 
+  };
 
   const openModal = (id) => {
-
-    setTimeout(() => setId(id), 300); 
+    setTimeout(() => setId(id), 300);
   };
 
   return (
     <React.Fragment>
       {showDiv && (
-        <div className={`transitioning-div${isTransitioning ? " transitioning" : ""}`}></div>
+        <div
+          className={`transitioning-div${
+            isTransitioning ? " transitioning" : ""
+          }`}
+        ></div>
       )}
       {!showDiv && (
         <div className={`SecondBody ${imagen}`}>
           <div className={`wrapper${isTransitioning ? " transitioning" : ""}`}>
             <div
-              className={`five ${imagen} ${expandingId === 5 ? "expanding" : ""}`}
+              className={`five ${imagen} ${
+                expandingId === 5 ? "expanding" : ""
+              }`}
               tabIndex={0}
               onClick={() => openModal(5)}
               onKeyDown={(e) => handleKeyDown(e, () => openModal(5))}
@@ -136,7 +144,9 @@ const PortfolioPage = () => {
               <div className="overlay">Tienda de Software</div>
             </div>
             <div
-              className={`one ${imagen} ${expandingId === 1 ? "expanding" : ""}`}
+              className={`one ${imagen} ${
+                expandingId === 1 ? "expanding" : ""
+              }`}
               tabIndex={0}
               onClick={() => openModal(1)}
               onKeyDown={(e) => handleKeyDown(e, () => openModal(1))}
@@ -144,7 +154,9 @@ const PortfolioPage = () => {
               <div className="overlay">Acerca de mi</div>
             </div>
             <div
-              className={`nine ${imagen} ${expandingId === 9 ? "expanding" : ""}`}
+              className={`nine ${imagen} ${
+                expandingId === 9 ? "expanding" : ""
+              }`}
               tabIndex={0}
               onClick={() => openModal(9)}
               onKeyDown={(e) => handleKeyDown(e, () => openModal(9))}
@@ -192,7 +204,9 @@ const PortfolioPage = () => {
               <div className="overlay">Curriculum</div>
             </div>
             <div
-              className={`four ${imagen} ${expandingId === 4 ? "expanding" : ""}`}
+              className={`four ${imagen} ${
+                expandingId === 4 ? "expanding" : ""
+              }`}
               tabIndex={0}
               onClick={() => openModal(4)}
               onKeyDown={(e) => handleKeyDown(e, () => openModal(4))}
@@ -211,17 +225,28 @@ const PortfolioPage = () => {
         </div>
       )}
       {isModalOpen && (
-        <div className={`modal${isTransitioning ? " show" : ""}`} onClick={handleModalClick}>
+        <div
+          className={`modal${isTransitioning ? " show" : ""}`}
+          onClick={handleModalClick}
+        >
           <div
             className="modal-content"
             style={{
               backgroundImage: `url(${gamer ? fondosGamer[Id] : fondos[Id]})`,
             }}
           >
-            {Id === 1 && <One imagen={imagen} closeModal={() => closeModal()} />}
-            {Id === 4 && <Four imagen={imagen} closeModal={() => closeModal()} />}
-            {Id === 5 && <Five imagen={imagen} closeModal={() => closeModal()} />}
-            {Id === 9 && <Nine imagen={imagen} closeModal={() => closeModal()} />}
+            {Id === 1 && (
+              <One imagen={imagen} closeModal={() => closeModal()} />
+            )}
+            {Id === 4 && (
+              <Four imagen={imagen} closeModal={() => closeModal()} />
+            )}
+            {Id === 5 && (
+              <Five imagen={imagen} closeModal={() => closeModal()} />
+            )}
+            {Id === 9 && (
+              <Nine imagen={imagen} closeModal={() => closeModal()} />
+            )}
           </div>
         </div>
       )}
