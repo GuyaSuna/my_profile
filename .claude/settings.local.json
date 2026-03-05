@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(start index.html)"
+      "Bash(start index.html)",
+      "Bash(npm install -D tailwindcss postcss autoprefixer)",
+      "Bash(npx tailwindcss init -p)",
+      "Bash(npm install)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)"
     ],
     "deny": [],
     "ask": []
