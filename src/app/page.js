@@ -4,8 +4,19 @@ import React, { useState } from "react";
 const PortfolioPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState('');
+  const [activeModal, setActiveModal] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    serviceType: '',
+    description: '',
+    budget: '',
+    timeline: ''
+  });
 
   const openModal = (type) => {
+    setActiveModal(type);
     let content = '';
 
     switch(type) {
@@ -58,13 +69,7 @@ const PortfolioPage = () => {
         `;
         break;
       case 'store':
-        content = `
-          <div class="text-center">
-            <h3 class="text-lg font-semibold mb-2 text-white">Tienda de Software</h3>
-            <p class="text-slate-300 mb-4">Aquí podrás encontrar mis proyectos y aplicaciones desarrolladas.</p>
-            <p class="text-sm text-slate-400">¡Próximamente más contenido!</p>
-          </div>
-        `;
+        // Este caso se maneja con un componente personalizado
         break;
       case 'discord':
         content = `
@@ -76,16 +81,7 @@ const PortfolioPage = () => {
         `;
         break;
       case 'contact':
-        content = `
-          <div class="space-y-4">
-            <p class="text-slate-300">¿Tienes una idea increíble? ¡Me encantaría trabajar contigo!</p>
-            <div class="space-y-3">
-              <p class="text-white"><strong>Email:</strong> <a href="mailto:nahuel.pages@ejemplo.com" class="text-primary hover:underline">nahuel.pages@ejemplo.com</a></p>
-              <p class="text-white"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nahuel-pages-96915724b/" class="text-primary hover:underline" target="_blank">Nahuel Pages</a></p>
-              <p class="text-white"><strong>GitHub:</strong> <a href="https://github.com/GuyaSuna" class="text-primary hover:underline" target="_blank">GuyaSuna</a></p>
-            </div>
-          </div>
-        `;
+        // Este caso se maneja con un componente personalizado
         break;
     }
 
@@ -95,6 +91,71 @@ const PortfolioPage = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setActiveModal('');
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      serviceType: '',
+      description: '',
+      budget: '',
+      timeline: ''
+    });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validación básica
+    if (!formData.name || !formData.email || !formData.serviceType || !formData.description) {
+      alert('Por favor completa todos los campos obligatorios');
+      return;
+    }
+
+    try {
+      // Crear el contenido del email
+      const emailBody = `
+NUEVA SOLICITUD DE PROYECTO
+
+Cliente: ${formData.name}
+Email: ${formData.email}
+Teléfono: ${formData.phone || 'No especificado'}
+
+Tipo de Servicio: ${formData.serviceType}
+Presupuesto: ${formData.budget || 'No especificado'}
+Tiempo: ${formData.timeline || 'No especificado'}
+
+Descripción del Proyecto:
+${formData.description}
+
+---
+Enviado desde el portfolio web
+      `;
+
+      // Abrir cliente de email del usuario
+      const subject = encodeURIComponent(`Nueva solicitud: ${formData.serviceType} - ${formData.name}`);
+      const body = encodeURIComponent(emailBody);
+      const mailtoLink = `mailto:Nahuel01pages@gmail.com?subject=${subject}&body=${body}`;
+
+      window.open(mailtoLink);
+
+      // También mostrar los datos en consola para backup
+      console.log('Datos del formulario:', formData);
+
+      alert('¡Solicitud enviada! Te contactaré pronto para discutir tu proyecto.');
+      closeModal();
+    } catch (error) {
+      console.error('Error al enviar:', error);
+      alert('Error al enviar la solicitud. Por favor intenta nuevamente.');
+    }
   };
 
   const openLinkedIn = () => {
@@ -203,18 +264,18 @@ const PortfolioPage = () => {
         </div>
 
         {/* Social/Contact Tile */}
-        <div className="col-span-1 md:col-span-1 row-span-1 bg-white dark:bg-slate-900 rounded-xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col justify-center gap-4">
-          <button onClick={openLinkedIn} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
-            <span className="font-bold text-sm">LinkedIn</span>
-            <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">arrow_outward</span>
+        <div className="col-span-1 md:col-span-1 row-span-1 bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col justify-center gap-3 overflow-hidden">
+          <button onClick={openLinkedIn} className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer min-w-0">
+            <span className="font-bold text-sm truncate">LinkedIn</span>
+            <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors flex-shrink-0 ml-2 text-lg">arrow_outward</span>
           </button>
-          <button onClick={openGitHub} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
-            <span className="font-bold text-sm">GitHub</span>
-            <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">arrow_outward</span>
+          <button onClick={openGitHub} className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer min-w-0">
+            <span className="font-bold text-sm truncate">GitHub</span>
+            <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors flex-shrink-0 ml-2 text-lg">arrow_outward</span>
           </button>
-          <button onClick={() => openModal('discord')} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
-            <span className="font-bold text-sm">Discord</span>
-            <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">arrow_outward</span>
+          <button onClick={() => openModal('discord')} className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer min-w-0">
+            <span className="font-bold text-sm truncate">Discord</span>
+            <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors flex-shrink-0 ml-2 text-lg">arrow_outward</span>
           </button>
         </div>
 
@@ -266,12 +327,227 @@ const PortfolioPage = () => {
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={closeModal}>
           <div className="bg-slate-900 rounded-xl p-8 max-w-2xl max-h-[90vh] overflow-y-auto m-4" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-white">Información</h2>
+              <h2 className="text-2xl font-bold text-white">
+                {activeModal === 'store' ? 'Tienda de Software' :
+                 activeModal === 'contact' ? 'Iniciar Proyecto' : 'Información'}
+              </h2>
               <button onClick={closeModal} className="text-slate-400 hover:text-slate-300">
                 <span className="material-symbols-outlined">close</span>
               </button>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: modalContent }} />
+
+            {/* Contenido del modal de la tienda */}
+            {activeModal === 'store' && (
+              <div className="space-y-6">
+                <div className="text-center mb-8">
+                  <p className="text-slate-300 text-lg mb-4">
+                    Desarrollo software personalizado para tu negocio
+                  </p>
+                  <p className="text-slate-400">
+                    Selecciona el tipo de servicio que necesitas y cuéntame sobre tu proyecto
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-slate-800 rounded-lg p-6 text-center border border-slate-700 hover:border-primary/50 transition-colors cursor-pointer"
+                       onClick={() => {
+                         setFormData(prev => ({ ...prev, serviceType: 'Página Web' }));
+                         setActiveModal('contact');
+                       }}>
+                    <span className="material-symbols-outlined text-4xl text-primary mb-3 block">language</span>
+                    <h3 className="text-white font-bold mb-2">Página Web</h3>
+                    <p className="text-slate-400 text-sm">Sitios web responsivos, landing pages, portfolios</p>
+                    <p className="text-primary text-xs mt-2">Desde $300</p>
+                  </div>
+
+                  <div className="bg-slate-800 rounded-lg p-6 text-center border border-slate-700 hover:border-primary/50 transition-colors cursor-pointer"
+                       onClick={() => {
+                         setFormData(prev => ({ ...prev, serviceType: 'Aplicación Web' }));
+                         setActiveModal('contact');
+                       }}>
+                    <span className="material-symbols-outlined text-4xl text-primary mb-3 block">web</span>
+                    <h3 className="text-white font-bold mb-2">Aplicación Web</h3>
+                    <p className="text-slate-400 text-sm">Apps web interactivas, dashboards, sistemas</p>
+                    <p className="text-primary text-xs mt-2">Desde $800</p>
+                  </div>
+
+                  <div className="bg-slate-800 rounded-lg p-6 text-center border border-slate-700 hover:border-primary/50 transition-colors cursor-pointer"
+                       onClick={() => {
+                         setFormData(prev => ({ ...prev, serviceType: 'E-commerce' }));
+                         setActiveModal('contact');
+                       }}>
+                    <span className="material-symbols-outlined text-4xl text-primary mb-3 block">shopping_cart</span>
+                    <h3 className="text-white font-bold mb-2">E-commerce</h3>
+                    <p className="text-slate-400 text-sm">Tiendas online, carritos de compra, pagos</p>
+                    <p className="text-primary text-xs mt-2">Desde $1200</p>
+                  </div>
+
+                  <div className="bg-slate-800 rounded-lg p-6 text-center border border-slate-700 hover:border-primary/50 transition-colors cursor-pointer"
+                       onClick={() => {
+                         setFormData(prev => ({ ...prev, serviceType: 'Aplicación de Escritorio' }));
+                         setActiveModal('contact');
+                       }}>
+                    <span className="material-symbols-outlined text-4xl text-primary mb-3 block">desktop_windows</span>
+                    <h3 className="text-white font-bold mb-2">App de Escritorio</h3>
+                    <p className="text-slate-400 text-sm">Software para Windows, gestión, herramientas</p>
+                    <p className="text-primary text-xs mt-2">Desde $600</p>
+                  </div>
+                </div>
+
+                <div className="text-center mt-8">
+                  <button
+                    onClick={() => setActiveModal('contact')}
+                    className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all"
+                  >
+                    Solicitar Cotización Personalizada
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Formulario de contacto */}
+            {activeModal === 'contact' && (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="text-center mb-6">
+                  <p className="text-slate-300">
+                    Cuéntame sobre tu proyecto y te enviaré una propuesta personalizada
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-white font-semibold mb-2">Nombre *</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
+                      placeholder="Tu nombre completo"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-white font-semibold mb-2">Email *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
+                      placeholder="tu@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-white font-semibold mb-2">Teléfono</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
+                      placeholder="+598 XX XXX XXX"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-white font-semibold mb-2">Tipo de Servicio *</label>
+                    <select
+                      name="serviceType"
+                      value={formData.serviceType}
+                      onChange={handleInputChange}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
+                      required
+                    >
+                      <option value="">Seleccionar servicio</option>
+                      <option value="Página Web">Página Web</option>
+                      <option value="Aplicación Web">Aplicación Web</option>
+                      <option value="E-commerce">E-commerce</option>
+                      <option value="Aplicación de Escritorio">Aplicación de Escritorio</option>
+                      <option value="Consultoría">Consultoría</option>
+                      <option value="Otro">Otro</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-white font-semibold mb-2">Descripción del Proyecto *</label>
+                  <textarea
+                    name="description"
+                    value={formData.description}
+                    onChange={handleInputChange}
+                    rows="4"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
+                    placeholder="Describe tu proyecto, funcionalidades necesarias, objetivos, etc."
+                    required
+                  ></textarea>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-white font-semibold mb-2">Presupuesto Estimado</label>
+                    <select
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleInputChange}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
+                    >
+                      <option value="">Seleccionar rango</option>
+                      <option value="$200-500">$200 - $500</option>
+                      <option value="$500-1000">$500 - $1,000</option>
+                      <option value="$1000-2000">$1,000 - $2,000</option>
+                      <option value="$2000-5000">$2,000 - $5,000</option>
+                      <option value="$5000+">Más de $5,000</option>
+                      <option value="Por definir">Por definir</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-white font-semibold mb-2">Tiempo Estimado</label>
+                    <select
+                      name="timeline"
+                      value={formData.timeline}
+                      onChange={handleInputChange}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
+                    >
+                      <option value="">Seleccionar tiempo</option>
+                      <option value="1-2 semanas">1-2 semanas</option>
+                      <option value="1 mes">1 mes</option>
+                      <option value="2-3 meses">2-3 meses</option>
+                      <option value="3-6 meses">3-6 meses</option>
+                      <option value="Más de 6 meses">Más de 6 meses</option>
+                      <option value="Flexible">Flexible</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setActiveModal('store')}
+                    className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-lg font-semibold transition-colors"
+                  >
+                    ← Volver
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-semibold transition-colors"
+                  >
+                    Enviar Solicitud
+                  </button>
+                </div>
+              </form>
+            )}
+
+            {/* Contenido regular del modal */}
+            {activeModal !== 'store' && activeModal !== 'contact' && modalContent && (
+              <div dangerouslySetInnerHTML={{ __html: modalContent }} />
+            )}
           </div>
         </div>
       )}
