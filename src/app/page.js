@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import JapaneseNeighborhood from "../Components/JapaneseNeighborhood";
 
 const PortfolioPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -308,6 +309,17 @@ Enviado desde el portfolio web
           <p className="text-xs text-slate-300 dark:text-white/80 mt-1">Trabajemos juntos en algo increíble.</p>
         </div>
       </main>
+
+      {/* 3D Japanese Neighborhood Section */}
+      <section className="mt-16">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-4">🏮 Explora mi Mundo 3D</h2>
+          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+            Un diorama interactivo de un barrio japonés donde puedes explorar mi tienda de software en 3D
+          </p>
+        </div>
+        <JapaneseNeighborhood onSectionClick={openModal} />
+      </section>
 
       {/* Footer */}
       <footer className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
