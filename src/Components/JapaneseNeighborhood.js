@@ -298,10 +298,10 @@ function VisualMarkers({ onCameraMove, onSectionClick }) {
     },
     {
       id: "projects",
-      position: [12, -0.9, 4.8], // Ubicación real del gato (escalado 0.3x: 12*0.3=3.6, -0.9*0.3=-0.27, 4.8*0.3=1.44)
+      position: [12, -0.9, 4.8], // Ubicación real del gato que me diste
       label: "🐱 Proyectos",
       color: "#4A90E2",
-      cameraPosition: [12, 2, 6],
+      cameraPosition: [15, 2, 7],
       cameraTarget: [12, -0.9, 4.8],
     },
     {
@@ -396,16 +396,17 @@ function PulsingRing({ position, color }) {
 
 // Controlador de cámara con animaciones suaves
 function CameraController({ targetPosition, targetLookAt }) {
-  const { camera } = useThree();
+  const { camera, gl } = useThree();
+  const controlsRef = useRef();
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     if (targetPosition && targetLookAt) {
       setIsAnimating(true);
 
-      // Crear la animación suave
+      // Posiciones iniciales
       const startPosition = camera.position.clone();
-      const startLookAt = new THREE.Vector3(0, 0, 0); // Punto actual de vista
+      const startTarget = controlsRef.current ? controlsRef.current.target.clone() : new THREE.Vector3(0, 0, 0);
 
       let progress = 0;
       const duration = 1.5; // 1.5 segundos
@@ -427,12 +428,22 @@ function CameraController({ targetPosition, targetLookAt }) {
             t,
           );
 
-          // Interpolar punto de vista
-          const currentLookAt = startLookAt.lerp(
-            new THREE.Vector3(...targetLookAt),
-            t,
-          );
-          camera.lookAt(currentLookAt);
+          // Interpolar target de los controles si están disponibles
+          if (controlsRef.current) {
+            controlsRef.current.target.lerpVectors(
+              startTarget,
+              new THREE.Vector3(...targetLookAt),
+              t,
+            );
+            controlsRef.current.update();
+          } else {
+            // Si no hay controles, usar lookAt directamente
+            const currentLookAt = startTarget.lerp(
+              new THREE.Vector3(...targetLookAt),
+              t,
+            );
+            camera.lookAt(currentLookAt);
+          }
 
           requestAnimationFrame(animate);
         } else {
@@ -444,7 +455,19 @@ function CameraController({ targetPosition, targetLookAt }) {
     }
   }, [targetPosition, targetLookAt, camera]);
 
-  return null;
+  return (
+    <OrbitControls
+      ref={controlsRef}
+      enablePan={true}
+      enableZoom={true}
+      enableRotate={true}
+      minDistance={2}
+      maxDistance={15}
+      autoRotate={false}
+      minPolarAngle={Math.PI / 8}
+      maxPolarAngle={Math.PI / 2}
+    />
+  );
 }
 
 // Componente de carga mientras el modelo se descarga
@@ -552,17 +575,6 @@ export default function JapaneseNeighborhood({ onSectionClick }) {
           </Suspense>
         </ErrorBoundary>
 
-        {/* Controles de cámara */}
-        <OrbitControls
-          enablePan={true}
-          enableZoom={true}
-          enableRotate={true}
-          minDistance={2}
-          maxDistance={15}
-          autoRotate={false}
-          minPolarAngle={Math.PI / 8}
-          maxPolarAngle={Math.PI / 2}
-        />
 
         {/* Niebla para atmósfera */}
         <fog attach="fog" args={["#1a1a2e", 10, 50]} />
@@ -606,7 +618,7 @@ export default function JapaneseNeighborhood({ onSectionClick }) {
             🏪 Mesa
           </button>
           <button
-            onClick={() => handleCameraMove([-2.5, 1.2, -0.5], [-1.5, 0, -0.5])}
+            onClick={() => handleCameraMove([15, 2, 7], [12, -0.9, 4.8])}
             className="bg-blue-500 hover:bg-blue-400 text-white text-xs px-2 py-1 rounded transition-colors"
             title="Área del gato"
           >
