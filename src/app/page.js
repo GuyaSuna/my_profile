@@ -6,6 +6,7 @@ const PortfolioPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState('');
   const [activeModal, setActiveModal] = useState('');
+  const [is3DStoreOpen, setIs3DStoreOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -70,8 +71,9 @@ const PortfolioPage = () => {
         `;
         break;
       case 'store':
-        // Este caso se maneja con un componente personalizado
-        break;
+        // Abrir el modal 3D especial en lugar del modal normal
+        setIs3DStoreOpen(true);
+        return; // No abrir el modal normal
       case 'discord':
         content = `
           <div class="text-center">
@@ -102,6 +104,10 @@ const PortfolioPage = () => {
       budget: '',
       timeline: ''
     });
+  };
+
+  const close3DStore = () => {
+    setIs3DStoreOpen(false);
   };
 
   const handleInputChange = (e) => {
@@ -285,7 +291,7 @@ Enviado desde el portfolio web
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/-KH6ZSavJ6Y"
+            src="https://www.youtube.com/embed/psdxi9ljI9g"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -309,17 +315,6 @@ Enviado desde el portfolio web
           <p className="text-xs text-slate-300 dark:text-white/80 mt-1">Trabajemos juntos en algo increíble.</p>
         </div>
       </main>
-
-      {/* 3D Japanese Neighborhood Section */}
-      <section className="mt-16">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-4">🏮 Explora mi Mundo 3D</h2>
-          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
-            Un diorama interactivo de un barrio japonés donde puedes explorar mi tienda de software en 3D
-          </p>
-        </div>
-        <JapaneseNeighborhood onSectionClick={openModal} />
-      </section>
 
       {/* Footer */}
       <footer className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -561,6 +556,24 @@ Enviado desde el portfolio web
               <div dangerouslySetInnerHTML={{ __html: modalContent }} />
             )}
           </div>
+        </div>
+      )}
+
+      {/* Modal 3D Store - Pantalla completa */}
+      {is3DStoreOpen && (
+        <div className="fixed inset-0 z-50 bg-gray-200">
+          {/* Contenedor del modelo 3D - Pantalla completa sin márgenes */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+            <JapaneseNeighborhood onSectionClick={openModal} isFullscreen={true} />
+          </div>
+
+          {/* Botón cerrar - Solo X en esquina superior derecha con z-index muy alto */}
+          <button
+            onClick={close3DStore}
+            className="fixed top-4 right-4 z-[9999] text-white hover:text-red-400 bg-black/80 rounded-full p-3 backdrop-blur-md border-2 border-white/30 transition-all shadow-2xl hover:scale-110"
+          >
+            ✕
+          </button>
         </div>
       )}
     </div>
