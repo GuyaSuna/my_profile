@@ -1,7 +1,12 @@
 "use client";
 import React, { Suspense, useRef, Component, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
+import {
+  OrbitControls,
+  useGLTF,
+  Environment,
+  useAnimations,
+} from "@react-three/drei";
 import * as THREE from "three";
 
 // Componente interactivo del barrio japonés
@@ -283,34 +288,163 @@ function NeighborhoodModel({ onSectionClick, onCameraMove }) {
   );
 }
 
+// Componente para el modelo de supermercado
+function SupermarketModel({
+  position = [8, -1.2, -2.4],
+  scale = [0.7, 0.7, 0.7],
+}) {
+  const modelPath = "/models/multi_supermarket_assetpack_vol.2.glb";
+
+  console.log("Cargando modelo de supermercado:", modelPath);
+
+  // Cargar el modelo GLTF del supermercado
+  const { scene } = useGLTF(modelPath);
+
+  if (!scene) {
+    console.log("❌ No se pudo cargar el modelo de supermercado");
+    return null;
+  }
+
+  return <primitive object={scene} scale={scale} position={position} />;
+}
+
+// Componente para el mushroom merchant animado
+function MushroomMerchant({
+  position = [4, -2.3, -1],
+  scale = [30, 30, 30],
+  rotation = [0, Math.PI / 0.7, 0], // Rotación Y de 90 grados a la derecha
+}) {
+  const groupRef = useRef();
+  const modelPath = "/models/mushroom_merchant_animated.glb";
+
+  console.log("🍄 Cargando mushroom merchant:", modelPath);
+
+  // Cargar el modelo GLTF con animaciones
+  const { scene, animations } = useGLTF(modelPath);
+  const { actions } = useAnimations(animations, groupRef);
+
+  // Debug: verificar si el scene se carga
+  useEffect(() => {
+    if (scene) {
+      // Inspeccionar los children del scene
+      scene.children.forEach((child, index) => {
+        console.log(
+          `🍄 Child ${index}:`,
+          child.type,
+          child.name,
+          child.visible,
+        );
+        if (child.children) {
+          child.children.forEach((grandchild, gIndex) => {
+            console.log(
+              `  🍄 Grandchild ${gIndex}:`,
+              grandchild.type,
+              grandchild.name,
+              grandchild.visible,
+            );
+          });
+        }
+      });
+
+      // Verificar bounding box
+      const box = new THREE.Box3().setFromObject(scene);
+      console.log("🍄 Bounding box:", box);
+      console.log("🍄 Tamaño del modelo - Min:", box.min);
+      console.log("🍄 Tamaño del modelo - Max:", box.max);
+      const size = box.getSize(new THREE.Vector3());
+      console.log("🍄 Dimensiones del modelo:", size);
+      console.log(`🍄 Ancho: ${size.x}, Alto: ${size.y}, Profundo: ${size.z}`);
+
+      // Forzar visibilidad de todos los materiales
+      scene.traverse((child) => {
+        if (child.isMesh) {
+          child.visible = true;
+          if (child.material) {
+            child.material.transparent = false;
+            child.material.opacity = 1;
+            child.material.side = THREE.DoubleSide;
+            child.material.needsUpdate = true;
+            console.log("🍄 Material forzado:", child.material.type);
+          }
+        }
+      });
+    } else {
+      console.log("❌ Mushroom Merchant scene NO cargado");
+    }
+  }, [scene, position, scale]);
+
+  // Activar animaciones si existen
+  useEffect(() => {
+    console.log(
+      "🍄 Mushroom Merchant - Animaciones encontradas:",
+      animations.length,
+    );
+    if (animations.length > 0) {
+      console.log("📋 Animaciones del mushroom merchant:");
+      animations.forEach((clip, index) => {
+        console.log(
+          `  ${index}: "${clip.name}" - Duración: ${clip.duration.toFixed(2)}s`,
+        );
+      });
+
+      // Activar todas las animaciones automáticamente
+      Object.keys(actions).forEach((actionName) => {
+        console.log(`▶️ Reproduciendo animación: ${actionName}`);
+        actions[actionName]?.play();
+      });
+    } else {
+      console.log("❌ El mushroom merchant no tiene animaciones incluidas");
+    }
+  }, [actions, animations]);
+
+  if (!scene) {
+    console.log("❌ No se pudo cargar el mushroom merchant");
+    return null;
+  }
+
+  return (
+    <group ref={groupRef} position={position} rotation={rotation} scale={scale}>
+      {/* DEBUG: Esfera verde para ubicación exacta */}
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.3]} />
+        <meshBasicMaterial color="lime" />
+      </mesh>
+
+      {/* El modelo actual */}
+      <primitive object={scene} />
+    </group>
+  );
+}
+
 // Marcadores visuales permanentes en el modelo
 function VisualMarkers({ onCameraMove, onSectionClick }) {
   const [hoveredMarker, setHoveredMarker] = useState(null);
+  const [pendingSection, setPendingSection] = useState(null);
 
   const markers = [
     {
       id: "store",
-      position: [1, 0.3, 2.5], // Mesa de enfrente (escalado apropiadamente)
+      position: [4, -0.5, 1.9], // Mesa de enfrente (escalado apropiadamente)
       label: "🏪 Tienda",
       color: "#FFD700",
-      cameraPosition: [1, 2, 4],
-      cameraTarget: [1, 0, 2.5],
+      cameraPosition: [4, 0, 7],
+      cameraTarget: [4, -0.5, 1.9],
     },
     {
       id: "projects",
-      position: [12, -0.9, 4.8], // Ubicación real del gato que me diste
+      position: [11.75, -1.2, 4.9], // Ubicación real del gato que me diste
       label: "🐱 Proyectos",
       color: "#4A90E2",
-      cameraPosition: [15, 2, 7],
+      cameraPosition: [13, 2, 8],
       cameraTarget: [12, -0.9, 4.8],
     },
     {
       id: "skills",
-      position: [0, 3.5, 0], // Parte más alta del diorama
+      position: [8.4, 0, 1.8], // Parte más alta del diorama
       label: "🎯 Skills",
       color: "#9013FE",
-      cameraPosition: [0, 5, 3],
-      cameraTarget: [0, 3.5, 0],
+      cameraPosition: [8.4, -1, 2.5],
+      cameraTarget: [8.4, 0, 1.8],
     },
     {
       id: "contact",
@@ -340,8 +474,17 @@ function VisualMarkers({ onCameraMove, onSectionClick }) {
             onPointerOver={() => setHoveredMarker(marker.id)}
             onPointerOut={() => setHoveredMarker(null)}
             onClick={() => {
-              onCameraMove(marker.cameraPosition, marker.cameraTarget);
-              onSectionClick && onSectionClick(marker.id);
+              const sectionId = marker.id;
+              // Guardar qué sección queremos abrir después de la animación
+              setPendingSection(sectionId);
+              // Iniciar la animación de cámara
+              onCameraMove(marker.cameraPosition, marker.cameraTarget, () => {
+                // Este callback se ejecuta cuando termina la animación
+                if (onSectionClick) {
+                  onSectionClick(sectionId);
+                }
+                setPendingSection(null);
+              });
             }}
           >
             <sphereGeometry args={[0.12]} />
@@ -395,18 +538,45 @@ function PulsingRing({ position, color }) {
 }
 
 // Controlador de cámara con animaciones suaves
-function CameraController({ targetPosition, targetLookAt }) {
+function CameraController({
+  targetPosition,
+  targetLookAt,
+  onAnimationComplete,
+}) {
   const { camera, gl } = useThree();
   const controlsRef = useRef();
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     if (targetPosition && targetLookAt) {
+      // Verificar si ya estamos en la posición objetivo (con tolerancia)
+      const currentPosition = camera.position;
+      const targetPos = new THREE.Vector3(...targetPosition);
+      const currentTarget = controlsRef.current
+        ? controlsRef.current.target
+        : new THREE.Vector3(0, 0, 0);
+      const targetLookAtPos = new THREE.Vector3(...targetLookAt);
+
+      const positionDistance = currentPosition.distanceTo(targetPos);
+      const targetDistance = currentTarget.distanceTo(targetLookAtPos);
+      const tolerance = 0.5; // Tolerancia para considerar que ya estamos en posición
+
+      // Si ya estamos cerca de la posición objetivo, no animar
+      if (positionDistance < tolerance && targetDistance < tolerance) {
+        console.log("📍 Ya estoy en posición, abriendo modal inmediatamente");
+        if (onAnimationComplete) {
+          onAnimationComplete();
+        }
+        return;
+      }
+
       setIsAnimating(true);
 
       // Posiciones iniciales
       const startPosition = camera.position.clone();
-      const startTarget = controlsRef.current ? controlsRef.current.target.clone() : new THREE.Vector3(0, 0, 0);
+      const startTarget = controlsRef.current
+        ? controlsRef.current.target.clone()
+        : new THREE.Vector3(0, 0, 0);
 
       let progress = 0;
       const duration = 1.5; // 1.5 segundos
@@ -448,6 +618,10 @@ function CameraController({ targetPosition, targetLookAt }) {
           requestAnimationFrame(animate);
         } else {
           setIsAnimating(false);
+          // Llamar callback cuando termina la animación
+          if (onAnimationComplete) {
+            onAnimationComplete();
+          }
         }
       };
 
@@ -521,138 +695,257 @@ class ErrorBoundary extends Component {
   }
 }
 
-// Componente principal
-export default function JapaneseNeighborhood({ onSectionClick }) {
+// Modal del modelo 3D
+function Model3DModal({ isOpen, onClose }) {
   const [cameraTarget, setCameraTarget] = useState(null);
   const [cameraLookAt, setCameraLookAt] = useState(null);
+  const [animationCallback, setAnimationCallback] = useState(null);
 
-  const handleCameraMove = (position, lookAt) => {
+  const handleCameraMove = (position, lookAt, onComplete) => {
     setCameraTarget(position);
     setCameraLookAt(lookAt);
+    setAnimationCallback(() => onComplete);
   };
 
+  const handleAnimationComplete = () => {
+    if (animationCallback) {
+      animationCallback();
+      setAnimationCallback(null);
+    }
+  };
+
+  if (!isOpen) return null;
+
   return (
-    <div className="w-full h-[600px] rounded-xl overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900">
-      <Canvas
-        shadows
-        camera={{ fov: 60, position: [0, 4, 6] }}
-        style={{
-          background: "linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460)",
-        }}
-      >
-        {/* Iluminación */}
-        <ambientLight intensity={0.4} />
-        <directionalLight
-          position={[10, 10, 5]}
-          intensity={1}
-          castShadow
-          shadow-mapSize-width={2048}
-          shadow-mapSize-height={2048}
-          shadow-camera-far={50}
-          shadow-camera-left={-10}
-          shadow-camera-right={10}
-          shadow-camera-top={10}
-          shadow-camera-bottom={-10}
-        />
-        <pointLight position={[-10, 0, -20]} color="#ff4444" intensity={0.3} />
-
-        {/* Ambiente y entorno */}
-        <Environment preset="night" />
-
-        {/* Controlador de cámara animado */}
-        <CameraController
-          targetPosition={cameraTarget}
-          targetLookAt={cameraLookAt}
-        />
-
-        {/* Modelo 3D con Suspense y ErrorBoundary */}
-        <ErrorBoundary>
-          <Suspense fallback={null}>
-            <NeighborhoodModel
-              onSectionClick={onSectionClick}
-              onCameraMove={handleCameraMove}
-            />
-          </Suspense>
-        </ErrorBoundary>
-
-
-        {/* Niebla para atmósfera */}
-        <fog attach="fog" args={["#1a1a2e", 10, 50]} />
-      </Canvas>
-
-      {/* Interfaz de carga superpuesta */}
-      <Suspense fallback={<Loader />}>
-        <div />
-      </Suspense>
-
-      {/* Controles e información */}
-      <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 text-white text-sm">
-        <p className="font-bold mb-1">🏮 Diorama Barrio Japonés</p>
-        <p>
-          • <span className="text-yellow-300">Esferas:</span> 🏪 Mesa frontal,
-          🐱 Gato, 🎯 Arriba
-        </p>
-        <p>• Arrastra para rotar la cámara</p>
-        <p>• Scroll para hacer zoom</p>
-        <p>• Explora cada rincón del diorama</p>
-      </div>
-
-      {/* Botones de navegación rápida */}
-      <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
-        <p className="text-white text-xs font-bold mb-2">
-          🎯 Navegación Rápida
-        </p>
-        <div className="flex flex-wrap gap-2">
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+      <div className="bg-gray-900 rounded-xl p-4 max-w-7xl max-h-[90vh] w-full mx-4">
+        {/* Header del modal */}
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-white text-2xl font-bold">🏮 Diorama Barrio Japonés</h2>
           <button
-            onClick={() => handleCameraMove([0, 5, 6], [0, 0, 0])}
-            className="bg-cyan-500 hover:bg-cyan-400 text-white text-xs px-2 py-1 rounded transition-colors"
-            title="Vista General"
+            onClick={onClose}
+            className="text-white hover:text-gray-300 text-3xl font-bold"
           >
-            🌍 General
-          </button>
-          <button
-            onClick={() => handleCameraMove([0, 1.5, 2.5], [0, 0, 1.2])}
-            className="bg-yellow-500 hover:bg-yellow-400 text-white text-xs px-2 py-1 rounded transition-colors"
-            title="Mesa de enfrente"
-          >
-            🏪 Mesa
-          </button>
-          <button
-            onClick={() => handleCameraMove([15, 2, 7], [12, -0.9, 4.8])}
-            className="bg-blue-500 hover:bg-blue-400 text-white text-xs px-2 py-1 rounded transition-colors"
-            title="Área del gato"
-          >
-            🐱 Gato
-          </button>
-          <button
-            onClick={() => handleCameraMove([0.5, 3.5, 2], [0.5, 2.8, 0])}
-            className="bg-purple-500 hover:bg-purple-400 text-white text-xs px-2 py-1 rounded transition-colors"
-            title="Parte de arriba"
-          >
-            🎯 Arriba
-          </button>
-          <button
-            onClick={() => handleCameraMove([3, 1.5, -1], [1.8, 0, -1])}
-            className="bg-red-500 hover:bg-red-400 text-white text-xs px-2 py-1 rounded transition-colors"
-            title="Lado derecho"
-          >
-            📧 Lado
+            ×
           </button>
         </div>
-      </div>
 
-      {/* Botón para abrir la tienda */}
-      <div className="absolute top-4 right-4">
-        <button
-          onClick={() => onSectionClick && onSectionClick("store")}
-          className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg"
-        >
-          🏪 Abrir Tienda
-        </button>
+        {/* Contenedor del modelo 3D */}
+        <div className="w-full h-[600px] rounded-xl overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900 relative">
+          <Canvas
+            shadows
+            camera={{ fov: 60, position: [0, 4, 6] }}
+            style={{
+              background: "linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460)",
+            }}
+          >
+            {/* Iluminación mejorada */}
+            <ambientLight intensity={0.8} />
+            <directionalLight
+              position={[10, 10, 5]}
+              intensity={1.5}
+              castShadow
+              shadow-mapSize-width={2048}
+              shadow-mapSize-height={2048}
+              shadow-camera-far={50}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
+            />
+            <directionalLight
+              position={[-8, 8, -3]}
+              intensity={0.8}
+              color="#ffffff"
+            />
+            <pointLight position={[-10, 0, -20]} color="#ff4444" intensity={0.5} />
+            <pointLight position={[10, 5, 10]} color="#ffffff" intensity={0.7} />
+            <pointLight position={[0, 8, 0]} color="#ffeaa7" intensity={0.6} />
+
+            {/* Ambiente y entorno */}
+            <Environment preset="night" />
+
+            {/* Controlador de cámara animado */}
+            <CameraController
+              targetPosition={cameraTarget}
+              targetLookAt={cameraLookAt}
+              onAnimationComplete={handleAnimationComplete}
+            />
+
+            {/* Modelos 3D con Suspense y ErrorBoundary */}
+            <ErrorBoundary>
+              <Suspense fallback={null}>
+                <NeighborhoodModel
+                  onSectionClick={onClose} // Cerrar modal al hacer click en secciones
+                  onCameraMove={handleCameraMove}
+                />
+                <SupermarketModel />
+              </Suspense>
+            </ErrorBoundary>
+
+            {/* Niebla para atmósfera */}
+            <fog attach="fog" args={["#1a1a2e", 10, 50]} />
+          </Canvas>
+
+          {/* Controles e información */}
+          <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 text-white text-sm">
+            <p className="font-bold mb-1">🏮 Diorama Barrio Japonés</p>
+            <p>
+              • <span className="text-yellow-300">Esferas:</span> 🏪 Mesa frontal,
+              🐱 Gato, 🎯 Arriba
+            </p>
+            <p>• Arrastra para rotar la cámara</p>
+            <p>• Scroll para hacer zoom</p>
+            <p>• Explora cada rincón del diorama</p>
+          </div>
+
+          {/* Botones de navegación rápida */}
+          <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
+            <p className="text-white text-xs font-bold mb-2">
+              🎯 Navegación Rápida
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => handleCameraMove([0, 5, 6], [0, 0, 0])}
+                className="bg-cyan-500 hover:bg-cyan-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                title="Vista General"
+              >
+                🌍 General
+              </button>
+              <button
+                onClick={() => handleCameraMove([0, 1.5, 2.5], [0, 0, 1.2])}
+                className="bg-yellow-500 hover:bg-yellow-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                title="Mesa de enfrente"
+              >
+                🏪 Mesa
+              </button>
+              <button
+                onClick={() => handleCameraMove([15, 2, 7], [12, -0.9, 4.8])}
+                className="bg-blue-500 hover:bg-blue-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                title="Área del gato"
+              >
+                🐱 Gato
+              </button>
+              <button
+                onClick={() => handleCameraMove([0.5, 3.5, 2], [0.5, 2.8, 0])}
+                className="bg-purple-500 hover:bg-purple-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                title="Parte de arriba"
+              >
+                🎯 Arriba
+              </button>
+              <button
+                onClick={() => handleCameraMove([3, 1.5, -1], [1.8, 0, -1])}
+                className="bg-red-500 hover:bg-red-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                title="Lado derecho"
+              >
+                📧 Lado
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-// Precargar el modelo para mejor rendimiento
+// Componente principal
+export default function JapaneseNeighborhood({ onSectionClick }) {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSectionClick = (section) => {
+    if (section === 'store') {
+      // Solo abrir modal para la sección de tienda
+      setShowModal(true);
+    } else {
+      // Para otras secciones, usar el callback original
+      if (onSectionClick) {
+        onSectionClick(section);
+      }
+    }
+  };
+
+  return (
+    <>
+      {/* UI original con modelo 3D siempre visible */}
+      <div className="w-full h-[600px] rounded-xl overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900">
+        <Canvas
+          shadows
+          camera={{ fov: 60, position: [0, 4, 6] }}
+          style={{
+            background: "linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460)",
+          }}
+        >
+          {/* Iluminación mejorada */}
+          <ambientLight intensity={0.8} />
+          <directionalLight
+            position={[10, 10, 5]}
+            intensity={1.5}
+            castShadow
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+            shadow-camera-far={50}
+            shadow-camera-left={-10}
+            shadow-camera-right={10}
+            shadow-camera-top={10}
+            shadow-camera-bottom={-10}
+          />
+          <directionalLight
+            position={[-8, 8, -3]}
+            intensity={0.8}
+            color="#ffffff"
+          />
+          <pointLight position={[-10, 0, -20]} color="#ff4444" intensity={0.5} />
+          <pointLight position={[10, 5, 10]} color="#ffffff" intensity={0.7} />
+          <pointLight position={[0, 8, 0]} color="#ffeaa7" intensity={0.6} />
+
+          {/* Ambiente y entorno */}
+          <Environment preset="night" />
+
+          {/* Modelo 3D con Suspense y ErrorBoundary */}
+          <ErrorBoundary>
+            <Suspense fallback={null}>
+              <NeighborhoodModel
+                onSectionClick={handleSectionClick}
+                onCameraMove={() => {}} // Sin animación de cámara en la vista principal
+              />
+              <SupermarketModel />
+            </Suspense>
+          </ErrorBoundary>
+
+          {/* Niebla para atmósfera */}
+          <fog attach="fog" args={["#1a1a2e", 10, 50]} />
+        </Canvas>
+
+        {/* Controles e información */}
+        <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 text-white text-sm">
+          <p className="font-bold mb-1">🏮 Diorama Barrio Japonés</p>
+          <p>
+            • <span className="text-yellow-300">🏪 Tienda:</span> Abre modal 3D interactivo
+          </p>
+          <p>• 🐱 🎯 📧: Navegan a otras secciones</p>
+          <p>• Arrastra para rotar la cámara</p>
+        </div>
+
+        {/* Botón para abrir la tienda */}
+        <div className="absolute top-4 right-4">
+          <button
+            onClick={() => handleSectionClick("store")}
+            className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg"
+          >
+            🏪 Abrir Tienda
+          </button>
+        </div>
+      </div>
+
+      {/* Modal del modelo 3D - solo para la tienda */}
+      <Model3DModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      />
+    </>
+  );
+}
+
+// Precargar los modelos para mejor rendimiento
 useGLTF.preload("/models/barrio_japones.glb");
+useGLTF.preload("/models/multi_supermarket_assetpack_vol.2.glb");
