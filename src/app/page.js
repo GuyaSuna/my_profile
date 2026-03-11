@@ -70,7 +70,7 @@ const PortfolioPage = () => {
           </div>
         `;
         break;
-      case 'store':
+      case 'showcase':
         // Abrir el modal 3D especial en lugar del modal normal
         setIs3DStoreOpen(true);
         return; // No abrir el modal normal
@@ -299,12 +299,12 @@ Enviado desde el portfolio web
           </iframe>
         </div>
 
-        {/* Software Store Tile */}
-        <div onClick={() => openModal('store')} className="col-span-1 row-span-1 bg-white dark:bg-slate-900 rounded-xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col justify-between cursor-pointer hover:border-primary/20 transition-all">
-          <span className="material-symbols-outlined text-slate-400">storefront</span>
+        {/* Portfolio & Demos Tile */}
+        <div onClick={() => openModal('showcase')} className="col-span-1 row-span-1 bg-white dark:bg-slate-900 rounded-xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col justify-between cursor-pointer hover:border-primary/20 transition-all">
+          <span className="material-symbols-outlined text-slate-400">view_in_ar</span>
           <div>
-            <h4 className="font-bold">Tienda de Software</h4>
-            <p className="text-xs text-slate-500 mt-1">Proyectos y aplicaciones desarrolladas.</p>
+            <h4 className="font-bold">Portfolio & Demos</h4>
+            <p className="text-xs text-slate-500 mt-1">Proyectos interactivos y demos en vivo.</p>
           </div>
         </div>
 
@@ -335,7 +335,7 @@ Enviado desde el portfolio web
           <div className="bg-slate-900 rounded-xl p-8 max-w-2xl max-h-[90vh] overflow-y-auto m-4" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold text-white">
-                {activeModal === 'store' ? 'Tienda de Software' :
+                {activeModal === 'showcase' ? 'Portfolio & Demos' :
                  activeModal === 'contact' ? 'Iniciar Proyecto' : 'Información'}
               </h2>
               <button onClick={closeModal} className="text-slate-400 hover:text-slate-300">
@@ -343,8 +343,8 @@ Enviado desde el portfolio web
               </button>
             </div>
 
-            {/* Contenido del modal de la tienda */}
-            {activeModal === 'store' && (
+            {/* Contenido del modal del showcase */}
+            {activeModal === 'showcase' && (
               <div className="space-y-6">
                 <div className="text-center mb-8">
                   <p className="text-slate-300 text-lg mb-4">

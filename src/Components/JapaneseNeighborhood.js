@@ -21,49 +21,31 @@ function Interactive3DMarkers({ onMarkerClick, currentCameraTarget }) {
 
   const markers = [
     {
-      id: "escritorio",
-      position: [1, 1.5, 0],
-      cameraPosition: [2.5, 1.8, 1.5],
-      cameraTarget: [1, 1.2, 0],
-      label: "💻 Escritorio",
-      color: "#4ade80",
-      description: "Área de trabajo principal",
-    },
-    {
       id: "computadora",
       position: [5.5, -0.1, 4.12],
       cameraPosition: [5.4, 0, 4],
       cameraTarget: [5, -0.1, 4],
-      label: "🖥️ Computadora",
+      label: "💻 Proyectos Web",
       color: "#3b82f6",
-      description: "Monitor retro de los 90s",
+      description: "Aplicaciones y sitios web desarrollados",
     },
     {
       id: "archivos",
       position: [5.7, -0.1, 4.6],
       cameraPosition: [6, 0.1, 4.6],
       cameraTarget: [5.7, -0.1, 4.6],
-      label: "📁 Archivos",
+      label: "📊 Sistemas & Apps",
       color: "#f59e0b",
-      description: "Documentos importantes",
+      description: "Sistemas de gestión y aplicaciones",
     },
     {
       id: "telefono",
       position: [5.5, -0.1, 3.5],
       cameraPosition: [5.6, -0.03, 3.45],
       cameraTarget: [5.5, -0.1, 3.5],
-      label: "☎️ Teléfono",
-      color: "#ef4444",
-      description: "Teléfono vintage",
-    },
-    {
-      id: "plantas",
-      position: [-0.5, 1.8, -1],
-      cameraPosition: [0.5, 2.2, 0],
-      cameraTarget: [-0.5, 1.6, -1],
-      label: "🌿 Plantas",
-      color: "#10b981",
-      description: "Decoración de oficina",
+      label: "🚀 Tecnologías",
+      color: "#45da31",
+      description: "Stack tecnológico y habilidades",
     },
   ];
 
@@ -389,7 +371,7 @@ class ErrorBoundary extends Component {
 // Modal para información de marcadores
 function MarkerModal({ isOpen, onClose, marker }) {
   // Estados para la calculadora de precios y formulario inteligente
-  const [selectedService, setSelectedService] = useState('');
+  const [selectedService, setSelectedService] = useState("");
   const [projectFeatures, setProjectFeatures] = useState({
     responsive: false,
     database: false,
@@ -398,19 +380,19 @@ function MarkerModal({ isOpen, onClose, marker }) {
     multiLanguage: false,
     seo: false,
     analytics: false,
-    hosting: false
+    hosting: false,
   });
-  const [urgency, setUrgency] = useState('normal');
+  const [urgency, setUrgency] = useState("normal");
   const [calculatedPrice, setCalculatedPrice] = useState(0);
   const [showCalculator, setShowCalculator] = useState(false);
 
   // Precios base para cada servicio
   const basePrices = {
-    'landing': 299,
-    'website': 899,
-    'ecommerce': 1499,
-    'webapp': 2499,
-    'mobile': 3999
+    landing: 299,
+    website: 899,
+    ecommerce: 1499,
+    webapp: 2499,
+    mobile: 3999,
   };
 
   // Precios adicionales por feature
@@ -422,7 +404,7 @@ function MarkerModal({ isOpen, onClose, marker }) {
     multiLanguage: 250,
     seo: 150,
     analytics: 100,
-    hosting: 50
+    hosting: 50,
   };
 
   // Calcular precio automáticamente
@@ -431,15 +413,15 @@ function MarkerModal({ isOpen, onClose, marker }) {
       let price = basePrices[selectedService] || 0;
 
       // Agregar features
-      Object.keys(projectFeatures).forEach(feature => {
+      Object.keys(projectFeatures).forEach((feature) => {
         if (projectFeatures[feature]) {
           price += featurePrices[feature] || 0;
         }
       });
 
       // Aplicar multiplicador por urgencia
-      if (urgency === 'urgent') price *= 1.5;
-      else if (urgency === 'relaxed') price *= 0.8;
+      if (urgency === "urgent") price *= 1.5;
+      else if (urgency === "relaxed") price *= 0.8;
 
       setCalculatedPrice(price);
     }
@@ -448,11 +430,14 @@ function MarkerModal({ isOpen, onClose, marker }) {
   const openWhatsApp = () => {
     const message = `¡Hola! Me interesa tu servicio de ${selectedService}. El presupuesto estimado es $${calculatedPrice}. ¿Podemos conversar?`;
     const whatsappURL = `https://wa.me/59892345678?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
+    window.open(whatsappURL, "_blank");
   };
 
   const openCalendly = () => {
-    window.open('https://calendly.com/nahuel-pages/consulta-gratuita', '_blank');
+    window.open(
+      "https://calendly.com/nahuel-pages/consulta-gratuita",
+      "_blank",
+    );
   };
 
   if (!isOpen || !marker) return null;
@@ -477,7 +462,9 @@ function MarkerModal({ isOpen, onClose, marker }) {
           {/* Contenido específico por marcador */}
           {marker.id === "escritorio" && (
             <div>
-              <h3 className="font-semibold text-lg mb-2 text-gray-900">Área de Trabajo</h3>
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                Área de Trabajo
+              </h3>
               <p className="text-gray-800">
                 Este es el escritorio principal donde se desarrollan todas las
                 tareas de programación. Equipado con todo lo necesario para el
@@ -493,61 +480,78 @@ function MarkerModal({ isOpen, onClose, marker }) {
 
           {marker.id === "computadora" && (
             <div>
-              <h3 className="font-semibold text-lg mb-2 text-gray-900">💻 Desarrollo de Software</h3>
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                💻 Proyectos Web Destacados
+              </h3>
               <p className="text-gray-800 mb-4">
-                Soluciones tecnológicas personalizadas para tu negocio.
+                Sitios web y aplicaciones que he desarrollado utilizando tecnologías modernas.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Servicios principales */}
+              <div className="space-y-4">
+                {/* Portfolio Personal */}
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                  <h4 className="font-semibold text-blue-800 mb-2">🚀 Servicios Principales</h4>
-                  <ul className="text-sm text-blue-700 space-y-1">
-                    <li>• Desarrollo web personalizado</li>
-                    <li>• Aplicaciones móviles</li>
-                    <li>• Sistemas de gestión</li>
-                    <li>• E-commerce y tiendas online</li>
-                  </ul>
+                  <h4 className="font-semibold text-blue-800 mb-2">
+                    🎨 Portfolio Personal 3D
+                  </h4>
+                  <p className="text-sm text-blue-700 mb-2">
+                    Portfolio interactivo con modelo 3D, diseño responsive y animaciones suaves.
+                  </p>
+                  <div className="text-xs text-blue-600 space-y-1">
+                    <div><strong>Tecnologías:</strong> React, Next.js, Three.js, Tailwind CSS</div>
+                    <div><strong>Características:</strong> Modelo 3D interactivo, Responsive Design, SEO optimizado</div>
+                    <div><strong>Estado:</strong> ✅ En vivo</div>
+                  </div>
                 </div>
 
-                {/* Tecnologías */}
+                {/* Proyecto Web Responsivo */}
                 <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
-                  <h4 className="font-semibold text-green-800 mb-2">⚙️ Tecnologías</h4>
-                  <ul className="text-sm text-green-700 space-y-1">
-                    <li>• React, Next.js, Vue.js</li>
-                    <li>• Node.js, Python, PHP</li>
-                    <li>• MySQL, MongoDB</li>
-                    <li>• AWS, Google Cloud</li>
-                  </ul>
+                  <h4 className="font-semibold text-green-800 mb-2">
+                    🌐 Aplicaciones Web SPA
+                  </h4>
+                  <p className="text-sm text-green-700 mb-2">
+                    Single Page Applications con interfaz moderna y experiencia de usuario fluida.
+                  </p>
+                  <div className="text-xs text-green-600 space-y-1">
+                    <div><strong>Tecnologías:</strong> React, JavaScript ES6+, CSS3</div>
+                    <div><strong>Características:</strong> Componentes reutilizables, Estado global, API REST</div>
+                    <div><strong>Estado:</strong> 🚧 En desarrollo</div>
+                  </div>
                 </div>
 
-                {/* Precios */}
+                {/* Proyecto Landing Pages */}
                 <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-                  <h4 className="font-semibold text-purple-800 mb-2">💰 Paquetes</h4>
-                  <ul className="text-sm text-purple-700 space-y-1">
-                    <li>• Landing Page: $299</li>
-                    <li>• Web completa: $899</li>
-                    <li>• App móvil: $1,499</li>
-                    <li>• Sistema completo: $2,999</li>
-                  </ul>
+                  <h4 className="font-semibold text-purple-800 mb-2">
+                    📄 Landing Pages Optimizadas
+                  </h4>
+                  <p className="text-sm text-purple-700 mb-2">
+                    Páginas de aterrizaje enfocadas en conversión y velocidad de carga.
+                  </p>
+                  <div className="text-xs text-purple-600 space-y-1">
+                    <div><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript vanilla</div>
+                    <div><strong>Características:</strong> Carga rápida, Mobile-first, Formularios funcionales</div>
+                    <div><strong>Estado:</strong> ✅ Múltiples proyectos completados</div>
+                  </div>
                 </div>
 
-                {/* Garantías */}
+                {/* Formación y aprendizaje */}
                 <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
-                  <h4 className="font-semibold text-orange-800 mb-2">🛡️ Garantías</h4>
-                  <ul className="text-sm text-orange-700 space-y-1">
-                    <li>• Código limpio y documentado</li>
-                    <li>• Soporte 30 días gratis</li>
-                    <li>• Actualizaciones incluidas</li>
-                    <li>• Hosting y dominio gratis*</li>
-                  </ul>
+                  <h4 className="font-semibold text-orange-800 mb-2">
+                    🎓 Formación Académica
+                  </h4>
+                  <div className="text-sm text-orange-700 space-y-1">
+                    <div>• 2 años en Universidad Claeh - Ingeniería de Software</div>
+                    <div>• Especialización en desarrollo Full Stack</div>
+                    <div>• Certificaciones en React y JavaScript</div>
+                    <div>• Aprendizaje continuo en nuevas tecnologías</div>
+                  </div>
                 </div>
               </div>
 
               <div className="mt-4 p-3 bg-gray-100 rounded-lg">
                 <p className="text-sm text-gray-600">
-                  <strong>💡 ¿Por qué elegirme?</strong> +5 años de experiencia, más de 100 proyectos completados,
-                  y satisfacción garantizada. Trabajo con metodología ágil y comunicación constante.
+                  <strong>💡 Mi enfoque:</strong> Desarrollo con las mejores prácticas,
+                  código limpio y mantenible, diseño centrado en el usuario y optimización
+                  para rendimiento y SEO.
                 </p>
               </div>
             </div>
@@ -555,50 +559,89 @@ function MarkerModal({ isOpen, onClose, marker }) {
 
           {marker.id === "archivos" && (
             <div>
-              <h3 className="font-semibold text-lg mb-2 text-gray-900">📁 Portafolio y Proyectos</h3>
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                📊 Sistemas y Aplicaciones
+              </h3>
               <p className="text-gray-800 mb-4">
-                Casos de éxito y proyectos destacados que demuestran mi experiencia.
+                Proyectos de sistemas de gestión y aplicaciones de escritorio desarrollados
+                con diferentes tecnologías y enfoques.
               </p>
 
               <div className="space-y-4">
-                {/* Proyectos destacados */}
+                {/* Aplicaciones de Escritorio */}
                 <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded">
-                  <h4 className="font-semibold text-indigo-800 mb-2">⭐ Proyectos Destacados</h4>
+                  <h4 className="font-semibold text-indigo-800 mb-2">
+                    🖥️ Aplicaciones de Escritorio
+                  </h4>
                   <div className="text-sm text-indigo-700 space-y-2">
                     <div>
-                      <strong>E-commerce Fashionista:</strong> Tienda online con +$50K en ventas mensuales
+                      <strong>Sistema de Gestión C#:</strong> Aplicación Windows Forms para
+                      gestión de inventario con base de datos SQL Server
                     </div>
                     <div>
-                      <strong>App RestaurantPOS:</strong> Sistema de punto de venta usado por 25+ restaurantes
+                      <strong>App de Escritorio Java:</strong> Herramienta de productividad
+                      con interfaz Swing y persistencia de datos
                     </div>
                     <div>
-                      <strong>Portal EducaOnline:</strong> Plataforma educativa con 1000+ estudiantes activos
+                      <strong>Automatización Python:</strong> Scripts para automatización
+                      de tareas y procesamiento de datos
                     </div>
                   </div>
                 </div>
 
-                {/* Testimonios */}
+                {/* Bases de Datos y Backend */}
                 <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
-                  <h4 className="font-semibold text-green-800 mb-2">💬 Testimonios</h4>
+                  <h4 className="font-semibold text-green-800 mb-2">
+                    🗄️ Bases de Datos y Backend
+                  </h4>
                   <div className="text-sm text-green-700 space-y-2">
-                    <div className="italic">
-                      "Excelente trabajo, entregó antes del plazo y superó nuestras expectativas" - María G.
+                    <div>
+                      <strong>SQL Server:</strong> Diseño de bases de datos relacionales,
+                      stored procedures y optimización de consultas
                     </div>
-                    <div className="italic">
-                      "Muy profesional, comunicación constante y resultado impecable" - Carlos R.
+                    <div>
+                      <strong>APIs RESTful:</strong> Desarrollo de servicios backend
+                      con Node.js y autenticación JWT
+                    </div>
+                    <div>
+                      <strong>Integración de Datos:</strong> Conectores y middleware
+                      para sincronización de sistemas
                     </div>
                   </div>
                 </div>
 
-                {/* Certificaciones */}
+                {/* Metodologías y Herramientas */}
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
-                  <h4 className="font-semibold text-yellow-800 mb-2">🏆 Certificaciones</h4>
-                  <ul className="text-sm text-yellow-700 space-y-1">
-                    <li>• AWS Certified Developer</li>
-                    <li>• Google Cloud Professional</li>
-                    <li>• Meta React Developer</li>
-                    <li>• Microsoft Azure Fundamentals</li>
-                  </ul>
+                  <h4 className="font-semibold text-yellow-800 mb-2">
+                    🛠️ Metodologías y Herramientas
+                  </h4>
+                  <div className="text-sm text-yellow-700 space-y-1">
+                    <div>• <strong>Control de Versiones:</strong> Git, GitHub para manejo de código</div>
+                    <div>• <strong>Metodologías:</strong> Desarrollo ágil, documentación técnica</div>
+                    <div>• <strong>Testing:</strong> Pruebas unitarias y de integración</div>
+                    <div>• <strong>Deployment:</strong> CI/CD, hosting y configuración de servidores</div>
+                  </div>
+                </div>
+
+                {/* En Desarrollo */}
+                <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
+                  <h4 className="font-semibold text-purple-800 mb-2">
+                    🚧 Proyectos en Desarrollo
+                  </h4>
+                  <div className="text-sm text-purple-700 space-y-2">
+                    <div>
+                      <strong>Sistema CRM:</strong> Aplicación completa para gestión
+                      de clientes con React y Node.js
+                    </div>
+                    <div>
+                      <strong>E-commerce Platform:</strong> Plataforma de comercio electrónico
+                      con carrito de compras y pasarela de pagos
+                    </div>
+                    <div>
+                      <strong>Dashboard Analytics:</strong> Panel de control con
+                      gráficos interactivos y reportes en tiempo real
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -606,195 +649,199 @@ function MarkerModal({ isOpen, onClose, marker }) {
 
           {marker.id === "telefono" && (
             <div className="max-w-4xl w-full">
-              <h3 className="font-semibold text-xl mb-2 text-gray-900">🚀 Calculadora de Precios Inteligente</h3>
+              <h3 className="font-semibold text-xl mb-2 text-gray-900">
+                🚀 Stack Tecnológico & Habilidades
+              </h3>
               <p className="text-gray-800 mb-6">
-                Obtén un presupuesto personalizado y contáctame directamente. ¡Respuesta garantizada en 2 horas!
+                Tecnologías, herramientas y metodologías que domino para el desarrollo
+                de soluciones software modernas y eficientes.
               </p>
 
-              {/* Garantía de respuesta */}
+              {/* Experiencia y Nivel */}
               <div className="mb-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-green-600 text-lg">⏰</span>
-                  <h4 className="font-semibold text-green-800">Garantía de Respuesta</h4>
+                  <span className="text-green-600 text-lg">🎓</span>
+                  <h4 className="font-semibold text-green-800">
+                    Experiencia Académica
+                  </h4>
                 </div>
-                <p className="text-sm text-green-700">Te respondo en menos de 2 horas • Consulta inicial gratuita de 30 min</p>
+                <p className="text-sm text-green-700">
+                  2+ años estudiando en Universidad Claeh • Ingeniería de Software •
+                  Aprendizaje continuo en tecnologías modernas
+                </p>
               </div>
 
-              {/* Calculadora de Precios */}
-              <div className="mb-6">
-                <h4 className="font-semibold text-lg mb-3 text-gray-900">📊 Calculadora de Precios</h4>
-
-                {/* Selección de servicio */}
-                <div className="mb-4">
-                  <label className="block font-medium mb-2 text-gray-800">¿Qué tipo de proyecto necesitas?</label>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                    {[
-                      { id: 'landing', name: 'Landing Page', price: 299, desc: 'Página simple' },
-                      { id: 'website', name: 'Sitio Web', price: 899, desc: 'Web completa' },
-                      { id: 'ecommerce', name: 'E-commerce', price: 1499, desc: 'Tienda online' },
-                      { id: 'webapp', name: 'App Web', price: 2499, desc: 'Sistema complejo' },
-                      { id: 'mobile', name: 'App Móvil', price: 3999, desc: 'iOS/Android' }
-                    ].map((service) => (
-                      <button
-                        key={service.id}
-                        onClick={() => setSelectedService(service.id)}
-                        className={`p-3 rounded-lg border-2 transition-all ${
-                          selectedService === service.id
-                            ? 'border-blue-500 bg-blue-50 text-blue-800'
-                            : 'border-gray-200 hover:border-gray-300'
-                        }`}
-                      >
-                        <div className="font-semibold text-sm text-gray-800">{service.name}</div>
-                        <div className="text-xs text-gray-700">{service.desc}</div>
-                        <div className="font-bold text-sm mt-1 text-gray-900">${service.price}+</div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Features adicionales */}
-                {selectedService && (
-                  <div className="mb-4">
-                    <label className="block font-medium mb-2 text-gray-800">Funcionalidades adicionales:</label>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                      {[
-                        { id: 'responsive', name: 'Diseño Responsive', price: 100 },
-                        { id: 'database', name: 'Base de Datos', price: 300 },
-                        { id: 'authentication', name: 'Sistema Login', price: 200 },
-                        { id: 'payments', name: 'Pagos Online', price: 400 },
-                        { id: 'multiLanguage', name: 'Multi-idioma', price: 250 },
-                        { id: 'seo', name: 'SEO Optimizado', price: 150 },
-                        { id: 'analytics', name: 'Google Analytics', price: 100 },
-                        { id: 'hosting', name: 'Hosting + Dominio', price: 50 }
-                      ].map((feature) => (
-                        <label key={feature.id} className="flex items-center text-sm cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={projectFeatures[feature.id]}
-                            onChange={(e) =>
-                              setProjectFeatures(prev => ({
-                                ...prev,
-                                [feature.id]: e.target.checked
-                              }))
-                            }
-                            className="mr-2 text-blue-600"
-                          />
-                          <span className="flex-1 text-gray-800">{feature.name}</span>
-                          <span className="font-semibold text-gray-900">+${feature.price}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Urgencia del proyecto */}
-                {selectedService && (
-                  <div className="mb-4">
-                    <label className="block font-medium mb-2 text-gray-800">¿Cuándo lo necesitas?</label>
-                    <div className="flex gap-2">
-                      {[
-                        { id: 'relaxed', name: 'Sin apuro', multiplier: 0.8, desc: '(-20%)' },
-                        { id: 'normal', name: 'Tiempo normal', multiplier: 1.0, desc: 'Precio base' },
-                        { id: 'urgent', name: 'Urgente', multiplier: 1.5, desc: '(+50%)' }
-                      ].map((option) => (
-                        <button
-                          key={option.id}
-                          onClick={() => setUrgency(option.id)}
-                          className={`p-2 rounded border-2 transition-all flex-1 ${
-                            urgency === option.id
-                              ? 'border-orange-500 bg-orange-50 text-orange-800'
-                              : 'border-gray-200 hover:border-gray-300'
-                          }`}
-                        >
-                          <div className="font-semibold text-sm text-gray-800">{option.name}</div>
-                          <div className="text-xs text-gray-700">{option.desc}</div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Resultado del cálculo */}
-                {selectedService && (
-                  <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg mb-6">
-                    <div className="flex justify-between items-center">
+              {/* Stack Tecnológico */}
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Frontend */}
+                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                    <h4 className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
+                      🎨 Frontend Development
+                    </h4>
+                    <div className="space-y-3">
                       <div>
-                        <h4 className="font-bold text-lg text-blue-800">Presupuesto Estimado</h4>
-                        <p className="text-sm text-blue-600">Incluye todas las funcionalidades seleccionadas</p>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-blue-700">JavaScript</span>
+                          <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded">Avanzado</span>
+                        </div>
+                        <div className="w-full bg-blue-100 rounded-full h-2">
+                          <div className="bg-blue-500 h-2 rounded-full" style={{width: '90%'}}></div>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-3xl font-bold text-blue-800">${calculatedPrice.toLocaleString()}</div>
-                        <div className="text-sm text-green-600 font-semibold">💰 10% descuento si pagas adelantado</div>
-                        <div className="text-xs text-gray-600">Final: ${Math.round(calculatedPrice * 0.9).toLocaleString()}</div>
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-blue-700">React</span>
+                          <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded">Avanzado</span>
+                        </div>
+                        <div className="w-full bg-blue-100 rounded-full h-2">
+                          <div className="bg-blue-500 h-2 rounded-full" style={{width: '85%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-blue-700">Next.js</span>
+                          <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">Intermedio</span>
+                        </div>
+                        <div className="w-full bg-blue-100 rounded-full h-2">
+                          <div className="bg-blue-400 h-2 rounded-full" style={{width: '70%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-blue-700">CSS3/Tailwind</span>
+                          <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded">Avanzado</span>
+                        </div>
+                        <div className="w-full bg-blue-100 rounded-full h-2">
+                          <div className="bg-blue-500 h-2 rounded-full" style={{width: '88%'}}></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                )}
-              </div>
 
-              {/* Botones de acción */}
-              {selectedService && (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    {/* WhatsApp */}
-                    <button
-                      onClick={openWhatsApp}
-                      className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg font-semibold transition-colors"
-                    >
-                      <span>💬</span>
-                      WhatsApp Directo
-                    </button>
-
-                    {/* Calendly */}
-                    <button
-                      onClick={openCalendly}
-                      className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold transition-colors"
-                    >
-                      <span>📅</span>
-                      Agendar Consulta
-                    </button>
-
-                    {/* Email */}
-                    <button
-                      onClick={() => window.open('mailto:nahuel01pages@gmail.com?subject=Consulta de Proyecto&body=Hola! Me interesa un proyecto de ' + selectedService + ' con presupuesto estimado de $' + calculatedPrice)}
-                      className="flex items-center justify-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-4 py-3 rounded-lg font-semibold transition-colors"
-                    >
-                      <span>📧</span>
-                      Enviar Email
-                    </button>
+                  {/* Backend */}
+                  <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                    <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
+                      ⚙️ Backend & Databases
+                    </h4>
+                    <div className="space-y-3">
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-green-700">C#</span>
+                          <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">Intermedio</span>
+                        </div>
+                        <div className="w-full bg-green-100 rounded-full h-2">
+                          <div className="bg-green-400 h-2 rounded-full" style={{width: '75%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-green-700">Java</span>
+                          <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">Intermedio</span>
+                        </div>
+                        <div className="w-full bg-green-100 rounded-full h-2">
+                          <div className="bg-green-400 h-2 rounded-full" style={{width: '70%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-green-700">SQL Server</span>
+                          <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">Intermedio</span>
+                        </div>
+                        <div className="w-full bg-green-100 rounded-full h-2">
+                          <div className="bg-green-400 h-2 rounded-full" style={{width: '72%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-sm font-medium text-green-700">Python</span>
+                          <span className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">Básico</span>
+                        </div>
+                        <div className="w-full bg-green-100 rounded-full h-2">
+                          <div className="bg-green-300 h-2 rounded-full" style={{width: '50%'}}></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Proceso y garantías */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h5 className="font-semibold mb-2">🔄 Mi Proceso</h5>
-                      <ul className="text-sm space-y-1">
-                        <li>1. Consulta gratuita (30 min)</li>
-                        <li>2. Propuesta en 24h</li>
-                        <li>3. Desarrollo con entregas semanales</li>
-                        <li>4. Pruebas y lanzamiento</li>
-                      </ul>
+                  {/* Herramientas */}
+                  <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
+                    <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
+                      🛠️ Herramientas & Otros
+                    </h4>
+                    <div className="text-sm text-purple-700 space-y-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                        <span><strong>Control de Versiones:</strong> Git, GitHub</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                        <span><strong>3D & Graphics:</strong> Three.js, GLTF</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                        <span><strong>Responsive Design:</strong> Mobile-first approach</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                        <span><strong>IDE/Editores:</strong> VS Code, Visual Studio</span>
+                      </div>
                     </div>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h5 className="font-semibold mb-2">🛡️ Garantías</h5>
-                      <ul className="text-sm space-y-1">
+                  </div>
+
+                  {/* Aprendiendo */}
+                  <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
+                    <h4 className="font-semibold text-orange-800 mb-3 flex items-center gap-2">
+                      📚 Actualmente Aprendiendo
+                    </h4>
+                    <div className="text-sm text-orange-700 space-y-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                        <span><strong>Node.js:</strong> Backend con JavaScript</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                        <span><strong>TypeScript:</strong> JavaScript tipado</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                        <span><strong>Cloud Computing:</strong> AWS, servicios en la nube</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                        <span><strong>DevOps:</strong> CI/CD, automatización</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Metodología de trabajo */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                    🔄 Mi Metodología de Trabajo
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h5 className="font-semibold text-gray-700 mb-2">Desarrollo</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
                         <li>• Código limpio y documentado</li>
-                        <li>• Soporte 30 días gratis</li>
-                        <li>• Revisiones ilimitadas</li>
-                        <li>• Hosting y dominio incluidos*</li>
+                        <li>• Componentes reutilizables</li>
+                        <li>• Responsive design mobile-first</li>
+                        <li>• Optimización de rendimiento</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 mb-2">Comunicación</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Actualizaciones constantes</li>
+                        <li>• Entregas incrementales</li>
+                        <li>• Documentación técnica</li>
+                        <li>• Feedback continuo</li>
                       </ul>
                     </div>
                   </div>
                 </div>
-              )}
-
-              {/* Mensaje inicial si no hay servicio seleccionado */}
-              {!selectedService && (
-                <div className="text-center py-8">
-                  <div className="text-4xl mb-2">👆</div>
-                  <p className="text-gray-800">Selecciona un tipo de proyecto para calcular el presupuesto</p>
-                </div>
-              )}
+              </div>
             </div>
           )}
 
@@ -856,7 +903,7 @@ function Model3DModal({ isOpen, onClose }) {
         {/* Header del modal */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-white text-2xl font-bold">
-            🏢 Oficina Retro de los 90s
+            🎨 Portfolio Interactivo & Demo 3D
           </h2>
           <button
             onClick={onClose}
@@ -926,10 +973,10 @@ function Model3DModal({ isOpen, onClose }) {
 
           {/* Controles e información */}
           <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 text-white text-sm">
-            <p className="font-bold mb-1">🏢 Oficina Retro de los 90s</p>
+            <p className="font-bold mb-1">🎨 Demo 3D Interactivo</p>
             <p>• Arrastra para rotar la cámara</p>
             <p>• Scroll para hacer zoom</p>
-            <p>• Explora la oficina vintage</p>
+            <p>• Haz clic en los marcadores para ver mi trabajo</p>
           </div>
 
           {/* Botones de navegación rápida */}
@@ -966,7 +1013,10 @@ function Model3DModal({ isOpen, onClose }) {
 }
 
 // Componente principal
-export default function JapaneseNeighborhood({ onSectionClick, isFullscreen = false }) {
+export default function JapaneseNeighborhood({
+  onSectionClick,
+  isFullscreen = false,
+}) {
   const [showModal, setShowModal] = useState(false);
   const [cameraPosition, setCameraPosition] = useState([8.5, 0.5, 3]);
   const [cameraTarget, setCameraTarget] = useState([0, 0, 4]);
@@ -1037,7 +1087,9 @@ export default function JapaneseNeighborhood({ onSectionClick, isFullscreen = fa
   return (
     <>
       {/* UI principal con modelo 3D siempre visible */}
-      <div className={`w-full overflow-hidden bg-gray-200 ${isFullscreen ? 'h-screen' : 'h-[600px] rounded-xl'}`}>
+      <div
+        className={`w-full overflow-hidden bg-gray-200 ${isFullscreen ? "h-screen" : "h-[600px] rounded-xl"}`}
+      >
         <Canvas
           shadows
           camera={{ fov: 60, position: cameraPosition }}
