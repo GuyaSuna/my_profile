@@ -425,7 +425,7 @@ function VisualMarkers({ onCameraMove, onSectionClick }) {
     {
       id: "store",
       position: [4, -0.5, 1.9], // Mesa de enfrente (escalado apropiadamente)
-      label: "🏪 Tienda",
+      label: "Tienda",
       color: "#FFD700",
       cameraPosition: [4, 0, 7],
       cameraTarget: [4, -0.5, 1.9],
@@ -433,7 +433,7 @@ function VisualMarkers({ onCameraMove, onSectionClick }) {
     {
       id: "projects",
       position: [11.75, -1.2, 4.9], // Ubicación real del gato que me diste
-      label: "🐱 Proyectos",
+      label: "Proyectos",
       color: "#4A90E2",
       cameraPosition: [13, 2, 8],
       cameraTarget: [12, -0.9, 4.8],
@@ -441,26 +441,42 @@ function VisualMarkers({ onCameraMove, onSectionClick }) {
     {
       id: "skills",
       position: [8.4, 0, 1.8], // Parte más alta del diorama
-      label: "🎯 Skills",
+      label: "Skills",
       color: "#9013FE",
       cameraPosition: [8.4, -1, 2.5],
       cameraTarget: [8.4, 0, 1.8],
     },
     {
-      id: "contact",
-      position: [2.5, 0.5, -1.8], // Lado derecho del diorama (más alejado)
-      label: "📧 Contacto",
-      color: "#FF4444",
-      cameraPosition: [4, 2, -1.5],
-      cameraTarget: [2.5, 0, -1.8],
+      id: "escaleras",
+      position: [-3.3, 0, 0], // Lado derecho del diorama (más alejado)
+      label: "Escaleras1",
+      color: "#19c050",
+      cameraPosition: [-3, 1, 5],
+      cameraTarget: [-3, 1, 0],
+    },
+    {
+      id: "escaleras",
+      position: [7, 12, -12.7], // Lado derecho del diorama (más alejado)
+      label: "Escaleras2",
+      color: "#19c050",
+      cameraPosition: [4, 13, -12.7],
+      cameraTarget: [7, 12, -12.7],
+    },
+    {
+      id: "escaleras",
+      position: [-3.3, 6, -12.7], // Lado derecho del diorama (más alejado)
+      label: "Escaleras3",
+      color: "#19c050",
+      cameraPosition: [-12, 6, -12],
+      cameraTarget: [-3.3, 6, -10],
     },
     {
       id: "overview",
-      position: [0, 4.5, 0], // Vista aérea muy alta
-      label: "🌍 Vista General",
+      position: [1.5, 4.5, 1], // Vista aérea muy alta
+      label: "Vista General",
       color: "#00CED1",
-      cameraPosition: [0, 7, 8],
-      cameraTarget: [0, 0, 0],
+      cameraPosition: [0, 7, 13],
+      cameraTarget: [5, 0, 0],
     },
   ];
 
@@ -798,7 +814,6 @@ function Model3DModal({ isOpen, onClose }) {
             <fog attach="fog" args={["#1a1a2e", 10, 50]} />
           </Canvas>
 
-
           {/* Botones de navegación rápida */}
           <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
             <p className="text-white text-xs font-bold mb-2">
@@ -806,39 +821,39 @@ function Model3DModal({ isOpen, onClose }) {
             </p>
             <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => handleCameraMove([0, 5, 6], [0, 0, 0])}
+                onClick={() => handleCameraMove([0, 4, 6], [0, 0, 0])}
                 className="bg-cyan-500 hover:bg-cyan-400 text-white text-xs px-2 py-1 rounded transition-colors"
                 title="Vista General"
               >
                 🌍 General
               </button>
               <button
-                onClick={() => handleCameraMove([0, 1.5, 2.5], [0, 0, 1.2])}
+                onClick={() => handleCameraMove([4, 0, 7], [4, -0.5, 1.9])}
                 className="bg-yellow-500 hover:bg-yellow-400 text-white text-xs px-2 py-1 rounded transition-colors"
-                title="Mesa de enfrente"
+                title="Tienda"
               >
-                🏪 Mesa
+                🏪 Tienda
               </button>
               <button
-                onClick={() => handleCameraMove([15, 2, 7], [12, -0.9, 4.8])}
+                onClick={() => handleCameraMove([13, 2, 8], [12, -0.9, 4.8])}
                 className="bg-blue-500 hover:bg-blue-400 text-white text-xs px-2 py-1 rounded transition-colors"
-                title="Área del gato"
+                title="Proyectos"
               >
-                🐱 Gato
+                🐱 Proyectos
               </button>
               <button
-                onClick={() => handleCameraMove([0.5, 3.5, 2], [0.5, 2.8, 0])}
+                onClick={() => handleCameraMove([8.4, -1, 2.5], [8.4, 0, 1.8])}
                 className="bg-purple-500 hover:bg-purple-400 text-white text-xs px-2 py-1 rounded transition-colors"
-                title="Parte de arriba"
+                title="Skills"
               >
-                🎯 Arriba
+                🎯 Skills
               </button>
               <button
-                onClick={() => handleCameraMove([3, 1.5, -1], [1.8, 0, -1])}
+                onClick={() => handleCameraMove([4, 2, -1.5], [2.5, 0, -1.8])}
                 className="bg-red-500 hover:bg-red-400 text-white text-xs px-2 py-1 rounded transition-colors"
-                title="Lado derecho"
+                title="Contacto"
               >
-                📧 Lado
+                📧 Contacto
               </button>
             </div>
           </div>
@@ -936,46 +951,38 @@ export default function JapaneseNeighborhood({ onSectionClick }) {
 
         {/* Botones de navegación rápida */}
         <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
-          <p className="text-white text-xs font-bold mb-2">🎯 Navegación</p>
+          <p className="text-white text-xs font-bold mb-2">Navegación Rápida</p>
           <div className="flex flex-wrap gap-2">
             <button
-              onClick={() => handleCameraMove([0, 4, 6], [0, 0, 0])}
+              onClick={() => handleCameraMove([0, 4, 15], [7, 0, 0])}
               className="bg-cyan-500 hover:bg-cyan-400 text-white text-xs px-2 py-1 rounded transition-colors"
               title="Vista General"
             >
-              🌍 General
+              General
             </button>
             <button
               onClick={() => handleCameraMove([4, 0, 7], [4, -0.5, 1.9])}
               className="bg-yellow-500 hover:bg-yellow-400 text-white text-xs px-2 py-1 rounded transition-colors"
               title="Tienda"
             >
-              🏪 Tienda
+              Tienda
             </button>
             <button
               onClick={() => handleCameraMove([13, 2, 8], [12, -0.9, 4.8])}
               className="bg-blue-500 hover:bg-blue-400 text-white text-xs px-2 py-1 rounded transition-colors"
               title="Proyectos"
             >
-              🐱 Proyectos
+              Proyectos
             </button>
             <button
               onClick={() => handleCameraMove([8.4, -1, 2.5], [8.4, 0, 1.8])}
               className="bg-purple-500 hover:bg-purple-400 text-white text-xs px-2 py-1 rounded transition-colors"
               title="Skills"
             >
-              🎯 Skills
-            </button>
-            <button
-              onClick={() => handleCameraMove([4, 2, -1.5], [2.5, 0, -1.8])}
-              className="bg-red-500 hover:bg-red-400 text-white text-xs px-2 py-1 rounded transition-colors"
-              title="Contacto"
-            >
-              📧 Contacto
+              Skills
             </button>
           </div>
         </div>
-
       </div>
 
       {/* Modal del modelo 3D - solo para la tienda */}
