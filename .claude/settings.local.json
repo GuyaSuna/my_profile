@@ -8,7 +8,8 @@
       "Bash(npm run build)",
       "Bash(npm run dev)",
       "Bash(npm install @react-three/drei three @react-three/fiber)",
-      "Bash(rm package-lock.json)"
+      "Bash(rm package-lock.json)",
+      "Bash(rm -rf node_modules)"
     ],
     "deny": [],
     "ask": []
