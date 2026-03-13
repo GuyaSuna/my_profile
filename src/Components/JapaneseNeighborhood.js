@@ -740,7 +740,9 @@ function Model3DModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black z-50">
+    <div
+      className="modal-fullscreen bg-black"
+    >
       {/* Header del modal - posicionado absolutamente */}
       <div className="absolute top-0 left-0 right-0 z-10 flex justify-between items-center p-6 bg-black/50 backdrop-blur-sm">
         <h2 className="text-white text-2xl font-bold">
@@ -755,13 +757,14 @@ function Model3DModal({ isOpen, onClose }) {
       </div>
 
       {/* Contenedor del modelo 3D - fullscreen */}
-      <div className="w-full h-full bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900 relative">
+      <div
+        className="modal-fullscreen bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900"
+      >
           <Canvas
             shadows
             camera={{ fov: 60, position: [0, 7, 13] }}
+            className="canvas-fullscreen"
             style={{
-              width: "100%",
-              height: "100vh",
               background:
                 "linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460)",
             }}

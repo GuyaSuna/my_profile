@@ -11,6 +11,26 @@ html, body {
     font-family: 'Inter', sans-serif;
 }
 
+/* Asegurar que los modales fullscreen funcionen en GitHub Pages */
+.modal-fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    z-index: 9999 !important;
+}
+
+.canvas-fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    display: block !important;
+}
+
 /* Bento Grid Styles */
 .grid-auto-rows-\[160px\] {
     grid-auto-rows: 160px;
