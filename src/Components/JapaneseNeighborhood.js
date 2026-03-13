@@ -667,15 +667,17 @@ function CameraController({
   );
 }
 
-// Componente de carga mientras el modelo se descarga
+// Componente de carga mientras el modelo se descarga - usando Html para React Three Fiber
 function Loader() {
   return (
-    <div className="flex items-center justify-center h-full">
-      <div className="text-white text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-        <p>Cargando modelo 3D...</p>
+    <Html center>
+      <div className="flex items-center justify-center">
+        <div className="text-white text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+          <p>Cargando modelo 3D...</p>
+        </div>
       </div>
-    </div>
+    </Html>
   );
 }
 
@@ -697,20 +699,22 @@ class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex items-center justify-center h-full">
-          <div className="text-white text-center p-8">
-            <div className="text-red-400 text-4xl mb-4">⚠️</div>
-            <p className="text-lg font-bold mb-2">
-              Error al cargar el modelo 3D
-            </p>
-            <p className="text-sm text-slate-300">
-              Archivo: barrio_japones.glb
-            </p>
-            <p className="text-xs text-slate-400 mt-2">
-              Revisa la consola para más detalles
-            </p>
+        <Html center>
+          <div className="flex items-center justify-center">
+            <div className="text-white text-center p-8">
+              <div className="text-red-400 text-4xl mb-4">⚠️</div>
+              <p className="text-lg font-bold mb-2">
+                Error al cargar el modelo 3D
+              </p>
+              <p className="text-sm text-slate-300">
+                Archivo: barrio_japones.glb
+              </p>
+              <p className="text-xs text-slate-400 mt-2">
+                Revisa la consola para más detalles
+              </p>
+            </div>
           </div>
-        </div>
+        </Html>
       );
     }
 
@@ -758,7 +762,7 @@ function Model3DModal({ isOpen, onClose }) {
 
       {/* Contenedor del modelo 3D - fullscreen */}
       <div
-        className="modal-fullscreen bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900"
+        className="absolute inset-0 bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900"
       >
           <Canvas
             shadows
