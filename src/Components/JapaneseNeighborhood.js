@@ -6,8 +6,15 @@ import {
   useGLTF,
   Environment,
   useAnimations,
+  Html,
 } from "@react-three/drei";
 import * as THREE from "three";
+
+// Función para obtener la ruta correcta de assets
+const getAssetPath = (path) => {
+  const basePath = process.env.NODE_ENV === 'production' ? '/my_profile' : '';
+  return `${basePath}${path}`;
+};
 
 // Componente interactivo del barrio japonés
 function InteractiveNeighborhood({ onSectionClick }) {
@@ -260,7 +267,7 @@ function InteractiveNeighborhood({ onSectionClick }) {
 // Componente para cargar el modelo original de Sketchfab
 function NeighborhoodModel({ onSectionClick, onCameraMove }) {
   const groupRef = useRef();
-  const modelPath = "/models/barrio_japones.glb";
+  const modelPath = getAssetPath("/models/barrio_japones.glb");
 
   console.log("Cargando modelo original de Sketchfab:", modelPath);
 
@@ -293,7 +300,7 @@ function SupermarketModel({
   position = [8, -1.2, -2.4],
   scale = [0.7, 0.7, 0.7],
 }) {
-  const modelPath = "/models/multi_supermarket_assetpack_vol.2.glb";
+  const modelPath = getAssetPath("/models/multi_supermarket_assetpack_vol.2.glb");
 
   console.log("Cargando modelo de supermercado:", modelPath);
 
@@ -315,7 +322,7 @@ function MushroomMerchant({
   rotation = [0, Math.PI / 0.7, 0], // Rotación Y de 90 grados a la derecha
 }) {
   const groupRef = useRef();
-  const modelPath = "/models/mushroom_merchant_animated.glb";
+  const modelPath = getAssetPath("/models/mushroom_merchant_animated.glb");
 
   console.log("🍄 Cargando mushroom merchant:", modelPath);
 
@@ -752,7 +759,7 @@ function Model3DModal({ isOpen, onClose }) {
         <div className="w-full h-[600px] rounded-xl overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900 relative">
           <Canvas
             shadows
-            camera={{ fov: 60, position: [0, 4, 6] }}
+            camera={{ fov: 60, position: [0, 7, 13] }}
             style={{
               background:
                 "linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460)",
@@ -866,8 +873,8 @@ function Model3DModal({ isOpen, onClose }) {
 // Componente principal
 export default function JapaneseNeighborhood({ onSectionClick }) {
   const [showModal, setShowModal] = useState(false);
-  const [cameraPosition, setCameraPosition] = useState([0, 4, 6]);
-  const [cameraTarget, setCameraTarget] = useState([0, 0, 0]);
+  const [cameraPosition, setCameraPosition] = useState([0, 7, 13]);
+  const [cameraTarget, setCameraTarget] = useState([3, 0, 0]);
 
   // Función para mover la cámara
   const handleCameraMove = (position, lookAt) => {
@@ -992,5 +999,5 @@ export default function JapaneseNeighborhood({ onSectionClick }) {
 }
 
 // Precargar los modelos para mejor rendimiento
-useGLTF.preload("/models/barrio_japones.glb");
-useGLTF.preload("/models/multi_supermarket_assetpack_vol.2.glb");
+useGLTF.preload(getAssetPath("/models/barrio_japones.glb"));
+useGLTF.preload(getAssetPath("/models/multi_supermarket_assetpack_vol.2.glb"));
