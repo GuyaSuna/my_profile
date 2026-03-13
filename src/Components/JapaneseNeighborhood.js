@@ -740,27 +740,28 @@ function Model3DModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-      <div className="bg-gray-900 rounded-xl p-4 max-w-7xl max-h-[90vh] w-full mx-4">
-        {/* Header del modal */}
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-white text-2xl font-bold">
-            🎨 Portfolio Interactivo & Demo 3D
-          </h2>
-          <button
-            onClick={onClose}
-            className="text-white hover:text-gray-300 text-3xl font-bold"
-          >
-            ×
-          </button>
-        </div>
+    <div className="fixed inset-0 bg-black z-50">
+      {/* Header del modal - posicionado absolutamente */}
+      <div className="absolute top-0 left-0 right-0 z-10 flex justify-between items-center p-6 bg-black/50 backdrop-blur-sm">
+        <h2 className="text-white text-2xl font-bold">
+          🎨 Portfolio Interactivo & Demo 3D
+        </h2>
+        <button
+          onClick={onClose}
+          className="text-white hover:text-gray-300 text-3xl font-bold bg-black/30 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/50 transition-colors"
+        >
+          X
+        </button>
+      </div>
 
-        {/* Contenedor del modelo 3D */}
-        <div className="w-full h-[600px] rounded-xl overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900 relative">
+      {/* Contenedor del modelo 3D - fullscreen */}
+      <div className="w-full h-full bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900 relative">
           <Canvas
             shadows
             camera={{ fov: 60, position: [0, 7, 13] }}
             style={{
+              width: "100%",
+              height: "100vh",
               background:
                 "linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460)",
             }}
@@ -822,7 +823,7 @@ function Model3DModal({ isOpen, onClose }) {
           </Canvas>
 
           {/* Botones de navegación rápida */}
-          <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
+          <div className="absolute top-20 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 z-10">
             <p className="text-white text-xs font-bold mb-2">
               🎯 Navegación Rápida
             </p>
@@ -865,7 +866,6 @@ function Model3DModal({ isOpen, onClose }) {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
@@ -957,7 +957,7 @@ export default function JapaneseNeighborhood({ onSectionClick }) {
         </Canvas>
 
         {/* Botones de navegación rápida */}
-        <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
+        <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 z-10">
           <p className="text-white text-xs font-bold mb-2">Navegación Rápida</p>
           <div className="flex flex-wrap gap-2">
             <button
