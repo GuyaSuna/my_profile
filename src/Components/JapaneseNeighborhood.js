@@ -900,7 +900,7 @@ export default function JapaneseNeighborhood({ onSectionClick }) {
   return (
     <>
       {/* UI original con modelo 3D ocupando toda la pantalla */}
-      <div className="w-full h-screen overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900">
+      <div className="w-full h-full overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900">
         <Canvas
           shadows
           camera={{ fov: 60, position: [0, 4, 6] }}
