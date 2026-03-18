@@ -295,7 +295,7 @@ Enviado desde el portfolio web
         {/* GitHub Project */}
         <div
           onClick={openGitHub}
-          className="col-span-1 md:col-span-2 row-span-2 bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-800 relative cursor-pointer"
+          className="col-span-1 md:col-span-2 row-span-3 sm:row-span-2 min-h-[300px] sm:min-h-0 bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-800 relative cursor-pointer"
         >
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/30 to-blue-900/30 animate-gradient-shift">
