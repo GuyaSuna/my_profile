@@ -20,6 +20,7 @@ html, body {
     bottom: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
+    height: 100dvh !important;
     max-width: none !important;
     max-height: none !important;
     z-index: 9999 !important;
@@ -28,6 +29,7 @@ html, body {
 .canvas-fullscreen {
     width: 100vw !important;
     height: 100vh !important;
+    height: 100dvh !important;
     display: block !important;
 }
 

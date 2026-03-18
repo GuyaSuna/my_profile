@@ -195,9 +195,9 @@ Enviado desde el portfolio web
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
+    <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 sm:py-12">
       {/* Navigation */}
-      <header className="flex items-center justify-between mb-12">
+      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8 sm:mb-12">
         <div className="flex items-center gap-3">
           <div className="bg-primary p-2 rounded-lg">
             <span className="material-symbols-outlined text-white">code</span>
@@ -232,28 +232,28 @@ Enviado desde el portfolio web
         </nav>
         <button
           onClick={downloadCV}
-          className="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-primary/20"
+          className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-lg shadow-primary/20 self-start sm:self-auto sm:px-6 sm:py-2.5 sm:text-sm"
         >
           Descargar CV
         </button>
       </header>
 
       {/* Bento Grid Layout */}
-      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 grid-auto-rows-[160px]">
+      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 grid-auto-rows-[200px] sm:grid-auto-rows-[160px]">
         {/* Hero Tile */}
-        <div className="col-span-1 md:col-span-2 row-span-2 bg-white dark:bg-slate-900 rounded-xl p-10 flex flex-col justify-center border border-slate-200 dark:border-slate-800">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 w-fit">
+        <div className="col-span-1 md:col-span-2 row-span-2 bg-white dark:bg-slate-900 rounded-xl p-6 sm:p-10 flex flex-col justify-center border border-slate-200 dark:border-slate-800">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] sm:text-xs font-bold mb-4 sm:mb-6 w-fit">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             DISPONIBLE PARA PROYECTOS
           </div>
-          <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-4 sm:mb-6">
             Soy <span className="text-primary">Nahuel Pages</span>, Full Stack
             Developer.
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-md">
+          <p className="text-slate-500 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-md">
             Especializado en desarrollo Full Stack con React, Next.js y
             tecnologías modernas. Transformo ideas en soluciones digitales
             escalables y funcionales.
@@ -811,3 +811,4 @@ Enviado desde el portfolio web
 };
 
 export default PortfolioPage;
+

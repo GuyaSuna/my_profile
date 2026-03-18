@@ -744,17 +744,15 @@ function Model3DModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div
-      className="modal-fullscreen bg-black"
-    >
+    <div className="modal-fullscreen bg-black">
       {/* Header del modal - posicionado absolutamente */}
-      <div className="absolute top-0 left-0 right-0 z-10 flex justify-between items-center p-6 bg-black/50 backdrop-blur-sm">
-        <h2 className="text-white text-2xl font-bold">
+      <div className="absolute top-0 left-0 right-0 z-10 flex flex-col gap-3 p-4 bg-black/50 backdrop-blur-sm sm:flex-row sm:justify-between sm:items-center sm:p-6">
+        <h2 className="text-white text-lg font-bold sm:text-2xl">
           🎨 Portfolio Interactivo & Demo 3D
         </h2>
         <button
           onClick={onClose}
-          className="text-white hover:text-gray-300 text-3xl font-bold bg-black/30 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/50 transition-colors"
+          className="text-white hover:text-gray-300 text-2xl font-bold bg-black/30 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/50 transition-colors sm:w-12 sm:h-12 sm:text-3xl"
         >
           X
         </button>
@@ -830,42 +828,42 @@ function Model3DModal({ isOpen, onClose }) {
           </Canvas>
 
           {/* Botones de navegación rápida */}
-          <div className="absolute top-20 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 z-10">
-            <p className="text-white text-xs font-bold mb-2">
+          <div className="absolute left-1/2 bottom-4 w-[calc(100%-2rem)] -translate-x-1/2 bg-black/70 backdrop-blur-sm rounded-lg p-3 z-10 sm:top-20 sm:left-4 sm:bottom-auto sm:translate-x-0 sm:w-auto">
+            <p className="text-white text-xs font-bold mb-2 text-center sm:text-left">
               🎯 Navegación Rápida
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
               <button
                 onClick={() => handleCameraMove([0, 4, 6], [0, 0, 0])}
-                className="bg-cyan-500 hover:bg-cyan-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                className="bg-cyan-500 hover:bg-cyan-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
                 title="Vista General"
               >
                 🌍 General
               </button>
               <button
                 onClick={() => handleCameraMove([4, 0, 7], [4, -0.5, 1.9])}
-                className="bg-yellow-500 hover:bg-yellow-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                className="bg-yellow-500 hover:bg-yellow-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
                 title="Tienda"
               >
                 🏪 Tienda
               </button>
               <button
                 onClick={() => handleCameraMove([13, 2, 8], [12, -0.9, 4.8])}
-                className="bg-blue-500 hover:bg-blue-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                className="bg-blue-500 hover:bg-blue-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
                 title="Proyectos"
               >
                 🐱 Proyectos
               </button>
               <button
                 onClick={() => handleCameraMove([8.4, -1, 2.5], [8.4, 0, 1.8])}
-                className="bg-purple-500 hover:bg-purple-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                className="bg-purple-500 hover:bg-purple-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
                 title="Skills"
               >
                 🎯 Skills
               </button>
               <button
                 onClick={() => handleCameraMove([4, 2, -1.5], [2.5, 0, -1.8])}
-                className="bg-red-500 hover:bg-red-400 text-white text-xs px-2 py-1 rounded transition-colors"
+                className="bg-red-500 hover:bg-red-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
                 title="Contacto"
               >
                 📧 Contacto
@@ -904,7 +902,7 @@ export default function JapaneseNeighborhood({ onSectionClick }) {
   return (
     <>
       {/* UI original con modelo 3D ocupando toda la pantalla */}
-      <div className="w-full h-full overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900">
+      <div className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900">
         <Canvas
           shadows
           camera={{ fov: 60, position: [0, 4, 6] }}
@@ -964,33 +962,33 @@ export default function JapaneseNeighborhood({ onSectionClick }) {
         </Canvas>
 
         {/* Botones de navegación rápida */}
-        <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-lg p-3 z-10">
-          <p className="text-white text-xs font-bold mb-2">Navegación Rápida</p>
-          <div className="flex flex-wrap gap-2">
+        <div className="absolute left-1/2 bottom-4 w-[calc(100%-2rem)] -translate-x-1/2 bg-black/70 backdrop-blur-sm rounded-lg p-3 z-10 sm:top-4 sm:left-4 sm:bottom-auto sm:translate-x-0 sm:w-auto">
+          <p className="text-white text-xs font-bold mb-2 text-center sm:text-left">Navegación Rápida</p>
+          <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
             <button
               onClick={() => handleCameraMove([0, 4, 15], [7, 0, 0])}
-              className="bg-cyan-500 hover:bg-cyan-400 text-white text-xs px-2 py-1 rounded transition-colors"
+              className="bg-cyan-500 hover:bg-cyan-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
               title="Vista General"
             >
               General
             </button>
             <button
               onClick={() => handleCameraMove([4, 0, 7], [4, -0.5, 1.9])}
-              className="bg-yellow-500 hover:bg-yellow-400 text-white text-xs px-2 py-1 rounded transition-colors"
+              className="bg-yellow-500 hover:bg-yellow-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
               title="Tienda"
             >
               Tienda
             </button>
             <button
               onClick={() => handleCameraMove([13, 2, 8], [12, -0.9, 4.8])}
-              className="bg-blue-500 hover:bg-blue-400 text-white text-xs px-2 py-1 rounded transition-colors"
+              className="bg-blue-500 hover:bg-blue-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
               title="Proyectos"
             >
               Proyectos
             </button>
             <button
               onClick={() => handleCameraMove([8.4, -1, 2.5], [8.4, 0, 1.8])}
-              className="bg-purple-500 hover:bg-purple-400 text-white text-xs px-2 py-1 rounded transition-colors"
+              className="bg-purple-500 hover:bg-purple-400 text-white text-[11px] px-2 py-1 rounded transition-colors sm:text-xs"
               title="Skills"
             >
               Skills
