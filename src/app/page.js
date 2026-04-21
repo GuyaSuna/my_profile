@@ -21,47 +21,190 @@ const PortfolioPage = () => {
     timeline: "",
   });
 
+  const getAboutContent = () => getAboutContentClean();
+
+  const getAboutContentV2 = () => `
+    <div class="relative overflow-hidden">
+      <div class="pointer-events-none absolute -left-24 top-[-8rem] h-72 w-72 rounded-full bg-primary/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -right-16 bottom-0 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl"></div>
+
+      <div class="relative z-10">
+        <header class="mb-10 md:mb-16 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div class="space-y-2">
+            <span class="text-primary text-[0.62rem] sm:text-[0.6875rem] uppercase tracking-[0.16em] sm:tracking-[0.2em]">Curriculum &amp; Tech Stack</span>
+            <h3 class="text-4xl sm:text-6xl lg:text-8xl font-black tracking-tight text-white leading-none" style="font-family: Manrope, sans-serif;">Informaci&oacute;n.</h3>
+          </div>
+          <div class="max-w-md rounded-2xl border border-slate-700/40 bg-slate-800/30 px-4 py-4 sm:px-5 backdrop-blur-sm">
+            <p class="text-sm leading-relaxed text-slate-300">Perfil t&eacute;cnico enfocado en interfaces robustas, rendimiento, escalabilidad y arquitectura limpia para productos web modernos.</p>
+          </div>
+        </header>
+
+        <section class="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_1px_minmax(0,1.15fr)] md:gap-10">
+          <div class="space-y-6 sm:space-y-8">
+            <div class="flex items-center gap-3 sm:gap-4">
+              <span class="h-px w-8 sm:w-12 bg-primary/40"></span>
+              <h4 class="text-[0.72rem] sm:text-sm uppercase tracking-[0.18em] sm:tracking-widest text-slate-400">Lenguajes de Programaci&oacute;n</h4>
+            </div>
+
+            <div class="space-y-6 sm:space-y-8">
+              <div>
+                <div class="mb-3 flex items-end justify-between gap-4">
+                  <h5 class="text-xl sm:text-2xl font-bold text-white" style="font-family: Manrope, sans-serif;">JavaScript</h5>
+                  <span class="text-[0.6875rem] font-semibold uppercase tracking-tight text-primary">Avanzado</span>
+                </div>
+                <div class="h-[3px] w-full rounded-full bg-slate-700/30 overflow-hidden">
+                  <div class="h-full w-[90%] bg-gradient-to-r from-primary to-blue-300"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="mb-3 flex items-end justify-between gap-4">
+                  <h5 class="text-xl sm:text-2xl font-bold text-white" style="font-family: Manrope, sans-serif;">C#</h5>
+                  <span class="text-[0.6875rem] font-semibold uppercase tracking-tight text-slate-400">Intermedio</span>
+                </div>
+                <div class="h-[3px] w-full rounded-full bg-slate-700/30 overflow-hidden">
+                  <div class="h-full w-[65%] bg-slate-500"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="mb-3 flex items-end justify-between gap-4">
+                  <h5 class="text-xl sm:text-2xl font-bold text-white" style="font-family: Manrope, sans-serif;">Java</h5>
+                  <span class="text-[0.6875rem] font-semibold uppercase tracking-tight text-slate-400">Intermedio</span>
+                </div>
+                <div class="h-[3px] w-full rounded-full bg-slate-700/30 overflow-hidden">
+                  <div class="h-full w-[60%] bg-slate-500"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hidden md:block bg-gradient-to-b from-transparent via-slate-700/30 to-transparent"></div>
+
+          <div class="space-y-6 sm:space-y-8">
+            <div class="flex items-center gap-3 sm:gap-4">
+              <span class="h-px w-8 sm:w-12 bg-primary/40"></span>
+              <h4 class="text-[0.72rem] sm:text-sm uppercase tracking-[0.18em] sm:tracking-widest text-slate-400">Frameworks y Tecnolog&iacute;as</h4>
+            </div>
+
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div class="rounded-2xl border border-slate-700/30 bg-slate-800/30 p-5 sm:p-6 backdrop-blur-sm transition-colors duration-300 hover:bg-slate-800/50">
+                <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-950 text-xs font-bold uppercase tracking-[0.18em] text-primary">RE</div>
+                <h5 class="text-2xl sm:text-3xl font-bold text-white mb-2" style="font-family: Manrope, sans-serif;">React</h5>
+                <p class="text-sm leading-relaxed text-slate-400">Ecosistema moderno, hooks avanzados y manejo de estado escalable para UI complejas.</p>
+                <div class="mt-6 sm:mt-8 flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                  <span class="text-[0.6rem] font-bold uppercase tracking-widest text-primary">Nivel Experto</span>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-slate-700/30 bg-slate-800/30 p-5 sm:p-6 backdrop-blur-sm transition-colors duration-300 hover:bg-slate-800/50">
+                <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-950 text-xs font-bold uppercase tracking-[0.18em] text-primary">NX</div>
+                <h5 class="text-2xl sm:text-3xl font-bold text-white mb-2" style="font-family: Manrope, sans-serif;">Next.js</h5>
+                <p class="text-sm leading-relaxed text-slate-400">Arquitecturas SSR e ISR, optimizaci&oacute;n SEO y experiencias r&aacute;pidas orientadas a producto.</p>
+                <div class="mt-6 sm:mt-8 flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                  <span class="text-[0.6rem] font-bold uppercase tracking-widest text-primary">Nivel Experto</span>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2 rounded-2xl border border-slate-700/20 bg-slate-800/20 p-5 sm:p-6 transition-colors duration-300 hover:border-slate-600/40">
+                <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                  <div class="flex items-start sm:items-center gap-4 sm:gap-5">
+                    <div class="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-slate-950 text-xs font-bold uppercase tracking-[0.18em] text-slate-400 shrink-0">DB</div>
+                    <div>
+                      <h5 class="text-xl sm:text-2xl font-bold text-white" style="font-family: Manrope, sans-serif;">SQL Server</h5>
+                      <p class="text-sm text-slate-400">Modelado relacional, consultas optimizadas y procedimientos complejos.</p>
+                    </div>
+                  </div>
+                  <div class="w-fit rounded-full bg-slate-950 px-4 py-2 text-[0.6875rem] font-bold tracking-widest text-slate-400">INTERMEDIO</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="mt-10 sm:mt-14 border-t border-slate-700/20 pt-8 sm:pt-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div class="max-w-md">
+            <p class="text-sm leading-relaxed text-slate-400">Enfoque especializado en el desarrollo de interfaces de usuario robustas y escalables, con una fuerte inclinaci&oacute;n hacia la arquitectura limpia y el rendimiento digital.</p>
+          </div>
+          <div class="flex items-center gap-3 sm:gap-4 self-start md:self-auto">
+            <img
+              class="h-14 w-14 sm:h-16 sm:w-16 rounded-full border border-primary/20 p-1 object-cover grayscale transition-all duration-500 hover:grayscale-0"
+              src="/ImagenPortfolio.jpeg"
+              alt="Nahuel Pages"
+            />
+            <div class="flex flex-col justify-center">
+              <span class="font-bold text-white" style="font-family: Manrope, sans-serif;">Nahuel Pages</span>
+              <span class="text-[0.6875rem] uppercase tracking-widest text-primary">Digital Architect</span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  `;
+
+  const getAboutContentClean = () => `
+    <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 items-start">
+      <div class="space-y-6">
+        <span class="block text-[0.68rem] uppercase tracking-[0.18em] text-primary">Acerca de</span>
+        <h3 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white" style="font-family: Manrope, sans-serif;">
+          Hola, soy Nahuel Pages.
+        </h3>
+        <div class="space-y-4 max-w-3xl">
+          <p class="text-base sm:text-lg leading-relaxed text-slate-300">
+            Soy desarrollador Full Stack con m&aacute;s de 3 a&ntilde;os de experiencia creando aplicaciones web y soluciones digitales orientadas a producto.
+          </p>
+          <p class="text-sm sm:text-base leading-relaxed text-slate-400">
+            Mi formaci&oacute;n en la Universidad Claeh me dio una base fuerte en JavaScript, C# y Java. A eso le sum&eacute; experiencia pr&aacute;ctica en proyectos reales, trabajando con React, Next.js y SQL Server.
+          </p>
+          <p class="text-sm sm:text-base leading-relaxed text-slate-400">
+            Me interesa construir interfaces claras, sistemas mantenibles y experiencias que no solo funcionen bien, sino que tambi&eacute;n comuniquen calidad en cada detalle.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+          <div class="rounded-2xl border border-slate-700/40 bg-slate-800/30 p-5">
+            <p class="text-3xl font-black text-primary mb-2" style="font-family: Manrope, sans-serif;">3+</p>
+            <p class="text-xs uppercase tracking-[0.18em] text-slate-400">A&ntilde;os de experiencia</p>
+          </div>
+          <div class="rounded-2xl border border-slate-700/40 bg-slate-800/30 p-5">
+            <p class="text-3xl font-black text-primary mb-2" style="font-family: Manrope, sans-serif;">Full</p>
+            <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Stack mindset</p>
+          </div>
+          <div class="rounded-2xl border border-slate-700/40 bg-slate-800/30 p-5">
+            <p class="text-3xl font-black text-primary mb-2" style="font-family: Manrope, sans-serif;">UI</p>
+            <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Foco en producto</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900">
+          <img
+            class="h-full w-full object-cover"
+            src="/ImagenPortfolio.jpeg"
+            alt="Nahuel Pages"
+          />
+        </div>
+        <div class="rounded-2xl border border-slate-700/40 bg-slate-800/30 p-5 backdrop-blur-sm">
+          <p class="text-[0.68rem] uppercase tracking-[0.18em] text-slate-400 mb-2">Perfil</p>
+          <p class="text-sm leading-relaxed text-slate-300">Desarrollo de productos web con foco en claridad, rendimiento, mantenibilidad y experiencia de usuario.</p>
+        </div>
+      </div>
+    </div>
+  `;
+
   const openModal = (type) => {
     setActiveModal(type);
     let content = "";
 
     switch (type) {
       case "about":
-        content = `
-          <div class="space-y-4">
-            <div>
-              <h3 class="text-lg font-semibold mb-2 text-white">¡Hola a todos!</h3>
-              <p class="text-slate-300">Soy Nahuel Pages, desarrollador Full Stack con más de 3 años de experiencia creando aplicaciones web. Mi formación en la Universidad Claeh me proporcionó una base sólida en JavaScript, C# y Java, que he complementado con experiencia práctica en proyectos reales.</p>
-              <p class="text-slate-300 mt-3">Esta combinación de estudios formales y experiencia práctica me ha preparado para enfrentar desafíos complejos en tecnologías como React y SQL Server, así como en campos especializados como Ingeniería de Software y Ciberseguridad.</p>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-2 text-white">Mi enfoque profesional</h3>
-              <p class="text-slate-300">Mi enfoque se centra en el aprendizaje continuo y la innovación. Actualmente explorando Python y profundizando en Next.js para crear soluciones más eficientes. Cada proyecto es una oportunidad para aplicar las mejores prácticas y tecnologías de vanguardia.</p>
-            </div>
-          </div>
-        `;
+        content = getAboutContentClean();
         break;
       case "skills":
-        content = `
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 class="font-semibold mb-3 text-white">Lenguajes de Programación</h3>
-              <div class="space-y-2 text-slate-300">
-                <div class="flex justify-between"><span>JavaScript</span><span class="text-primary">Avanzado</span></div>
-                <div class="flex justify-between"><span>C#</span><span class="text-primary">Intermedio</span></div>
-                <div class="flex justify-between"><span>Java</span><span class="text-primary">Intermedio</span></div>
-              </div>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-3 text-white">Frameworks y Tecnologías</h3>
-              <div class="space-y-2 text-slate-300">
-                <div class="flex justify-between"><span>React</span><span class="text-primary">Avanzado</span></div>
-                <div class="flex justify-between"><span>Next.js</span><span class="text-primary">Avanzado</span></div>
-                <div class="flex justify-between"><span>SQL Server</span><span class="text-primary">Intermedio</span></div>
-              </div>
-            </div>
-          </div>
-        `;
+        content = getAboutContentV2();
         break;
       case "projects":
         setCurrentProjectPage(0); // Reset page when opening
@@ -74,8 +217,8 @@ const PortfolioPage = () => {
         content = `
           <div class="text-center">
             <h3 class="text-lg font-semibold mb-2 text-white">Instagram</h3>
-            <p class="text-slate-300 mb-4">Sígueme en Instagram para ver mi trabajo y día a día como desarrollador.</p>
-            <p class="text-sm text-slate-400">¡Próximamente disponible!</p>
+            <p class="text-slate-300 mb-4">Sigueme en Instagram para ver mi trabajo y mi dia a dia como desarrollador.</p>
+            <p class="text-sm text-slate-400">Proximamente disponible.</p>
           </div>
         `;
         break;
@@ -120,7 +263,9 @@ const PortfolioPage = () => {
   };
 
   const prevImage = (project) => {
-    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + project.images.length) % project.images.length,
+    );
   };
 
   const enlargeImage = (imageSrc) => {
@@ -137,8 +282,8 @@ const PortfolioPage = () => {
     const projects = [
       {
         title: "Marketplace Segunda Mano",
-        subtitle: "E-commerce & Sistema de Gestión",
-        emoji: "🛒",
+        subtitle: "E-commerce & Sistema de Gestion",
+        icon: "shopping_cart",
         colors: "from-blue-600/5 to-purple-600/5",
         borderColor: "border-blue-500/20",
         gradientColors: "from-blue-500 to-purple-600",
@@ -150,23 +295,24 @@ const PortfolioPage = () => {
           "/imagenesProyectos/PaginaComercioSegundaMano/image2.png",
           "/imagenesProyectos/PaginaComercioSegundaMano/image3.png",
           "/imagenesProyectos/PaginaComercioSegundaMano/image4.png",
-          "/imagenesProyectos/PaginaComercioSegundaMano/image5.png"
+          "/imagenesProyectos/PaginaComercioSegundaMano/image5.png",
         ],
-        description: "E-commerce completo para productos de segunda mano con gestión de inventarios, sistema de usuarios, carrito de compras y panel administrativo avanzado.",
+        description:
+          "E-commerce completo para productos de segunda mano con gestion de inventario, sistema de usuarios, carrito de compras y panel administrativo avanzado.",
         technologies: ["React", "Node.js", "SQL Server", "JavaScript"],
         features: [
-          "Sistema de autenticación seguro",
-          "Catálogo dinámico de productos",
+          "Autenticacion segura",
+          "Catalogo dinamico de productos",
           "Carrito de compras funcional",
-          "Panel de administración",
-          "Gestión de inventarios",
-          "Sistema de pagos integrado"
-        ]
+          "Panel administrativo",
+          "Gestion de inventario",
+          "Pagos integrados",
+        ],
       },
       {
         title: "Coopnet - Sistema Cooperativo",
-        subtitle: "Gestión Empresarial & Administración",
-        emoji: "🏢",
+        subtitle: "Gestion Empresarial & Administracion",
+        icon: "business",
         colors: "from-cyan-600/5 to-blue-600/5",
         borderColor: "border-cyan-500/20",
         gradientColors: "from-cyan-500 to-blue-600",
@@ -179,23 +325,24 @@ const PortfolioPage = () => {
           "/imagenesProyectos/Coopnet/image3.png",
           "/imagenesProyectos/Coopnet/image4.png",
           "/imagenesProyectos/Coopnet/image5.png",
-          "/imagenesProyectos/Coopnet/image6.png"
+          "/imagenesProyectos/Coopnet/image6.png",
         ],
-        description: "Plataforma integral para gestión de cooperativas con módulos de administración, reportes financieros, gestión de socios y herramientas de análisis avanzado.",
+        description:
+          "Plataforma integral para gestion de cooperativas con modulos de administracion, reportes financieros, gestion de socios y herramientas de analisis avanzado.",
         technologies: ["C#", ".NET", "WPF", "SQL Server"],
         features: [
-          "Dashboard ejecutivo completo",
-          "Gestión de socios y usuarios",
-          "Reportes financieros automáticos",
-          "Sistema de configuración",
-          "Analytics y métricas",
-          "Panel de control administrativo"
-        ]
+          "Dashboard ejecutivo",
+          "Gestion de socios y usuarios",
+          "Reportes financieros automaticos",
+          "Sistema de configuracion",
+          "Analytics y metricas",
+          "Panel de control administrativo",
+        ],
       },
       {
-        title: "Portfolio Personal - Jeremías",
-        subtitle: "Diseño Web & Experiencia de Usuario",
-        emoji: "💼",
+        title: "Portfolio Personal - Jeremias",
+        subtitle: "Diseno Web & Experiencia de Usuario",
+        icon: "work",
         colors: "from-orange-600/5 to-pink-600/5",
         borderColor: "border-orange-500/20",
         gradientColors: "from-orange-500 to-pink-600",
@@ -208,23 +355,24 @@ const PortfolioPage = () => {
           "/imagenesProyectos/PortfolioJeremias/image3.png",
           "/imagenesProyectos/PortfolioJeremias/image4.png",
           "/imagenesProyectos/PortfolioJeremias/image5.png",
-          "/imagenesProyectos/PortfolioJeremias/image6.png"
+          "/imagenesProyectos/PortfolioJeremias/image6.png",
         ],
-        description: "Portfolio web personal con diseño moderno, animaciones fluidas y secciones interactivas. Optimizado para mostrar proyectos y habilidades profesionales.",
+        description:
+          "Portfolio personal con diseno moderno, animaciones fluidas y secciones interactivas, optimizado para mostrar proyectos y habilidades profesionales.",
         technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
         features: [
-          "Diseño responsivo moderno",
+          "Diseno responsivo moderno",
           "Animaciones suaves",
           "Secciones interactivas",
-          "Galería de proyectos",
+          "Galeria de proyectos",
           "Formulario de contacto",
-          "Optimización móvil"
-        ]
+          "Optimizacion movil",
+        ],
       },
       {
         title: "Portfolio Creativo - Lucas Rosa",
         subtitle: "Arte Digital & Experiencia Visual",
-        emoji: "🎨",
+        icon: "palette",
         colors: "from-pink-600/5 to-purple-600/5",
         borderColor: "border-pink-500/20",
         gradientColors: "from-pink-500 to-purple-600",
@@ -236,23 +384,24 @@ const PortfolioPage = () => {
           "/imagenesProyectos/PortfolioLucasRosa/image2.png",
           "/imagenesProyectos/PortfolioLucasRosa/image3.png",
           "/imagenesProyectos/PortfolioLucasRosa/image4.png",
-          "/imagenesProyectos/PortfolioLucasRosa/image5.png"
+          "/imagenesProyectos/PortfolioLucasRosa/image5.png",
         ],
-        description: "Portfolio especializado para artista visual con galería interactiva, efectos visuales únicos y diseño minimalista que resalta el trabajo creativo.",
+        description:
+          "Portfolio para artista visual con galeria interactiva, efectos unicos y un diseno minimalista que resalta el trabajo creativo.",
         technologies: ["React", "Framer Motion", "CSS3", "JavaScript"],
         features: [
-          "Galería interactiva",
-          "Efectos visuales únicos",
-          "Diseño minimalista",
-          "Optimización de imágenes",
+          "Galeria interactiva",
+          "Efectos visuales unicos",
+          "Diseno minimalista",
+          "Optimizacion de imagenes",
           "Experiencia inmersiva",
-          "Navegación intuitiva"
-        ]
+          "Navegacion intuitiva",
+        ],
       },
       {
         title: "Ruta Positiva - Bienestar Mental",
         subtitle: "Salud Mental & Comunidad de Apoyo",
-        emoji: "🧠",
+        icon: "psychology",
         colors: "from-teal-600/5 to-green-600/5",
         borderColor: "border-teal-500/20",
         gradientColors: "from-teal-500 to-green-600",
@@ -264,9 +413,10 @@ const PortfolioPage = () => {
           "/imagenesProyectos/RutaPositiva/image2.png",
           "/imagenesProyectos/RutaPositiva/image3.png",
           "/imagenesProyectos/RutaPositiva/image4.png",
-          "/imagenesProyectos/RutaPositiva/image5.png"
+          "/imagenesProyectos/RutaPositiva/image5.png",
         ],
-        description: "Plataforma web para servicios de bienestar mental y coaching con sistema de citas, recursos educativos y comunidad de apoyo integral.",
+        description:
+          "Plataforma web para bienestar mental y coaching con sistema de citas, recursos educativos y comunidad de apoyo integral.",
         technologies: ["React", "Node.js", "MongoDB", "Express"],
         features: [
           "Sistema de citas online",
@@ -274,14 +424,13 @@ const PortfolioPage = () => {
           "Comunidad de apoyo",
           "Chat en tiempo real",
           "Seguimiento de progreso",
-          "Panel de profesionales"
-        ]
-      }
+          "Panel de profesionales",
+        ],
+      },
     ];
 
     return projects[pageIndex];
   };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -293,7 +442,7 @@ const PortfolioPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación básica
+    // Validacion basica
     if (
       !formData.name ||
       !formData.email ||
@@ -305,26 +454,24 @@ const PortfolioPage = () => {
     }
 
     try {
-      // Crear el contenido del email
       const emailBody = `
 NUEVA SOLICITUD DE PROYECTO
 
 Cliente: ${formData.name}
 Email: ${formData.email}
-Teléfono: ${formData.phone || "No especificado"}
+Telefono: ${formData.phone || "No especificado"}
 
 Tipo de Servicio: ${formData.serviceType}
 Presupuesto: ${formData.budget || "No especificado"}
 Tiempo: ${formData.timeline || "No especificado"}
 
-Descripción del Proyecto:
+Descripcion del Proyecto:
 ${formData.description}
 
 ---
 Enviado desde el portfolio web
       `;
 
-      // Abrir cliente de email del usuario
       const subject = encodeURIComponent(
         `Nueva solicitud: ${formData.serviceType} - ${formData.name}`,
       );
@@ -332,20 +479,15 @@ Enviado desde el portfolio web
       const mailtoLink = `mailto:Nahuel01pages@gmail.com?subject=${subject}&body=${body}`;
 
       window.open(mailtoLink);
-
-      // También mostrar los datos en consola para backup
       console.log("Datos del formulario:", formData);
 
-      alert(
-        "¡Solicitud enviada! Te contactaré pronto para discutir tu proyecto.",
-      );
+      alert("Solicitud enviada. Te contactare pronto para discutir tu proyecto.");
       closeModal();
     } catch (error) {
       console.error("Error al enviar:", error);
       alert("Error al enviar la solicitud. Por favor intenta nuevamente.");
     }
   };
-
   const openLinkedIn = () => {
     window.open(
       "https://www.linkedin.com/in/nahuel-pages-96915724b/",
@@ -460,7 +602,7 @@ Enviado desde el portfolio web
           </h2>
           <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-lg leading-relaxed max-w-md">
             Especializado en desarrollo Full Stack con React, Next.js y
-            tecnologías modernas. Transformo ideas en soluciones digitales
+            tecnologias modernas. Transformo ideas en soluciones digitales
             escalables y funcionales.
           </p>
         </div>
@@ -478,21 +620,23 @@ Enviado desde el portfolio web
           <p className="text-sm font-medium text-slate-500 mb-2">
             Full Stack Developer & Software Engineer
           </p>
-          <p className="text-xs text-slate-400">Clic para conocer más</p>
+          <p className="text-xs text-slate-400">Clic para conocer mas</p>
         </div>
 
         {/* Experience Tile */}
         <div className="col-span-1 row-span-1 min-h-[180px] sm:min-h-0 bg-primary text-white rounded-xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
           <div className="absolute -right-4 -top-4 opacity-10">
-            <span className="material-symbols-outlined text-7xl sm:text-8xl">work</span>
+            <span className="material-symbols-outlined text-7xl sm:text-8xl">
+              work
+            </span>
           </div>
           <div className="flex items-center gap-3 mb-4">
             <span className="material-symbols-outlined text-3xl">bolt</span>
-            <h3 className="text-2xl font-bold">3+ Años</h3>
+            <h3 className="text-2xl font-bold">3+ Anos</h3>
           </div>
           <div>
             <p className="text-white/80 opacity-80">
-              Más de 3 años de experiencia en desarrollo de software.
+              Mas de 3 anos de experiencia en desarrollo de software.
             </p>
           </div>
         </div>
@@ -549,7 +693,7 @@ Enviado desde el portfolio web
               Mis Proyectos en GitHub
             </h3>
             <p className="text-slate-300 text-sm sm:text-base mb-4">
-              Explora mi código y proyectos de desarrollo web.
+              Explora mi codigo y proyectos de desarrollo web.
             </p>
             <button className="bg-white text-black px-4 py-2 rounded-lg text-sm font-bold w-fit">
               Ver GitHub
@@ -566,7 +710,7 @@ Enviado desde el portfolio web
             <span className="material-symbols-outlined text-primary">
               category
             </span>
-            Tecnologías
+            Tecnologias
           </h3>
           <div className="flex flex-wrap gap-2">
             <span className="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs font-semibold">
@@ -657,7 +801,7 @@ Enviado desde el portfolio web
           </span>
           <h3 className="text-xl font-bold">Iniciar Proyecto</h3>
           <p className="text-xs text-slate-300 dark:text-white/80 mt-1">
-            Trabajemos juntos en algo increíble.
+            Trabajemos juntos en algo increible.
           </p>
         </div>
       </main>
@@ -665,20 +809,20 @@ Enviado desde el portfolio web
       {/* Footer */}
       <footer className="mt-12 sm:mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
         <p className="text-sm text-slate-500">
-          © 2024 Nahuel Pages. Todos los derechos reservados.
+          ? 2026 Nahuel Pages. Todos los derechos reservados.
         </p>
         <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm font-medium text-slate-500">
           <button
             onClick={() => openModal("privacy")}
             className="hover:text-primary transition-colors cursor-pointer"
           >
-            Política de Privacidad
+            Politica de Privacidad
           </button>
           <button
             onClick={() => openModal("terms")}
             className="hover:text-primary transition-colors cursor-pointer"
           >
-            Términos de Servicio
+            Terminos de Servicio
           </button>
         </div>
         <div className="flex items-center gap-2">
@@ -692,26 +836,48 @@ Enviado desde el portfolio web
       {/* Modal */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+          className={`fixed inset-0 z-50 ${
+            activeModal === "about" ||
+            activeModal === "skills" ||
+            activeModal === "contact"
+              ? "bg-[#060e20] px-3 py-3 sm:px-4 sm:py-4 lg:px-6"
+              : "bg-black/80 flex items-center justify-center"
+          }`}
           onClick={closeModal}
         >
           <div
-            className="bg-slate-900 rounded-xl p-8 max-w-2xl max-h-[90vh] overflow-y-auto m-4"
+            className={`bg-slate-900 rounded-xl ${
+              activeModal === "about" ||
+              activeModal === "skills" ||
+              activeModal === "contact"
+                ? "relative w-full h-[calc(100vh-1.5rem)] sm:h-[calc(100vh-2rem)] max-w-none rounded-2xl lg:rounded-3xl border border-slate-700/50 p-5 sm:p-8"
+                : "max-w-2xl p-8"
+            } ${
+              activeModal === "about" ||
+              activeModal === "skills" ||
+              activeModal === "contact"
+                ? "overflow-y-auto"
+                : "max-h-[90vh] overflow-y-auto m-4"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold text-white">
                 {activeModal === "showcase"
                   ? "Portfolio & Demos"
-                  : activeModal === "contact"
-                    ? "Iniciar Proyecto"
-                    : "Información"}
+                  : activeModal === "about"
+                    ? "Acerca de"
+                    : activeModal === "skills"
+                      ? "Habilidades"
+                      : activeModal === "contact"
+                        ? "Iniciar Proyecto"
+                        : "Informacion"}
               </h2>
               <button
                 onClick={closeModal}
-                className="text-slate-400 hover:text-slate-300"
+                className="text-slate-400 hover:text-slate-300 text-3xl leading-none"
               >
-                <span className="material-symbols-outlined">close</span>
+                <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
@@ -723,7 +889,7 @@ Enviado desde el portfolio web
                     Desarrollo software personalizado para tu negocio
                   </p>
                   <p className="text-slate-400">
-                    Selecciona el tipo de servicio que necesitas y cuéntame
+                    Selecciona el tipo de servicio que necesitas y cuentame
                     sobre tu proyecto
                   </p>
                 </div>
@@ -734,7 +900,7 @@ Enviado desde el portfolio web
                     onClick={() => {
                       setFormData((prev) => ({
                         ...prev,
-                        serviceType: "Página Web",
+                        serviceType: "Pagina Web",
                       }));
                       setActiveModal("contact");
                     }}
@@ -742,7 +908,7 @@ Enviado desde el portfolio web
                     <span className="material-symbols-outlined text-4xl text-primary mb-3 block">
                       language
                     </span>
-                    <h3 className="text-white font-bold mb-2">Página Web</h3>
+                    <h3 className="text-white font-bold mb-2">Pagina Web</h3>
                     <p className="text-slate-400 text-sm">
                       Sitios web responsivos, landing pages, portfolios
                     </p>
@@ -754,7 +920,7 @@ Enviado desde el portfolio web
                     onClick={() => {
                       setFormData((prev) => ({
                         ...prev,
-                        serviceType: "Aplicación Web",
+                        serviceType: "Aplicacion Web",
                       }));
                       setActiveModal("contact");
                     }}
@@ -763,7 +929,7 @@ Enviado desde el portfolio web
                       web
                     </span>
                     <h3 className="text-white font-bold mb-2">
-                      Aplicación Web
+                      Aplicacion Web
                     </h3>
                     <p className="text-slate-400 text-sm">
                       Apps web interactivas, dashboards, sistemas
@@ -796,7 +962,7 @@ Enviado desde el portfolio web
                     onClick={() => {
                       setFormData((prev) => ({
                         ...prev,
-                        serviceType: "Aplicación de Escritorio",
+                        serviceType: "Aplicacion de Escritorio",
                       }));
                       setActiveModal("contact");
                     }}
@@ -808,7 +974,7 @@ Enviado desde el portfolio web
                       App de Escritorio
                     </h3>
                     <p className="text-slate-400 text-sm">
-                      Software para Windows, gestión, herramientas
+                      Software para Windows, gestion, herramientas
                     </p>
                     <p className="text-primary text-xs mt-2">Desde $600</p>
                   </div>
@@ -819,166 +985,196 @@ Enviado desde el portfolio web
                     onClick={() => setActiveModal("contact")}
                     className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all"
                   >
-                    Solicitar Cotización Personalizada
+                    Solicitar Cotizacion Personalizada
                   </button>
                 </div>
               </div>
             )}
 
             {/* Formulario de contacto */}
-            {activeModal === "contact" && (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="text-center mb-6">
-                  <p className="text-slate-300">
-                    Cuéntame sobre tu proyecto y te enviaré una propuesta
-                    personalizada
-                  </p>
-                </div>
+                        {activeModal === "contact" && (
+              <div className="relative overflow-hidden">
+                <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-primary/10 blur-[120px]" />
+                <div className="pointer-events-none absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-indigo-500/10 blur-[120px]" />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-white font-semibold mb-2">
-                      Nombre *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
-                      placeholder="Tu nombre completo"
-                      required
-                    />
+                <div className="relative z-10 mx-auto w-full max-w-[1120px] px-1 sm:px-2 lg:px-4 xl:px-8">
+                  <div className="mb-8 md:mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                    <div className="space-y-2">
+                      <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
+                        Contacto Directo
+                      </span>
+                      <p className="max-w-md pt-1 text-base leading-relaxed text-slate-400">
+                        Cuéntame sobre tu proyecto y te enviaré una propuesta personalizada
+                      </p>
+                    </div>
+                    <div className="hidden lg:block h-16 w-1 rounded-full bg-gradient-to-b from-primary/40 to-transparent opacity-60" />
                   </div>
 
-                  <div>
-                    <label className="block text-white font-semibold mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
-                      placeholder="tu@email.com"
-                      required
-                    />
+                  <form onSubmit={handleSubmit} className="space-y-10">
+                    <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2">
+                      <div className="space-y-7">
+                        <div className="group">
+                          <label className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-primary">
+                            Name (Required)
+                          </label>
+                          <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            className="w-full border-0 border-b border-slate-700/40 bg-transparent px-0 py-3 text-white placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-0"
+                            placeholder="Tu nombre completo"
+                            required
+                          />
+                        </div>
+
+                        <div className="group">
+                          <label className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-primary">
+                            Email (Required)
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className="w-full border-0 border-b border-slate-700/40 bg-transparent px-0 py-3 text-white placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-0"
+                            placeholder="email@ejemplo.com"
+                            required
+                          />
+                        </div>
+
+                        <div className="group">
+                          <label className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-primary">
+                            Phone
+                          </label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            className="w-full border-0 border-b border-slate-700/40 bg-transparent px-0 py-3 text-white placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-0"
+                            placeholder="+598 XX XXX XXX"
+                          />
+                        </div>
+
+                        <div className="group">
+                          <label className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-primary">
+                            Service Type
+                          </label>
+                          <div className="relative">
+                            <select
+                              name="serviceType"
+                              value={formData.serviceType}
+                              onChange={handleInputChange}
+                              className="w-full appearance-none border-0 border-b border-slate-700/40 bg-slate-900/40 px-0 py-3 text-white focus:border-primary focus:outline-none focus:ring-0"
+                              required
+                            >
+                              <option className="bg-slate-900 text-white" value="">Seleccionar servicio</option>
+                              <option className="bg-slate-900 text-white" value="Página Web">Página Web</option>
+                              <option className="bg-slate-900 text-white" value="Aplicación Web">Aplicación Web</option>
+                              <option className="bg-slate-900 text-white" value="E-commerce">E-commerce</option>
+                              <option className="bg-slate-900 text-white" value="Aplicación de Escritorio">Aplicación de Escritorio</option>
+                              <option className="bg-slate-900 text-white" value="Consultoría">Consultoría</option>
+                              <option className="bg-slate-900 text-white" value="Otro">Otro</option>
+                            </select>
+                            <span className="material-symbols-outlined pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-slate-500">expand_more</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-7 md:pl-8 lg:pl-12 xl:pl-16 md:pr-2 lg:pr-4 xl:pr-6">
+                        <div className="group">
+                          <label className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-primary">
+                            Project Description (Required)
+                          </label>
+                          <textarea
+                            name="description"
+                            value={formData.description}
+                            onChange={handleInputChange}
+                            rows="5"
+                            className="w-full resize-none rounded-2xl border border-slate-700/20 bg-slate-800/40 px-4 py-4 text-white placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                            placeholder="Cuéntame sobre los objetivos, funcionalidades y alcance del proyecto..."
+                            required
+                          ></textarea>
+                        </div>
+
+                        <div className="group">
+                          <label className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-primary">
+                            Estimated Budget
+                          </label>
+                          <div className="relative">
+                            <select
+                              name="budget"
+                              value={formData.budget}
+                              onChange={handleInputChange}
+                              className="w-full appearance-none border-0 border-b border-slate-700/40 bg-slate-900/40 px-0 py-3 text-white focus:border-primary focus:outline-none focus:ring-0"
+                            >
+                              <option className="bg-slate-900 text-white" value="">Seleccionar rango</option>
+                              <option className="bg-slate-900 text-white" value="$200-500">$200 - $500</option>
+                              <option className="bg-slate-900 text-white" value="$500-1000">$500 - $1,000</option>
+                              <option className="bg-slate-900 text-white" value="$1000-2000">$1,000 - $2,000</option>
+                              <option className="bg-slate-900 text-white" value="$2000-5000">$2,000 - $5,000</option>
+                              <option className="bg-slate-900 text-white" value="$5000+">Más de $5,000</option>
+                              <option className="bg-slate-900 text-white" value="Por definir">Por definir</option>
+                            </select>
+                            <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-slate-500">$</span>
+                          </div>
+                        </div>
+
+                        <div className="group">
+                          <label className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-primary">
+                            Estimated Time
+                          </label>
+                          <div className="relative">
+                            <select
+                              name="timeline"
+                              value={formData.timeline}
+                              onChange={handleInputChange}
+                              className="w-full appearance-none border-0 border-b border-slate-700/40 bg-slate-900/40 px-0 py-3 text-white focus:border-primary focus:outline-none focus:ring-0"
+                            >
+                              <option className="bg-slate-900 text-white" value="">Seleccionar tiempo</option>
+                              <option className="bg-slate-900 text-white" value="1-2 semanas">1-2 semanas</option>
+                              <option className="bg-slate-900 text-white" value="1 mes">1 mes</option>
+                              <option className="bg-slate-900 text-white" value="2-3 meses">2-3 meses</option>
+                              <option className="bg-slate-900 text-white" value="3-6 meses">3-6 meses</option>
+                              <option className="bg-slate-900 text-white" value="Más de 6 meses">Más de 6 meses</option>
+                              <option className="bg-slate-900 text-white" value="Flexible">Flexible</option>
+                            </select>
+                            <span className="material-symbols-outlined pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-slate-500">expand_more</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col-reverse items-stretch justify-between gap-4 border-t border-slate-700/20 pt-8 md:flex-row md:items-center md:pr-2 lg:pr-4 xl:pr-6">
+                      <button
+                        type="button"
+                        onClick={() => setActiveModal("showcase")}
+                        className="flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-primary transition-all duration-300 hover:bg-primary/5 md:justify-start"
+                      >
+                        <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+                        Volver
+                      </button>
+                      <button
+                        type="submit"
+                        className="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-primary to-primary-container px-10 py-4 font-bold text-slate-950 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] md:w-auto"
+                      >
+                        Enviar Solicitud
+                        <span className="material-symbols-outlined">arrow_outward</span>
+                      </button>
+                    </div>
+                  </form>
+
+                  <div className="mt-8 border-t border-slate-700/20 pt-6 text-xs text-slate-500 md:pr-2 lg:pr-4 xl:pr-6">
+                    <div className="flex items-center gap-3">
+                      <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                      <span className="uppercase tracking-[0.2em]">
+                        Nahuel Pages © 2026
+                      </span>
+                    </div>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-white font-semibold mb-2">
-                      Teléfono
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
-                      placeholder="+598 XX XXX XXX"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-white font-semibold mb-2">
-                      Tipo de Servicio *
-                    </label>
-                    <select
-                      name="serviceType"
-                      value={formData.serviceType}
-                      onChange={handleInputChange}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
-                      required
-                    >
-                      <option value="">Seleccionar servicio</option>
-                      <option value="Página Web">Página Web</option>
-                      <option value="Aplicación Web">Aplicación Web</option>
-                      <option value="E-commerce">E-commerce</option>
-                      <option value="Aplicación de Escritorio">
-                        Aplicación de Escritorio
-                      </option>
-                      <option value="Consultoría">Consultoría</option>
-                      <option value="Otro">Otro</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-white font-semibold mb-2">
-                    Descripción del Proyecto *
-                  </label>
-                  <textarea
-                    name="description"
-                    value={formData.description}
-                    onChange={handleInputChange}
-                    rows="4"
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
-                    placeholder="Describe tu proyecto, funcionalidades necesarias, objetivos, etc."
-                    required
-                  ></textarea>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-white font-semibold mb-2">
-                      Presupuesto Estimado
-                    </label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
-                    >
-                      <option value="">Seleccionar rango</option>
-                      <option value="$200-500">$200 - $500</option>
-                      <option value="$500-1000">$500 - $1,000</option>
-                      <option value="$1000-2000">$1,000 - $2,000</option>
-                      <option value="$2000-5000">$2,000 - $5,000</option>
-                      <option value="$5000+">Más de $5,000</option>
-                      <option value="Por definir">Por definir</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-white font-semibold mb-2">
-                      Tiempo Estimado
-                    </label>
-                    <select
-                      name="timeline"
-                      value={formData.timeline}
-                      onChange={handleInputChange}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none"
-                    >
-                      <option value="">Seleccionar tiempo</option>
-                      <option value="1-2 semanas">1-2 semanas</option>
-                      <option value="1 mes">1 mes</option>
-                      <option value="2-3 meses">2-3 meses</option>
-                      <option value="3-6 meses">3-6 meses</option>
-                      <option value="Más de 6 meses">Más de 6 meses</option>
-                      <option value="Flexible">Flexible</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => setActiveModal("store")}
-                    className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    ← Volver
-                  </button>
-                  <button
-                    type="submit"
-                    className="flex-1 bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-semibold transition-colors"
-                  >
-                    Enviar Solicitud
-                  </button>
-                </div>
-              </form>
+              </div>
             )}
 
             {/* Contenido regular del modal */}
@@ -994,7 +1190,7 @@ Enviado desde el portfolio web
       {/* Modal 3D Store - Pantalla completa */}
       {is3DStoreOpen && (
         <div className="fixed inset-0 z-50 bg-gray-200">
-          {/* Contenedor del modelo 3D - Pantalla completa sin márgenes */}
+          {/* Contenedor del modelo 3D - Pantalla completa sin margenes */}
           <div className="absolute inset-0 w-full h-full overflow-hidden">
             <JapaneseNeighborhood
               onSectionClick={openModal}
@@ -1002,19 +1198,22 @@ Enviado desde el portfolio web
             />
           </div>
 
-          {/* Botón cerrar - Solo X en esquina superior derecha con z-index muy alto */}
+          {/* Boton cerrar - Solo X en esquina superior derecha con z-index muy alto */}
           <button
             onClick={close3DStore}
             className="fixed top-4 right-4 z-[9999] text-white hover:text-red-400 bg-black/80 rounded-full p-3 backdrop-blur-md border-2 border-white/30 transition-all shadow-2xl hover:scale-110"
           >
-            ✕
+            ?
           </button>
         </div>
       )}
 
-      {/* Modal de Proyectos - Estilo Cinematográfico */}
+      {/* Modal de Proyectos - Estilo Cinematografico */}
       {activeModal === "projects" && (
-        <div className="fixed inset-0 z-50 overflow-hidden" style={{backgroundColor: '#060e20'}}>
+        <div
+          className="fixed inset-0 z-50 overflow-hidden"
+          style={{ backgroundColor: "#060e20" }}
+        >
           {/* Fondo con efectos */}
           <div className="absolute inset-0 grid grid-cols-4 gap-4 p-8 opacity-10 blur-xl pointer-events-none">
             <div className="bg-primary h-full rounded-2xl"></div>
@@ -1028,32 +1227,41 @@ Enviado desde el portfolio web
             <div
               className="relative w-full max-w-[96rem] h-[calc(100vh-1.5rem)] sm:h-[calc(100vh-2rem)] lg:h-[85vh] rounded-2xl lg:rounded-3xl border shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in duration-500"
               style={{
-                background: 'rgba(9, 19, 40, 0.95)',
-                backdropFilter: 'blur(32px)',
-                borderColor: 'rgba(64, 72, 93, 0.2)',
-                boxShadow: '0 0 80px -20px rgba(151, 169, 255, 0.15)'
+                background: "rgba(9, 19, 40, 0.95)",
+                backdropFilter: "blur(32px)",
+                borderColor: "rgba(64, 72, 93, 0.2)",
+                boxShadow: "0 0 80px -20px rgba(151, 169, 255, 0.15)",
               }}
             >
-              {/* Header cinematográfico */}
-              <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-10 lg:py-6 border-b" style={{borderColor: 'rgba(64, 72, 93, 0.1)'}}>
+              {/* Header cinematografico */}
+              <div
+                className="flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-10 lg:py-6 border-b"
+                style={{ borderColor: "rgba(64, 72, 93, 0.1)" }}
+              >
                 <div className="flex flex-1 flex-wrap items-center gap-3 sm:gap-4 lg:gap-6 min-w-0">
-                  <span className="text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-[0.22em] sm:tracking-[0.3em] text-primary">Project Showcase</span>
+                  <span className="text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-[0.22em] sm:tracking-[0.3em] text-primary">
+                    Project Showcase
+                  </span>
                   <div className="hidden sm:block h-px w-12 bg-gray-600/30"></div>
                   <div className="flex items-center gap-2 sm:gap-4">
                     <button
                       onClick={prevProject}
                       className="h-9 w-9 sm:h-auto sm:w-auto text-gray-400 hover:text-primary transition-colors flex items-center justify-center gap-1"
                     >
-                      <span className="material-symbols-outlined text-base">arrow_back_ios</span>
+                      <span className="material-symbols-outlined text-base">
+                        arrow_back_ios
+                      </span>
                     </button>
                     <span className="text-[0.7rem] sm:text-xs font-bold text-gray-400 tabular-nums whitespace-nowrap">
-                      {String(currentProjectPage + 1).padStart(2, '0')} / 05
+                      {String(currentProjectPage + 1).padStart(2, "0")} / 05
                     </span>
                     <button
                       onClick={nextProject}
                       className="h-9 w-9 sm:h-auto sm:w-auto text-gray-400 hover:text-primary transition-colors flex items-center justify-center gap-1"
                     >
-                      <span className="material-symbols-outlined text-base">arrow_forward_ios</span>
+                      <span className="material-symbols-outlined text-base">
+                        arrow_forward_ios
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -1061,24 +1269,31 @@ Enviado desde el portfolio web
                   onClick={closeModal}
                   className="w-10 h-10 rounded-full bg-slate-700/50 flex items-center justify-center hover:bg-red-500/20 hover:text-red-400 transition-all group shrink-0"
                 >
-                  <span className="material-symbols-outlined transition-transform group-hover:rotate-90">close</span>
+                  <span className="material-symbols-outlined transition-transform group-hover:rotate-90">
+                    close
+                  </span>
                 </button>
-            </div>
+              </div>
 
-              {/* Layout de 3 columnas cinematográfico */}
+              {/* Layout de 3 columnas cinematografico */}
               <div className="flex-1 overflow-y-auto lg:overflow-hidden">
                 {(() => {
                   const project = getProjectContent(currentProjectPage);
                   return (
                     <div className="flex min-h-full flex-col lg:h-full lg:flex-row">
-                      {/* Columna 1: Galería principal con carousel - 45% */}
-                      <div className="w-full lg:w-[45%] relative group/gallery p-4 sm:p-6 lg:p-10 lg:border-r" style={{borderColor: 'rgba(64, 72, 93, 0.1)'}}>
+                      {/* Columna 1: Galeria principal con carousel - 45% */}
+                      <div
+                        className="w-full lg:w-[45%] relative group/gallery p-4 sm:p-6 lg:p-10 lg:border-r"
+                        style={{ borderColor: "rgba(64, 72, 93, 0.1)" }}
+                      >
                         <div className="w-full h-[16rem] sm:h-[22rem] lg:h-full rounded-2xl overflow-hidden relative shadow-2xl">
                           <img
                             alt="Project View"
                             className="w-full h-full object-cover grayscale-[20%] group-hover/gallery:grayscale-0 transition-all duration-1000 cursor-pointer hover:scale-105"
                             src={project.images[currentImageIndex]}
-                            onClick={() => enlargeImage(project.images[currentImageIndex])}
+                            onClick={() =>
+                              enlargeImage(project.images[currentImageIndex])
+                            }
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
 
@@ -1089,13 +1304,17 @@ Enviado desde el portfolio web
                                 onClick={() => prevImage(project)}
                                 className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group/btn"
                               >
-                                <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">arrow_back_ios</span>
+                                <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">
+                                  arrow_back_ios
+                                </span>
                               </button>
                               <button
                                 onClick={() => nextImage(project)}
                                 className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group/btn"
                               >
-                                <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">arrow_forward_ios</span>
+                                <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">
+                                  arrow_forward_ios
+                                </span>
                               </button>
 
                               {/* Indicadores de imagen */}
@@ -1105,7 +1324,9 @@ Enviado desde el portfolio web
                                     key={index}
                                     onClick={() => setCurrentImageIndex(index)}
                                     className={`w-2 h-2 rounded-full transition-all ${
-                                      index === currentImageIndex ? 'bg-primary' : 'bg-white/40 hover:bg-white/60'
+                                      index === currentImageIndex
+                                        ? "bg-primary"
+                                        : "bg-white/40 hover:bg-white/60"
                                     }`}
                                   />
                                 ))}
@@ -1117,11 +1338,14 @@ Enviado desde el portfolio web
                             <div className="px-3 py-2 sm:px-4 bg-black/40 backdrop-blur-lg border border-white/5 rounded-lg inline-flex items-center justify-between gap-3 w-full">
                               <div className="flex min-w-0 items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                                <span className="text-[0.55rem] sm:text-[0.6rem] font-bold uppercase tracking-[0.18em] sm:tracking-widest text-white truncate">Interactive Live Preview</span>
+                                <span className="text-[0.55rem] sm:text-[0.6rem] font-bold uppercase tracking-[0.18em] sm:tracking-widest text-white truncate">
+                                  Interactive Live Preview
+                                </span>
                               </div>
                               {project.images.length > 1 && (
                                 <span className="text-[0.55rem] sm:text-[0.6rem] font-bold text-white/60 shrink-0">
-                                  {currentImageIndex + 1} / {project.images.length}
+                                  {currentImageIndex + 1} /{" "}
+                                  {project.images.length}
                                 </span>
                               )}
                             </div>
@@ -1129,71 +1353,107 @@ Enviado desde el portfolio web
                         </div>
                       </div>
 
-                      {/* Columna 2: Información principal - 30% */}
-                      <div className="w-full lg:w-[30%] flex flex-col justify-between p-5 sm:p-8 lg:p-12 lg:border-r" style={{borderColor: 'rgba(64, 72, 93, 0.1)', backgroundColor: 'rgba(25, 37, 64, 0.2)'}}>
+                      {/* Columna 2: Informacion principal - 30% */}
+                      <div
+                        className="w-full lg:w-[30%] flex flex-col justify-between p-5 sm:p-8 lg:p-12 lg:border-r"
+                        style={{
+                          borderColor: "rgba(64, 72, 93, 0.1)",
+                          backgroundColor: "rgba(25, 37, 64, 0.2)",
+                        }}
+                      >
                         <div className="space-y-5 sm:space-y-6">
                           <div className="space-y-2">
-                            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-white leading-tight tracking-tighter" style={{fontFamily: 'Manrope'}}>
+                            <h2
+                              className="text-2xl sm:text-3xl lg:text-5xl font-black text-white leading-tight tracking-tighter"
+                              style={{ fontFamily: "Manrope" }}
+                            >
                               {project.title}
                             </h2>
                             <div className="flex items-center gap-2 text-primary font-bold text-xs sm:text-sm">
-                              <span className="material-symbols-outlined text-sm">{
-                                project.emoji === '🛒' ? 'shopping_cart' :
-                                project.emoji === '🏢' ? 'business' :
-                                project.emoji === '💼' ? 'work' :
-                                project.emoji === '🎨' ? 'palette' :
-                                'psychology'
-                              }</span>
+                              <span className="material-symbols-outlined text-sm">
+                                {project.icon}
+                              </span>
                               <span>{project.subtitle}</span>
                             </div>
                           </div>
                           <div className="space-y-4">
-                            <p className="text-gray-300 leading-relaxed text-sm lg:text-base border-l-2 border-primary/20 pl-4" style={{fontFamily: 'Inter'}}>
+                            <p
+                              className="text-gray-300 leading-relaxed text-sm lg:text-base border-l-2 border-primary/20 pl-4"
+                              style={{ fontFamily: "Inter" }}
+                            >
                               {project.description}
                             </p>
                           </div>
                         </div>
-
                       </div>
 
                       {/* Columna 3: Panel de detalles - 25% */}
-                      <div className="w-full lg:w-[25%] p-5 sm:p-8 lg:p-12 flex flex-col justify-start space-y-8 sm:space-y-10 lg:space-y-12" style={{backgroundColor: 'rgba(9, 19, 40, 0.3)'}}>
-
-                        {/* Stack Tecnológico */}
+                      <div
+                        className="w-full lg:w-[25%] p-5 sm:p-8 lg:p-12 flex flex-col justify-start space-y-8 sm:space-y-10 lg:space-y-12"
+                        style={{ backgroundColor: "rgba(9, 19, 40, 0.3)" }}
+                      >
+                        {/* Stack Tecnologico */}
                         <section>
                           <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                            <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-gray-400">Stack Tecnológico</span>
+                            <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-gray-400">
+                              Stack Tecnologico
+                            </span>
                           </div>
                           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2">
                             {project.technologies.map((tech, index) => (
-                              <div key={index} className="px-3 py-2 rounded-lg border text-[0.7rem] font-bold text-primary flex items-center gap-2" style={{backgroundColor: 'rgba(20, 31, 56, 1)', borderColor: 'rgba(64, 72, 93, 0.1)'}}>
-                                <span className="w-1 h-1 rounded-full bg-primary/40"></span> {tech}
+                              <div
+                                key={index}
+                                className="px-3 py-2 rounded-lg border text-[0.7rem] font-bold text-primary flex items-center gap-2"
+                                style={{
+                                  backgroundColor: "rgba(20, 31, 56, 1)",
+                                  borderColor: "rgba(64, 72, 93, 0.1)",
+                                }}
+                              >
+                                <span className="w-1 h-1 rounded-full bg-primary/40"></span>{" "}
+                                {tech}
                               </div>
                             ))}
                           </div>
                         </section>
 
-                        {/* Características principales */}
+                        {/* Caracteristicas principales */}
                         <section>
                           <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                            <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-gray-400">Core Features</span>
+                            <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-gray-400">
+                              Core Features
+                            </span>
                           </div>
                           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-                            {project.features.slice(0, 4).map((feature, index) => {
-                              const icons = ['bolt', 'responsive_layout', 'animation', 'language'];
-                              return (
-                                <li key={index} className="flex items-start gap-3 group">
-                                  <span className="material-symbols-outlined text-primary text-lg mt-0.5 group-hover:scale-110 transition-transform">{icons[index] || 'star'}</span>
-                                  <div className="space-y-0.5">
-                                    <span className="block text-xs font-bold text-white">{feature}</span>
-                                    <span className="block text-[0.65rem] text-gray-400">Optimizado y funcional</span>
-                                  </div>
-                                </li>
-                              );
-                            })}
+                            {project.features
+                              .slice(0, 4)
+                              .map((feature, index) => {
+                                const icons = [
+                                  "bolt",
+                                  "responsive_layout",
+                                  "animation",
+                                  "language",
+                                ];
+                                return (
+                                  <li
+                                    key={index}
+                                    className="flex items-start gap-3 group"
+                                  >
+                                    <span className="material-symbols-outlined text-primary text-lg mt-0.5 group-hover:scale-110 transition-transform">
+                                      {icons[index] || "star"}
+                                    </span>
+                                    <div className="space-y-0.5">
+                                      <span className="block text-xs font-bold text-white">
+                                        {feature}
+                                      </span>
+                                      <span className="block text-[0.65rem] text-gray-400">
+                                        Optimizado y funcional
+                                      </span>
+                                    </div>
+                                  </li>
+                                );
+                              })}
                           </ul>
                         </section>
-
                       </div>
                     </div>
                   );
@@ -1221,10 +1481,14 @@ Enviado desde el portfolio web
               onClick={closeEnlargedImage}
               className="absolute top-4 right-4 w-12 h-12 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group"
             >
-              <span className="material-symbols-outlined text-xl group-hover:rotate-90 transition-transform">close</span>
+              <span className="material-symbols-outlined text-xl group-hover:rotate-90 transition-transform">
+                close
+              </span>
             </button>
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-black/60 backdrop-blur-lg border border-white/10 rounded-lg">
-              <span className="text-white text-sm font-medium">Click para cerrar</span>
+              <span className="text-white text-sm font-medium">
+                Click para cerrar
+              </span>
             </div>
           </div>
         </div>
