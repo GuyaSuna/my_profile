@@ -10,7 +10,8 @@
       "Bash(npm install @react-three/drei three @react-three/fiber)",
       "Bash(rm package-lock.json)",
       "Bash(rm -rf node_modules)",
-      "Bash(node -c \"src/Components/JapaneseNeighborhood.js\")"
+      "Bash(node -c \"src/Components/JapaneseNeighborhood.js\")",
+      "Bash(grep -E \"\\.(png|jpg|jpeg|webp)$\")"
     ],
     "deny": [],
     "ask": []

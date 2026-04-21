@@ -7,6 +7,10 @@ const PortfolioPage = () => {
   const [modalContent, setModalContent] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [is3DStoreOpen, setIs3DStoreOpen] = useState(false);
+  const [currentProjectPage, setCurrentProjectPage] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isImageEnlarged, setIsImageEnlarged] = useState(false);
+  const [enlargedImageSrc, setEnlargedImageSrc] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,13 +64,8 @@ const PortfolioPage = () => {
         `;
         break;
       case "projects":
-        content = `
-          <div class="text-center">
-            <h3 class="text-lg font-semibold mb-2 text-white">Portfolio de Proyectos</h3>
-            <p class="text-slate-300 mb-4">Aquí podrás encontrar una selección de mis proyectos más destacados, desarrollados con diferentes tecnologías.</p>
-            <p class="text-sm text-slate-400">¡Próximamente más contenido!</p>
-          </div>
-        `;
+        setCurrentProjectPage(0); // Reset page when opening
+        return; // Don't set content, handle it separately
         break;
       case "showcase":
         setIs3DStoreOpen(true);
@@ -104,6 +103,183 @@ const PortfolioPage = () => {
 
   const close3DStore = () => {
     setIs3DStoreOpen(false);
+  };
+
+  const nextProject = () => {
+    setCurrentProjectPage((prev) => (prev + 1) % 5);
+    setCurrentImageIndex(0); // Reset image index when changing project
+  };
+
+  const prevProject = () => {
+    setCurrentProjectPage((prev) => (prev - 1 + 5) % 5);
+    setCurrentImageIndex(0); // Reset image index when changing project
+  };
+
+  const nextImage = (project) => {
+    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prevImage = (project) => {
+    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+  };
+
+  const enlargeImage = (imageSrc) => {
+    setEnlargedImageSrc(imageSrc);
+    setIsImageEnlarged(true);
+  };
+
+  const closeEnlargedImage = () => {
+    setIsImageEnlarged(false);
+    setEnlargedImageSrc("");
+  };
+
+  const getProjectContent = (pageIndex) => {
+    const projects = [
+      {
+        title: "Marketplace Segunda Mano",
+        subtitle: "E-commerce & Sistema de Gestión",
+        emoji: "🛒",
+        colors: "from-blue-600/5 to-purple-600/5",
+        borderColor: "border-blue-500/20",
+        gradientColors: "from-blue-500 to-purple-600",
+        iconGradient: "from-blue-500 to-purple-600",
+        textColor: "text-blue-200",
+        accentColor: "text-blue-400",
+        images: [
+          "/imagenesProyectos/PaginaComercioSegundaMano/image1.png",
+          "/imagenesProyectos/PaginaComercioSegundaMano/image2.png",
+          "/imagenesProyectos/PaginaComercioSegundaMano/image3.png",
+          "/imagenesProyectos/PaginaComercioSegundaMano/image4.png",
+          "/imagenesProyectos/PaginaComercioSegundaMano/image5.png"
+        ],
+        description: "E-commerce completo para productos de segunda mano con gestión de inventarios, sistema de usuarios, carrito de compras y panel administrativo avanzado.",
+        technologies: ["React", "Node.js", "SQL Server", "JavaScript"],
+        features: [
+          "Sistema de autenticación seguro",
+          "Catálogo dinámico de productos",
+          "Carrito de compras funcional",
+          "Panel de administración",
+          "Gestión de inventarios",
+          "Sistema de pagos integrado"
+        ]
+      },
+      {
+        title: "Coopnet - Sistema Cooperativo",
+        subtitle: "Gestión Empresarial & Administración",
+        emoji: "🏢",
+        colors: "from-cyan-600/5 to-blue-600/5",
+        borderColor: "border-cyan-500/20",
+        gradientColors: "from-cyan-500 to-blue-600",
+        iconGradient: "from-cyan-500 to-blue-600",
+        textColor: "text-cyan-200",
+        accentColor: "text-cyan-400",
+        images: [
+          "/imagenesProyectos/Coopnet/image1.png",
+          "/imagenesProyectos/Coopnet/image2.png",
+          "/imagenesProyectos/Coopnet/image3.png",
+          "/imagenesProyectos/Coopnet/image4.png",
+          "/imagenesProyectos/Coopnet/image5.png",
+          "/imagenesProyectos/Coopnet/image6.png"
+        ],
+        description: "Plataforma integral para gestión de cooperativas con módulos de administración, reportes financieros, gestión de socios y herramientas de análisis avanzado.",
+        technologies: ["C#", ".NET", "WPF", "SQL Server"],
+        features: [
+          "Dashboard ejecutivo completo",
+          "Gestión de socios y usuarios",
+          "Reportes financieros automáticos",
+          "Sistema de configuración",
+          "Analytics y métricas",
+          "Panel de control administrativo"
+        ]
+      },
+      {
+        title: "Portfolio Personal - Jeremías",
+        subtitle: "Diseño Web & Experiencia de Usuario",
+        emoji: "💼",
+        colors: "from-orange-600/5 to-pink-600/5",
+        borderColor: "border-orange-500/20",
+        gradientColors: "from-orange-500 to-pink-600",
+        iconGradient: "from-orange-500 to-pink-600",
+        textColor: "text-orange-200",
+        accentColor: "text-orange-400",
+        images: [
+          "/imagenesProyectos/PortfolioJeremias/image1.png",
+          "/imagenesProyectos/PortfolioJeremias/image2.png",
+          "/imagenesProyectos/PortfolioJeremias/image3.png",
+          "/imagenesProyectos/PortfolioJeremias/image4.png",
+          "/imagenesProyectos/PortfolioJeremias/image5.png",
+          "/imagenesProyectos/PortfolioJeremias/image6.png"
+        ],
+        description: "Portfolio web personal con diseño moderno, animaciones fluidas y secciones interactivas. Optimizado para mostrar proyectos y habilidades profesionales.",
+        technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
+        features: [
+          "Diseño responsivo moderno",
+          "Animaciones suaves",
+          "Secciones interactivas",
+          "Galería de proyectos",
+          "Formulario de contacto",
+          "Optimización móvil"
+        ]
+      },
+      {
+        title: "Portfolio Creativo - Lucas Rosa",
+        subtitle: "Arte Digital & Experiencia Visual",
+        emoji: "🎨",
+        colors: "from-pink-600/5 to-purple-600/5",
+        borderColor: "border-pink-500/20",
+        gradientColors: "from-pink-500 to-purple-600",
+        iconGradient: "from-pink-500 to-purple-600",
+        textColor: "text-pink-200",
+        accentColor: "text-pink-400",
+        images: [
+          "/imagenesProyectos/PortfolioLucasRosa/image1.png",
+          "/imagenesProyectos/PortfolioLucasRosa/image2.png",
+          "/imagenesProyectos/PortfolioLucasRosa/image3.png",
+          "/imagenesProyectos/PortfolioLucasRosa/image4.png",
+          "/imagenesProyectos/PortfolioLucasRosa/image5.png"
+        ],
+        description: "Portfolio especializado para artista visual con galería interactiva, efectos visuales únicos y diseño minimalista que resalta el trabajo creativo.",
+        technologies: ["React", "Framer Motion", "CSS3", "JavaScript"],
+        features: [
+          "Galería interactiva",
+          "Efectos visuales únicos",
+          "Diseño minimalista",
+          "Optimización de imágenes",
+          "Experiencia inmersiva",
+          "Navegación intuitiva"
+        ]
+      },
+      {
+        title: "Ruta Positiva - Bienestar Mental",
+        subtitle: "Salud Mental & Comunidad de Apoyo",
+        emoji: "🧠",
+        colors: "from-teal-600/5 to-green-600/5",
+        borderColor: "border-teal-500/20",
+        gradientColors: "from-teal-500 to-green-600",
+        iconGradient: "from-teal-500 to-green-600",
+        textColor: "text-teal-200",
+        accentColor: "text-teal-400",
+        images: [
+          "/imagenesProyectos/RutaPositiva/image1.png",
+          "/imagenesProyectos/RutaPositiva/image2.png",
+          "/imagenesProyectos/RutaPositiva/image3.png",
+          "/imagenesProyectos/RutaPositiva/image4.png",
+          "/imagenesProyectos/RutaPositiva/image5.png"
+        ],
+        description: "Plataforma web para servicios de bienestar mental y coaching con sistema de citas, recursos educativos y comunidad de apoyo integral.",
+        technologies: ["React", "Node.js", "MongoDB", "Express"],
+        features: [
+          "Sistema de citas online",
+          "Recursos educativos",
+          "Comunidad de apoyo",
+          "Chat en tiempo real",
+          "Seguimiento de progreso",
+          "Panel de profesionales"
+        ]
+      }
+    ];
+
+    return projects[pageIndex];
   };
 
   const handleInputChange = (e) => {
@@ -804,6 +980,230 @@ Enviado desde el portfolio web
           >
             ✕
           </button>
+        </div>
+      )}
+
+      {/* Modal de Proyectos - Estilo Cinematográfico */}
+      {activeModal === "projects" && (
+        <div className="fixed inset-0 z-50 overflow-hidden" style={{backgroundColor: '#060e20'}}>
+          {/* Fondo con efectos */}
+          <div className="absolute inset-0 grid grid-cols-4 gap-4 p-8 opacity-10 blur-xl pointer-events-none">
+            <div className="bg-primary h-full rounded-2xl"></div>
+            <div className="bg-slate-700 h-full rounded-2xl"></div>
+            <div className="bg-primary h-full rounded-2xl"></div>
+            <div className="bg-slate-700 h-full rounded-2xl"></div>
+          </div>
+
+          {/* Contenedor principal con glass morphism */}
+          <div className="relative w-full h-full flex items-center justify-center px-4">
+            <div
+              className="relative w-full md:w-[96vw] lg:w-[94vw] h-[90vh] lg:h-[85vh] rounded-3xl border shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in duration-500"
+              style={{
+                background: 'rgba(9, 19, 40, 0.95)',
+                backdropFilter: 'blur(32px)',
+                borderColor: 'rgba(64, 72, 93, 0.2)',
+                boxShadow: '0 0 80px -20px rgba(151, 169, 255, 0.15)'
+              }}
+            >
+              {/* Header cinematográfico */}
+              <div className="flex items-center justify-between px-10 py-6 border-b" style={{borderColor: 'rgba(64, 72, 93, 0.1)'}}>
+                <div className="flex items-center gap-6">
+                  <span className="text-[0.65rem] font-bold uppercase tracking-[0.3em] text-primary">Project Showcase</span>
+                  <div className="h-px w-12 bg-gray-600/30"></div>
+                  <div className="flex gap-4">
+                    <button
+                      onClick={prevProject}
+                      className="text-gray-400 hover:text-primary transition-colors flex items-center gap-1"
+                    >
+                      <span className="material-symbols-outlined text-base">arrow_back_ios</span>
+                    </button>
+                    <span className="text-xs font-bold text-gray-400 tabular-nums">
+                      {String(currentProjectPage + 1).padStart(2, '0')} / 05
+                    </span>
+                    <button
+                      onClick={nextProject}
+                      className="text-gray-400 hover:text-primary transition-colors flex items-center gap-1"
+                    >
+                      <span className="material-symbols-outlined text-base">arrow_forward_ios</span>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  onClick={closeModal}
+                  className="w-10 h-10 rounded-full bg-slate-700/50 flex items-center justify-center hover:bg-red-500/20 hover:text-red-400 transition-all group"
+                >
+                  <span className="material-symbols-outlined transition-transform group-hover:rotate-90">close</span>
+                </button>
+            </div>
+
+              {/* Layout de 3 columnas cinematográfico */}
+              <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+                {(() => {
+                  const project = getProjectContent(currentProjectPage);
+                  return (
+                    <>
+                      {/* Columna 1: Galería principal con carousel - 45% */}
+                      <div className="w-full md:w-[45%] h-full relative group/gallery p-6 lg:p-10 border-r" style={{borderColor: 'rgba(64, 72, 93, 0.1)'}}>
+                        <div className="w-full h-full rounded-2xl overflow-hidden relative shadow-2xl">
+                          <img
+                            alt="Project View"
+                            className="w-full h-full object-cover grayscale-[20%] group-hover/gallery:grayscale-0 transition-all duration-1000 cursor-pointer hover:scale-105"
+                            src={project.images[currentImageIndex]}
+                            onClick={() => enlargeImage(project.images[currentImageIndex])}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+
+                          {/* Controles del carousel */}
+                          {project.images.length > 1 && (
+                            <>
+                              <button
+                                onClick={() => prevImage(project)}
+                                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group/btn"
+                              >
+                                <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">arrow_back_ios</span>
+                              </button>
+                              <button
+                                onClick={() => nextImage(project)}
+                                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group/btn"
+                              >
+                                <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">arrow_forward_ios</span>
+                              </button>
+
+                              {/* Indicadores de imagen */}
+                              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex gap-2">
+                                {project.images.map((_, index) => (
+                                  <button
+                                    key={index}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                    className={`w-2 h-2 rounded-full transition-all ${
+                                      index === currentImageIndex ? 'bg-primary' : 'bg-white/40 hover:bg-white/60'
+                                    }`}
+                                  />
+                                ))}
+                              </div>
+                            </>
+                          )}
+
+                          <div className="absolute bottom-6 left-6 right-6">
+                            <div className="px-4 py-2 bg-black/40 backdrop-blur-lg border border-white/5 rounded-lg inline-flex items-center justify-between w-full">
+                              <div className="flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                <span className="text-[0.6rem] font-bold uppercase tracking-widest text-white">Interactive Live Preview</span>
+                              </div>
+                              {project.images.length > 1 && (
+                                <span className="text-[0.6rem] font-bold text-white/60">
+                                  {currentImageIndex + 1} / {project.images.length}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Columna 2: Información principal - 30% */}
+                      <div className="w-full md:w-[30%] flex flex-col justify-between p-8 lg:p-12 border-r" style={{borderColor: 'rgba(64, 72, 93, 0.1)', backgroundColor: 'rgba(25, 37, 64, 0.2)'}}>
+                        <div className="space-y-6">
+                          <div className="space-y-2">
+                            <h2 className="text-3xl lg:text-5xl font-black text-white leading-tight tracking-tighter" style={{fontFamily: 'Manrope'}}>
+                              {project.title}
+                            </h2>
+                            <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                              <span className="material-symbols-outlined text-sm">{
+                                project.emoji === '🛒' ? 'shopping_cart' :
+                                project.emoji === '🏢' ? 'business' :
+                                project.emoji === '💼' ? 'work' :
+                                project.emoji === '🎨' ? 'palette' :
+                                'psychology'
+                              }</span>
+                              <span>{project.subtitle}</span>
+                            </div>
+                          </div>
+                          <div className="space-y-4">
+                            <p className="text-gray-300 leading-relaxed text-sm lg:text-base border-l-2 border-primary/20 pl-4" style={{fontFamily: 'Inter'}}>
+                              {project.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-3 mt-8">
+                          <button className="w-full border text-white py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-slate-800/50 transition-all" style={{borderColor: 'rgba(64, 72, 93, 0.3)'}}>
+                            <span className="material-symbols-outlined">code</span>
+                            VIEW SOURCE
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Columna 3: Panel de detalles - 25% */}
+                      <div className="w-full md:w-[25%] p-8 lg:p-12 flex flex-col justify-start space-y-12" style={{backgroundColor: 'rgba(9, 19, 40, 0.3)'}}>
+
+                        {/* Stack Tecnológico */}
+                        <section>
+                          <div className="flex items-center gap-3 mb-6">
+                            <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-gray-400">Stack Tecnológico</span>
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            {project.technologies.map((tech, index) => (
+                              <div key={index} className="px-3 py-2 rounded-lg border text-[0.7rem] font-bold text-primary flex items-center gap-2" style={{backgroundColor: 'rgba(20, 31, 56, 1)', borderColor: 'rgba(64, 72, 93, 0.1)'}}>
+                                <span className="w-1 h-1 rounded-full bg-primary/40"></span> {tech}
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+
+                        {/* Características principales */}
+                        <section>
+                          <div className="flex items-center gap-3 mb-6">
+                            <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-gray-400">Core Features</span>
+                          </div>
+                          <ul className="space-y-4">
+                            {project.features.slice(0, 4).map((feature, index) => {
+                              const icons = ['bolt', 'responsive_layout', 'animation', 'language'];
+                              return (
+                                <li key={index} className="flex items-start gap-3 group">
+                                  <span className="material-symbols-outlined text-primary text-lg mt-0.5 group-hover:scale-110 transition-transform">{icons[index] || 'star'}</span>
+                                  <div className="space-y-0.5">
+                                    <span className="block text-xs font-bold text-white">{feature}</span>
+                                    <span className="block text-[0.65rem] text-gray-400">Optimizado y funcional</span>
+                                  </div>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </section>
+
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de imagen ampliada */}
+      {isImageEnlarged && (
+        <div
+          className="fixed inset-0 bg-black/95 flex items-center justify-center z-[60]"
+          onClick={closeEnlargedImage}
+        >
+          <div className="relative max-w-[95vw] max-h-[95vh] flex items-center justify-center">
+            <img
+              src={enlargedImageSrc}
+              alt="Imagen ampliada"
+              className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={closeEnlargedImage}
+              className="absolute top-4 right-4 w-12 h-12 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group"
+            >
+              <span className="material-symbols-outlined text-xl group-hover:rotate-90 transition-transform">close</span>
+            </button>
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-black/60 backdrop-blur-lg border border-white/10 rounded-lg">
+              <span className="text-white text-sm font-medium">Click para cerrar</span>
+            </div>
+          </div>
         </div>
       )}
     </div>
