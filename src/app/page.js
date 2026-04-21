@@ -20,6 +20,8 @@ const PortfolioPage = () => {
     budget: "",
     timeline: "",
   });
+  const basePath = process.env.NODE_ENV === "production" ? "/my_profile" : "";
+  const asset = (path) => `${basePath}${path}`;
 
   const getAboutContent = () => getAboutContentClean();
 
@@ -131,7 +133,7 @@ const PortfolioPage = () => {
           <div class="flex items-center gap-3 sm:gap-4 self-start md:self-auto">
             <img
               class="h-14 w-14 sm:h-16 sm:w-16 rounded-full border border-primary/20 p-1 object-cover grayscale transition-all duration-500 hover:grayscale-0"
-              src="/imagen-portfolio.jpeg"
+              src="${asset("/imagen-portfolio.jpeg")}"
               alt="Nahuel Pages"
             />
             <div class="flex flex-col justify-center">
@@ -183,7 +185,7 @@ const PortfolioPage = () => {
         <div class="overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900">
           <img
             class="h-full w-full object-cover"
-            src="/imagen-portfolio.jpeg"
+            src="${asset("/imagen-portfolio.jpeg")}"
             alt="Nahuel Pages"
           />
         </div>
@@ -291,11 +293,11 @@ const PortfolioPage = () => {
         textColor: "text-blue-200",
         accentColor: "text-blue-400",
         images: [
-          "/imagenesProyectos/pagina-comercio-segunda-mano/image1.png",
-          "/imagenesProyectos/pagina-comercio-segunda-mano/image2.png",
-          "/imagenesProyectos/pagina-comercio-segunda-mano/image3.png",
-          "/imagenesProyectos/pagina-comercio-segunda-mano/image4.png",
-          "/imagenesProyectos/pagina-comercio-segunda-mano/image5.png",
+          asset("/imagenesProyectos/pagina-comercio-segunda-mano/image1.png"),
+          asset("/imagenesProyectos/pagina-comercio-segunda-mano/image2.png"),
+          asset("/imagenesProyectos/pagina-comercio-segunda-mano/image3.png"),
+          asset("/imagenesProyectos/pagina-comercio-segunda-mano/image4.png"),
+          asset("/imagenesProyectos/pagina-comercio-segunda-mano/image5.png"),
         ],
         description:
           "E-commerce completo para productos de segunda mano con gestion de inventario, sistema de usuarios, carrito de compras y panel administrativo avanzado.",
@@ -320,12 +322,12 @@ const PortfolioPage = () => {
         textColor: "text-cyan-200",
         accentColor: "text-cyan-400",
         images: [
-          "/imagenesProyectos/coopnet/image1.png",
-          "/imagenesProyectos/coopnet/image2.png",
-          "/imagenesProyectos/coopnet/image3.png",
-          "/imagenesProyectos/coopnet/image4.png",
-          "/imagenesProyectos/coopnet/image5.png",
-          "/imagenesProyectos/coopnet/image6.png",
+          asset("/imagenesProyectos/coopnet/image1.png"),
+          asset("/imagenesProyectos/coopnet/image2.png"),
+          asset("/imagenesProyectos/coopnet/image3.png"),
+          asset("/imagenesProyectos/coopnet/image4.png"),
+          asset("/imagenesProyectos/coopnet/image5.png"),
+          asset("/imagenesProyectos/coopnet/image6.png"),
         ],
         description:
           "Plataforma integral para gestion de cooperativas con modulos de administracion, reportes financieros, gestion de socios y herramientas de analisis avanzado.",
@@ -350,12 +352,12 @@ const PortfolioPage = () => {
         textColor: "text-orange-200",
         accentColor: "text-orange-400",
         images: [
-          "/imagenesProyectos/portfolio-jeremias/image1.png",
-          "/imagenesProyectos/portfolio-jeremias/image2.png",
-          "/imagenesProyectos/portfolio-jeremias/image3.png",
-          "/imagenesProyectos/portfolio-jeremias/image4.png",
-          "/imagenesProyectos/portfolio-jeremias/image5.png",
-          "/imagenesProyectos/portfolio-jeremias/image6.png",
+          asset("/imagenesProyectos/portfolio-jeremias/image1.png"),
+          asset("/imagenesProyectos/portfolio-jeremias/image2.png"),
+          asset("/imagenesProyectos/portfolio-jeremias/image3.png"),
+          asset("/imagenesProyectos/portfolio-jeremias/image4.png"),
+          asset("/imagenesProyectos/portfolio-jeremias/image5.png"),
+          asset("/imagenesProyectos/portfolio-jeremias/image6.png"),
         ],
         description:
           "Portfolio personal con diseno moderno, animaciones fluidas y secciones interactivas, optimizado para mostrar proyectos y habilidades profesionales.",
@@ -380,11 +382,11 @@ const PortfolioPage = () => {
         textColor: "text-pink-200",
         accentColor: "text-pink-400",
         images: [
-          "/imagenesProyectos/portfolio-lucas-rosa/image1.png",
-          "/imagenesProyectos/portfolio-lucas-rosa/image2.png",
-          "/imagenesProyectos/portfolio-lucas-rosa/image3.png",
-          "/imagenesProyectos/portfolio-lucas-rosa/image4.png",
-          "/imagenesProyectos/portfolio-lucas-rosa/image5.png",
+          asset("/imagenesProyectos/portfolio-lucas-rosa/image1.png"),
+          asset("/imagenesProyectos/portfolio-lucas-rosa/image2.png"),
+          asset("/imagenesProyectos/portfolio-lucas-rosa/image3.png"),
+          asset("/imagenesProyectos/portfolio-lucas-rosa/image4.png"),
+          asset("/imagenesProyectos/portfolio-lucas-rosa/image5.png"),
         ],
         description:
           "Portfolio para artista visual con galeria interactiva, efectos unicos y un diseno minimalista que resalta el trabajo creativo.",
@@ -409,11 +411,11 @@ const PortfolioPage = () => {
         textColor: "text-teal-200",
         accentColor: "text-teal-400",
         images: [
-          "/imagenesProyectos/ruta-positiva/image1.png",
-          "/imagenesProyectos/ruta-positiva/image2.png",
-          "/imagenesProyectos/ruta-positiva/image3.png",
-          "/imagenesProyectos/ruta-positiva/image4.png",
-          "/imagenesProyectos/ruta-positiva/image5.png",
+          asset("/imagenesProyectos/ruta-positiva/image1.png"),
+          asset("/imagenesProyectos/ruta-positiva/image2.png"),
+          asset("/imagenesProyectos/ruta-positiva/image3.png"),
+          asset("/imagenesProyectos/ruta-positiva/image4.png"),
+          asset("/imagenesProyectos/ruta-positiva/image5.png"),
         ],
         description:
           "Plataforma web para bienestar mental y coaching con sistema de citas, recursos educativos y comunidad de apoyo integral.",
@@ -505,7 +507,7 @@ Enviado desde el portfolio web
 
   const downloadCV = () => {
     const link = document.createElement("a");
-    link.href = "CV Nahuel_Pages.pdf";
+    link.href = asset("/CV Nahuel_Pages.pdf");
     link.download = "CV Nahuel_Pages.pdf";
     document.body.appendChild(link);
     link.click();
