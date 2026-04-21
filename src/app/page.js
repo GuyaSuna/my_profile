@@ -331,7 +331,7 @@ const PortfolioPage = () => {
         ],
         description:
           "Plataforma integral para gestion de cooperativas con modulos de administracion, reportes financieros, gestion de socios y herramientas de analisis avanzado.",
-        technologies: ["C#", ".NET", "WPF", "SQL Server"],
+        technologies: ["Next.js", "JavaScript", "MySQL", "Prisma"],
         features: [
           "Dashboard ejecutivo",
           "Gestion de socios y usuarios",
