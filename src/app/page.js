@@ -322,12 +322,12 @@ const PortfolioPage = () => {
         textColor: "text-cyan-200",
         accentColor: "text-cyan-400",
         images: [
-          asset("/imagenesProyectos/coopnet/image1.png"),
-          asset("/imagenesProyectos/coopnet/image2.png"),
-          asset("/imagenesProyectos/coopnet/image3.png"),
-          asset("/imagenesProyectos/coopnet/image4.png"),
-          asset("/imagenesProyectos/coopnet/image5.png"),
-          asset("/imagenesProyectos/coopnet/image6.png"),
+          asset("/imagenesProyectos/coopnet-sistema/image1.png"),
+          asset("/imagenesProyectos/coopnet-sistema/image2.png"),
+          asset("/imagenesProyectos/coopnet-sistema/image3.png"),
+          asset("/imagenesProyectos/coopnet-sistema/image4.png"),
+          asset("/imagenesProyectos/coopnet-sistema/image5.png"),
+          asset("/imagenesProyectos/coopnet-sistema/image6.png"),
         ],
         description:
           "Plataforma integral para gestion de cooperativas con modulos de administracion, reportes financieros, gestion de socios y herramientas de analisis avanzado.",
