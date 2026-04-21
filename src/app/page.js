@@ -371,9 +371,9 @@ Enviado desde el portfolio web
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 sm:py-12">
+    <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 sm:py-12">
       {/* Navigation */}
-      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8 sm:mb-12">
+      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-5 sm:mb-12">
         <div className="flex items-center gap-3">
           <div className="bg-primary p-2 rounded-lg">
             <span className="material-symbols-outlined text-white">code</span>
@@ -408,28 +408,57 @@ Enviado desde el portfolio web
         </nav>
         <button
           onClick={downloadCV}
-          className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-lg shadow-primary/20 self-start sm:self-auto sm:px-6 sm:py-2.5 sm:text-sm"
+          className="bg-primary hover:bg-primary/90 text-white w-full px-4 py-2.5 rounded-full text-xs font-semibold transition-all shadow-lg shadow-primary/20 self-start sm:self-auto sm:w-auto sm:px-6 sm:py-2.5 sm:text-sm"
         >
           Descargar CV
         </button>
       </header>
 
+      <nav className="md:hidden mb-6">
+        <div className="grid grid-cols-2 gap-2 rounded-2xl border border-slate-300 bg-slate-200/50 p-2 dark:border-slate-700 dark:bg-slate-800/50">
+          <button
+            onClick={() => openModal("projects")}
+            className="rounded-xl px-4 py-3 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-300/70 dark:text-slate-200 dark:hover:bg-slate-700/70"
+          >
+            Proyectos
+          </button>
+          <button
+            onClick={() => openModal("about")}
+            className="rounded-xl px-4 py-3 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-300/70 dark:text-slate-200 dark:hover:bg-slate-700/70"
+          >
+            Acerca de
+          </button>
+          <button
+            onClick={() => openModal("skills")}
+            className="rounded-xl px-4 py-3 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-300/70 dark:text-slate-200 dark:hover:bg-slate-700/70"
+          >
+            Habilidades
+          </button>
+          <button
+            onClick={() => openModal("contact")}
+            className="rounded-xl px-4 py-3 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-300/70 dark:text-slate-200 dark:hover:bg-slate-700/70"
+          >
+            Contacto
+          </button>
+        </div>
+      </nav>
+
       {/* Bento Grid Layout */}
-      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 grid-auto-rows-[200px] sm:grid-auto-rows-[160px]">
+      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 grid-auto-rows-[minmax(180px,auto)] sm:grid-auto-rows-[160px]">
         {/* Hero Tile */}
-        <div className="col-span-1 md:col-span-2 row-span-2 bg-white dark:bg-slate-900 rounded-xl p-6 sm:p-10 flex flex-col justify-center border border-slate-200 dark:border-slate-800">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] sm:text-xs font-bold mb-4 sm:mb-6 w-fit">
+        <div className="col-span-1 md:col-span-2 row-span-2 min-h-[320px] sm:min-h-0 bg-white dark:bg-slate-900 rounded-xl p-5 sm:p-10 flex flex-col justify-center border border-slate-200 dark:border-slate-800">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold mb-4 sm:mb-6 w-fit">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             DISPONIBLE PARA PROYECTOS
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black leading-tight mb-4 sm:mb-6">
             Soy <span className="text-primary">Nahuel Pages</span>, Full Stack
             Developer.
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-md">
+          <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-lg leading-relaxed max-w-md">
             Especializado en desarrollo Full Stack con React, Next.js y
             tecnologías modernas. Transformo ideas en soluciones digitales
             escalables y funcionales.
@@ -439,7 +468,7 @@ Enviado desde el portfolio web
         {/* About Tile */}
         <div
           onClick={() => openModal("about")}
-          className="col-span-1 row-span-1 bg-white dark:bg-slate-900 rounded-xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary/20 transition-all"
+          className="col-span-1 row-span-1 min-h-[180px] sm:min-h-0 bg-white dark:bg-slate-900 rounded-xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary/20 transition-all"
         >
           <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-4 shadow-lg">
             <span className="material-symbols-outlined text-white text-2xl">
@@ -453,9 +482,9 @@ Enviado desde el portfolio web
         </div>
 
         {/* Experience Tile */}
-        <div className="col-span-1 row-span-1 bg-primary text-white rounded-xl p-8 flex flex-col justify-between overflow-hidden relative group">
+        <div className="col-span-1 row-span-1 min-h-[180px] sm:min-h-0 bg-primary text-white rounded-xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
           <div className="absolute -right-4 -top-4 opacity-10">
-            <span className="material-symbols-outlined text-8xl">work</span>
+            <span className="material-symbols-outlined text-7xl sm:text-8xl">work</span>
           </div>
           <div className="flex items-center gap-3 mb-4">
             <span className="material-symbols-outlined text-3xl">bolt</span>
@@ -471,7 +500,7 @@ Enviado desde el portfolio web
         {/* GitHub Project */}
         <div
           onClick={openGitHub}
-          className="col-span-1 md:col-span-2 row-span-3 sm:row-span-2 min-h-[300px] sm:min-h-0 bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-800 relative cursor-pointer"
+          className="col-span-1 md:col-span-2 row-span-2 sm:row-span-2 min-h-[260px] sm:min-h-0 bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-800 relative cursor-pointer"
         >
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/30 to-blue-900/30 animate-gradient-shift">
@@ -507,7 +536,7 @@ Enviado desde el portfolio web
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-                <span className="material-symbols-outlined text-8xl text-white/20 relative z-10">
+                <span className="material-symbols-outlined text-6xl sm:text-8xl text-white/20 relative z-10">
                   code
                 </span>
               </div>
@@ -515,11 +544,11 @@ Enviado desde el portfolio web
           </div>
 
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-            <h3 className="text-white text-2xl font-bold">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 sm:p-8">
+            <h3 className="text-white text-xl sm:text-2xl font-bold">
               Mis Proyectos en GitHub
             </h3>
-            <p className="text-slate-300 mb-4">
+            <p className="text-slate-300 text-sm sm:text-base mb-4">
               Explora mi código y proyectos de desarrollo web.
             </p>
             <button className="bg-white text-black px-4 py-2 rounded-lg text-sm font-bold w-fit">
@@ -531,7 +560,7 @@ Enviado desde el portfolio web
         {/* Skills Tile */}
         <div
           onClick={() => openModal("skills")}
-          className="col-span-1 md:col-span-1 row-span-1 bg-white dark:bg-slate-900 rounded-xl p-8 border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-primary/20 transition-all"
+          className="col-span-1 md:col-span-1 row-span-1 min-h-[180px] sm:min-h-0 bg-white dark:bg-slate-900 rounded-xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-primary/20 transition-all"
         >
           <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary">
@@ -559,7 +588,7 @@ Enviado desde el portfolio web
         </div>
 
         {/* Social/Contact Tile */}
-        <div className="col-span-1 md:col-span-1 row-span-1 bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col justify-center gap-3 overflow-hidden">
+        <div className="col-span-1 md:col-span-1 row-span-1 min-h-[180px] sm:min-h-0 bg-white dark:bg-slate-900 rounded-xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 flex flex-col justify-center gap-2 sm:gap-3 overflow-hidden">
           <button
             onClick={openLinkedIn}
             className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer min-w-0"
@@ -590,11 +619,11 @@ Enviado desde el portfolio web
         </div>
 
         {/* Video Tile */}
-        <div className="col-span-1 md:col-span-2 row-span-1 bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-800 relative">
+        <div className="col-span-1 md:col-span-2 row-span-1 min-h-[220px] sm:min-h-0 bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden group border border-slate-200 dark:border-slate-800 relative">
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/psdxi9ljI9g"
+            src="https://www.youtube.com/embed/FQHFWNHU4Do"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -605,7 +634,7 @@ Enviado desde el portfolio web
         {/* Portfolio & Demos Tile */}
         <div
           onClick={() => openModal("showcase")}
-          className="col-span-1 row-span-1 bg-white dark:bg-slate-900 rounded-xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col justify-between cursor-pointer hover:border-primary/20 transition-all"
+          className="col-span-1 row-span-1 min-h-[180px] sm:min-h-0 bg-white dark:bg-slate-900 rounded-xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 flex flex-col justify-between cursor-pointer hover:border-primary/20 transition-all"
         >
           <span className="material-symbols-outlined text-slate-400">
             view_in_ar
@@ -621,7 +650,7 @@ Enviado desde el portfolio web
         {/* CTA Tile */}
         <div
           onClick={() => openModal("contact")}
-          className="col-span-1 md:col-span-1 row-span-1 bg-slate-900 dark:bg-primary rounded-xl p-8 text-white flex flex-col justify-center items-center text-center group cursor-pointer border border-transparent hover:scale-105 transition-transform"
+          className="col-span-1 md:col-span-1 row-span-1 min-h-[180px] sm:min-h-0 bg-slate-900 dark:bg-primary rounded-xl p-6 sm:p-8 text-white flex flex-col justify-center items-center text-center group cursor-pointer border border-transparent hover:scale-105 transition-transform"
         >
           <span className="material-symbols-outlined text-4xl mb-2 group-hover:scale-110 transition-transform">
             send
@@ -634,11 +663,11 @@ Enviado desde el portfolio web
       </main>
 
       {/* Footer */}
-      <footer className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="mt-12 sm:mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
         <p className="text-sm text-slate-500">
           © 2024 Nahuel Pages. Todos los derechos reservados.
         </p>
-        <div className="flex gap-6 text-sm font-medium text-slate-500">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm font-medium text-slate-500">
           <button
             onClick={() => openModal("privacy")}
             className="hover:text-primary transition-colors cursor-pointer"
@@ -995,9 +1024,9 @@ Enviado desde el portfolio web
           </div>
 
           {/* Contenedor principal con glass morphism */}
-          <div className="relative w-full h-full flex items-center justify-center px-4">
+          <div className="relative w-full h-full flex items-center justify-center px-3 py-3 sm:px-4 sm:py-4 lg:px-6">
             <div
-              className="relative w-full md:w-[96vw] lg:w-[94vw] h-[90vh] lg:h-[85vh] rounded-3xl border shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in duration-500"
+              className="relative w-full max-w-[96rem] h-[calc(100vh-1.5rem)] sm:h-[calc(100vh-2rem)] lg:h-[85vh] rounded-2xl lg:rounded-3xl border shadow-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in duration-500"
               style={{
                 background: 'rgba(9, 19, 40, 0.95)',
                 backdropFilter: 'blur(32px)',
@@ -1006,23 +1035,23 @@ Enviado desde el portfolio web
               }}
             >
               {/* Header cinematográfico */}
-              <div className="flex items-center justify-between px-10 py-6 border-b" style={{borderColor: 'rgba(64, 72, 93, 0.1)'}}>
-                <div className="flex items-center gap-6">
-                  <span className="text-[0.65rem] font-bold uppercase tracking-[0.3em] text-primary">Project Showcase</span>
-                  <div className="h-px w-12 bg-gray-600/30"></div>
-                  <div className="flex gap-4">
+              <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-10 lg:py-6 border-b" style={{borderColor: 'rgba(64, 72, 93, 0.1)'}}>
+                <div className="flex flex-1 flex-wrap items-center gap-3 sm:gap-4 lg:gap-6 min-w-0">
+                  <span className="text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-[0.22em] sm:tracking-[0.3em] text-primary">Project Showcase</span>
+                  <div className="hidden sm:block h-px w-12 bg-gray-600/30"></div>
+                  <div className="flex items-center gap-2 sm:gap-4">
                     <button
                       onClick={prevProject}
-                      className="text-gray-400 hover:text-primary transition-colors flex items-center gap-1"
+                      className="h-9 w-9 sm:h-auto sm:w-auto text-gray-400 hover:text-primary transition-colors flex items-center justify-center gap-1"
                     >
                       <span className="material-symbols-outlined text-base">arrow_back_ios</span>
                     </button>
-                    <span className="text-xs font-bold text-gray-400 tabular-nums">
+                    <span className="text-[0.7rem] sm:text-xs font-bold text-gray-400 tabular-nums whitespace-nowrap">
                       {String(currentProjectPage + 1).padStart(2, '0')} / 05
                     </span>
                     <button
                       onClick={nextProject}
-                      className="text-gray-400 hover:text-primary transition-colors flex items-center gap-1"
+                      className="h-9 w-9 sm:h-auto sm:w-auto text-gray-400 hover:text-primary transition-colors flex items-center justify-center gap-1"
                     >
                       <span className="material-symbols-outlined text-base">arrow_forward_ios</span>
                     </button>
@@ -1030,21 +1059,21 @@ Enviado desde el portfolio web
                 </div>
                 <button
                   onClick={closeModal}
-                  className="w-10 h-10 rounded-full bg-slate-700/50 flex items-center justify-center hover:bg-red-500/20 hover:text-red-400 transition-all group"
+                  className="w-10 h-10 rounded-full bg-slate-700/50 flex items-center justify-center hover:bg-red-500/20 hover:text-red-400 transition-all group shrink-0"
                 >
                   <span className="material-symbols-outlined transition-transform group-hover:rotate-90">close</span>
                 </button>
             </div>
 
               {/* Layout de 3 columnas cinematográfico */}
-              <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+              <div className="flex-1 overflow-y-auto lg:overflow-hidden">
                 {(() => {
                   const project = getProjectContent(currentProjectPage);
                   return (
-                    <>
+                    <div className="flex min-h-full flex-col lg:h-full lg:flex-row">
                       {/* Columna 1: Galería principal con carousel - 45% */}
-                      <div className="w-full md:w-[45%] h-full relative group/gallery p-6 lg:p-10 border-r" style={{borderColor: 'rgba(64, 72, 93, 0.1)'}}>
-                        <div className="w-full h-full rounded-2xl overflow-hidden relative shadow-2xl">
+                      <div className="w-full lg:w-[45%] relative group/gallery p-4 sm:p-6 lg:p-10 lg:border-r" style={{borderColor: 'rgba(64, 72, 93, 0.1)'}}>
+                        <div className="w-full h-[16rem] sm:h-[22rem] lg:h-full rounded-2xl overflow-hidden relative shadow-2xl">
                           <img
                             alt="Project View"
                             className="w-full h-full object-cover grayscale-[20%] group-hover/gallery:grayscale-0 transition-all duration-1000 cursor-pointer hover:scale-105"
@@ -1058,19 +1087,19 @@ Enviado desde el portfolio web
                             <>
                               <button
                                 onClick={() => prevImage(project)}
-                                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group/btn"
+                                className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group/btn"
                               >
                                 <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">arrow_back_ios</span>
                               </button>
                               <button
                                 onClick={() => nextImage(project)}
-                                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group/btn"
+                                className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 bg-black/60 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all group/btn"
                               >
                                 <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">arrow_forward_ios</span>
                               </button>
 
                               {/* Indicadores de imagen */}
-                              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex gap-2">
+                              <div className="absolute bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 flex gap-2">
                                 {project.images.map((_, index) => (
                                   <button
                                     key={index}
@@ -1084,14 +1113,14 @@ Enviado desde el portfolio web
                             </>
                           )}
 
-                          <div className="absolute bottom-6 left-6 right-6">
-                            <div className="px-4 py-2 bg-black/40 backdrop-blur-lg border border-white/5 rounded-lg inline-flex items-center justify-between w-full">
-                              <div className="flex items-center gap-2">
+                          <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                            <div className="px-3 py-2 sm:px-4 bg-black/40 backdrop-blur-lg border border-white/5 rounded-lg inline-flex items-center justify-between gap-3 w-full">
+                              <div className="flex min-w-0 items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                                <span className="text-[0.6rem] font-bold uppercase tracking-widest text-white">Interactive Live Preview</span>
+                                <span className="text-[0.55rem] sm:text-[0.6rem] font-bold uppercase tracking-[0.18em] sm:tracking-widest text-white truncate">Interactive Live Preview</span>
                               </div>
                               {project.images.length > 1 && (
-                                <span className="text-[0.6rem] font-bold text-white/60">
+                                <span className="text-[0.55rem] sm:text-[0.6rem] font-bold text-white/60 shrink-0">
                                   {currentImageIndex + 1} / {project.images.length}
                                 </span>
                               )}
@@ -1101,13 +1130,13 @@ Enviado desde el portfolio web
                       </div>
 
                       {/* Columna 2: Información principal - 30% */}
-                      <div className="w-full md:w-[30%] flex flex-col justify-between p-8 lg:p-12 border-r" style={{borderColor: 'rgba(64, 72, 93, 0.1)', backgroundColor: 'rgba(25, 37, 64, 0.2)'}}>
-                        <div className="space-y-6">
+                      <div className="w-full lg:w-[30%] flex flex-col justify-between p-5 sm:p-8 lg:p-12 lg:border-r" style={{borderColor: 'rgba(64, 72, 93, 0.1)', backgroundColor: 'rgba(25, 37, 64, 0.2)'}}>
+                        <div className="space-y-5 sm:space-y-6">
                           <div className="space-y-2">
-                            <h2 className="text-3xl lg:text-5xl font-black text-white leading-tight tracking-tighter" style={{fontFamily: 'Manrope'}}>
+                            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-white leading-tight tracking-tighter" style={{fontFamily: 'Manrope'}}>
                               {project.title}
                             </h2>
-                            <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                            <div className="flex items-center gap-2 text-primary font-bold text-xs sm:text-sm">
                               <span className="material-symbols-outlined text-sm">{
                                 project.emoji === '🛒' ? 'shopping_cart' :
                                 project.emoji === '🏢' ? 'business' :
@@ -1125,23 +1154,17 @@ Enviado desde el portfolio web
                           </div>
                         </div>
 
-                        <div className="flex flex-col gap-3 mt-8">
-                          <button className="w-full border text-white py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-slate-800/50 transition-all" style={{borderColor: 'rgba(64, 72, 93, 0.3)'}}>
-                            <span className="material-symbols-outlined">code</span>
-                            VIEW SOURCE
-                          </button>
-                        </div>
                       </div>
 
                       {/* Columna 3: Panel de detalles - 25% */}
-                      <div className="w-full md:w-[25%] p-8 lg:p-12 flex flex-col justify-start space-y-12" style={{backgroundColor: 'rgba(9, 19, 40, 0.3)'}}>
+                      <div className="w-full lg:w-[25%] p-5 sm:p-8 lg:p-12 flex flex-col justify-start space-y-8 sm:space-y-10 lg:space-y-12" style={{backgroundColor: 'rgba(9, 19, 40, 0.3)'}}>
 
                         {/* Stack Tecnológico */}
                         <section>
-                          <div className="flex items-center gap-3 mb-6">
+                          <div className="flex items-center gap-3 mb-4 sm:mb-6">
                             <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-gray-400">Stack Tecnológico</span>
                           </div>
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2">
                             {project.technologies.map((tech, index) => (
                               <div key={index} className="px-3 py-2 rounded-lg border text-[0.7rem] font-bold text-primary flex items-center gap-2" style={{backgroundColor: 'rgba(20, 31, 56, 1)', borderColor: 'rgba(64, 72, 93, 0.1)'}}>
                                 <span className="w-1 h-1 rounded-full bg-primary/40"></span> {tech}
@@ -1152,10 +1175,10 @@ Enviado desde el portfolio web
 
                         {/* Características principales */}
                         <section>
-                          <div className="flex items-center gap-3 mb-6">
+                          <div className="flex items-center gap-3 mb-4 sm:mb-6">
                             <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-gray-400">Core Features</span>
                           </div>
-                          <ul className="space-y-4">
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
                             {project.features.slice(0, 4).map((feature, index) => {
                               const icons = ['bolt', 'responsive_layout', 'animation', 'language'];
                               return (
@@ -1172,7 +1195,7 @@ Enviado desde el portfolio web
                         </section>
 
                       </div>
-                    </>
+                    </div>
                   );
                 })()}
               </div>
